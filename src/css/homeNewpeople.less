@@ -9,6 +9,94 @@
     margin-right: -15px;
 }
 .pic-out-box{
-    max-width: 41%;
+    max-width: 37%;
     flex: 0 0 41%;
+}
+.position-relative{
+    position: relative;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+.bride-groom-photo img{
+    width: 100%;
+    transform: scale(1.1);
+    transition: all ease-in-out .7s;
+    -webkit-transition: all ease-in-out .7s;
+}
+.bride-photo-box {
+    border: 14px solid transparent;
+    overflow: hidden;
+}
+.bride-photo-box::after {
+    content: "";
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: all ease-in-out .7s;
+    -webkit-transition: all ease-in-out .7s;
+}
+.bride-border-box span {
+    position: absolute;
+    height: 54px;
+    width: 54px;
+    z-index: -1;
+    transition: all ease-in-out .9s;
+    -webkit-transition: all ease-in-out .9s;
+}
+
+.bride-border-box span:nth-child(1) {
+    right: 0;
+    top: 0;
+    border-top: 5px solid;
+    border-right: 5px solid;
+    border-color: #ff4061;
+}
+.bride-border-box span:nth-child(2) {
+    right: 0;
+    bottom: 0;
+    border-bottom: 5px solid;
+    border-right: 5px solid;
+    border-color: #ff4061;
+}
+.bride-border-box span:nth-child(3) {
+    left: 0;
+    bottom: 0;
+    border-bottom: 5px solid;
+    border-left: 5px solid;
+    border-color: #ff4061;
+}
+.bride-border-box span:nth-child(4) {
+    left: 0;
+    top: 0;
+    border-top: 5px solid;
+    border-left: 5px solid;
+    border-color: #ff4061;
+}
+.bride-groom-photo:hover .bride-groom-border {
+    width: 60%;
+    height: 60%;
+}
+.bride-groom-photo:hover img{
+    transform: scale(1);
+}
+.bride-groom-photo:hover .bride-photo-box::after, .blog-page-area .card:hover .blog-overlay figcaption {
+    opacity: 1;
+}
+.transion-ease5{
+    transition: all ease-in-out .5s;
+    -webkit-transition: all ease-in-out .5s;
+}
+.bride-groom-content h3{
+    font-size: 30px;
+    margin-top: 30px;
+}
+.bride-groom-content p {
+    margin: 14px 0 23px;
+    font-size: 14px;
+    color: #777c87;
 }

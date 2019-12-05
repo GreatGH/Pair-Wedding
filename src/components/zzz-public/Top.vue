@@ -62,7 +62,7 @@ export default {
   }
   .topnav-choose {
     position: relative;
-    // overflow: hidden;
+    overflow: hidden;
     padding-left: 120px;
     display: flex;
     justify-content: space-between;
