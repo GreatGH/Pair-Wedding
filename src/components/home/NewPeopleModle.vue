@@ -15,7 +15,7 @@
                 </div>
               </div>
               <div class="bride-groom-content">
-                <a href="#"><h3 class="transion-ease5 color-main">Alice</h3></a>
+                <a href="#"><h3 class="transion-ease5 color-main el-icon-edit">Alice</h3></a>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi odio arcu, aliquet quis sem nec, tristique varius purus. Nulla facilisi. Integer pretium tortor nec purus sollicitudin condimentum.</p>
               </div>
             </div>

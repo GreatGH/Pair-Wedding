@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>rsvp</div>
 </template>
 
 <script>
