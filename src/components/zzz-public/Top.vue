@@ -46,7 +46,6 @@ export default {
 </script>
 
 <style scoped lang="less">
-<<<<<<< HEAD
 .cg-topnav {
   padding: 0 16px;
   line-height: 80px;
@@ -204,5 +203,4 @@ export default {
 }
 =======
 @import '~css/location.less';
->>>>>>> d0d51352b144d15b19b382b6c21cf949db0a76c4
 </style>
