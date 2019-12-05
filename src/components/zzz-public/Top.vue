@@ -170,6 +170,8 @@ export default {
     .topnav-choose {
       display: block;
       position: absolute;
+      z-index: 5;
+      overflow: hidden;
       top: 80px;
       height: 0;
       background: #383838;
