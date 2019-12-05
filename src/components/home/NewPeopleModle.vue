@@ -47,7 +47,14 @@
 </template>
 
 <script>
+import '../../Common/fontSize.js'
+import BridePhoto1 from '../../images/home/bride-photo.jpg'
 export default {
+  data () {
+    return {
+      BridePhoto1
+    }
+  }
 }
 </script>
 
