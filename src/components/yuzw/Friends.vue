@@ -1,6 +1,6 @@
 <template>
   <div class="frimode">
-    <!-- 1 -->
+    <!-- 111 -->
     <div class="coteng">
       <div class="single-friend">
         <div class="friend-box">
