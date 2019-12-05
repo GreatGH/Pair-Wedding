@@ -1,12 +1,83 @@
 <template>
-  <div></div>
+  <div class="public-bottom">
+    <div class="bottom-outer">
+      <div class="top-content">
+        <div class="enter-email">
+          <div class="top">
+            <img src="~img/z-public/logo.png" alt="">
+          </div>
+          <div class="intro">Pellentesque convallis, diam et feugiat volutpat, tellus ligula consequat augue, quis malesuada nisi ante nec metus. Sed id pretium nunc. Mauris vitae porttitor tortor. Fusce aliquet ac metus eget egestas. </div>
+          <div class="enter">
+            <input type="text" placeholder="Enter your email">
+            <button>
+              <i class="fa fa-paper-plane-o"></i>
+            </button>
+          </div>
+        </div>
+        <div class="quick-linnks underline">
+          <div class="top">QUICK LINKS</div>
+          <div class="choose">
+            <div v-for="item in quicklinks" :key="item.linnks">
+              <router-link to="item.route">item.links</router-link>
+            </div>
+          </div>
+        </div>
+        <div class="recent-post underline">
+          <div class="top">RECENT POST</div>
+          <div class="choose">
+            <div v-for="item in quicklinks" :key="item.linnks">
+              <router-link to="item.route">item.links</router-link>
+            </div>
+          </div>
+        </div>
+        <div class="our-gallery underline"></div>
+      </div>
+      <div class="bottom-icon"></div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      quicklinks: [{
+        links: 'About',
+        route: ''
+      }, {
+        links: 'Bride&Groom',
+        route: '/brideGroom'
+      }, {
+        links: 'Location',
+        route: '/location'
+      }, {
+        links: 'RSVP',
+        route: '/rsvp'
+      }, {
+        links: 'OUR STORY',
+        route: '/story'
+      }, {
+        links: 'Events',
+        route: ''
+      }],
+      recentpost: [{
+        img: '',
+        intro: 'Pellentesque convallis, diam et feugiat volutpat, tellus',
+        time: 'Sep 09, 2019'
+      }, {
+        img: '',
+        intro: 'Praesent vehicula odio ut erat posuere, nec malesuada dolor',
+        time: 'Sep 06, 2019'
+      }, {
+        img: '',
+        intro: 'Nulla rhoncus condimentum ante, molestie mattis lorem',
+        time: 'Sep 02, 2019'
+      }]
+    }
+  }
 }
 </script>
 
-<style>
-
+<style lang="less">
+@import '~css/public-top-bottom.less';
 </style>

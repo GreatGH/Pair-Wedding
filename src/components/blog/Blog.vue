@@ -1,10 +1,15 @@
 <template>
-  <div></div>
+  <div>
+    <Childblog></Childblog>
+  </div>
 </template>
 
 <script>
+import Childblog from './ChildBlog'
 export default {
-
+  components: {
+    Childblog
+  }
 }
 </script>
 
