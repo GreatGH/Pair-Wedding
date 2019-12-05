@@ -7,11 +7,16 @@
         </router-link>
       </div>
       <div class="topnav-choose" :class="{show: !isDisplay}">
-        <div v-for="item in $store.state.mainRouters" :key="item.route" @click="isClicked">
+        <div v-for="(item, index) in $store.state.mainRouters" :key="item.route" @click="isClicked" @mouseleave="currentIndex = -1" @mouseenter="currentIndex = index" :class="{show: currentIndex === index}">
           <router-link :to="item.route" active-class="active">
             {{item.nowPage}}
             <i class="fa fa-angle-down"></i>
           </router-link>
+          <div class="child-routers">
+            <div v-for="citem in item.children" :key="citem.route">
+              <router-link :to="citem.route">{{citem.nowPage}}</router-link>
+            </div>
+          </div>
         </div>
       </div>
       <div class="display">
@@ -20,7 +25,7 @@
           <div></div>
           <div></div>
         </div>
-        <div class="display-icon" :class="{show: !isDisplay}" @click="isDisplay = !isDisplay">X</div>
+        <div class="display-icon" :class="{ show: !isDisplay }" @click="isDisplay = !isDisplay">X</div>
       </div>
     </div>
   </div>
@@ -31,7 +36,8 @@ export default {
   name: 'top',
   data () {
     return {
-      isDisplay: true
+      isDisplay: true,
+      currentIndex: -1
     }
   },
   methods: {
@@ -44,8 +50,8 @@ export default {
 
 <style scoped lang="less">
 .cg-topnav {
-  padding: 8px 16px;
-  line-height: 64px;
+  padding: 0 16px;
+  line-height: 80px;
   height: 80px;
   font-size: 15px;
   font-family: "Noto Color Emoji";
@@ -56,14 +62,54 @@ export default {
   }
   .topnav-choose {
     position: relative;
-    overflow: hidden;
+    // overflow: hidden;
     padding-left: 120px;
     display: flex;
     justify-content: space-between;
     transition: all 0.5s ease-out;
     >div {
-      overflow: hidden;
+      // overflow: hidden;
+      position: relative;
+      .child-routers {
+        display: none;
+        position: absolute;
+      }
+      &.show {
+        >a::after {
+          width: 60%;
+          left: 20%;
+        }
+        i {
+          transform: rotateX(180deg);
+        }
+        .child-routers {
+          display: block;
+          background: #101127;
+          width: 220px;
+          top: 80px;
+          div {
+            box-shadow: 0 1px 0px 0px black;
+            transition: background 0.4s ease-out;
+            &:hover {
+              background: #ff4061;
+            }
+            a {
+              display: inline-block;
+              width: 100%;
+              padding-left: 15px;
+              color: white;
+              &.active {
+                color: #ff4061;
+              }
+            }
+          }
+        }
+      }
       >a {
+        color: #101127;
+        padding: 10px 15px;
+        position: relative;
+        transition: all 0.5s ease-out;
         &.active {
           color: #ff4061;
           &::after {
@@ -78,19 +124,6 @@ export default {
         i {
           transition: all .3s ease-out;
           font-size: 18px;
-        }
-        color: #101127;
-        padding: 10px 15px;
-        position: relative;
-        transition: all 0.5s ease-out;
-        &:hover {
-          i {
-            transform: rotateX(180deg);
-          }
-          &::after {
-            width: 60%;
-            left: 20%;
-          }
         }
         &::after {
           transition: all 0.4s;
