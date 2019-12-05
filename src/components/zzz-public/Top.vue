@@ -8,8 +8,9 @@
       </div>
       <div class="outer">
         <div class="topnav-choose" :class="{show: !isDisplay}">
+
           <div v-for="(item, index) in $store.state.mainRouters" :key="item.route" @mouseleave="currentIndex = -1" @mouseenter="currentIndex = index" :class="{show: currentIndex === index}">
-            <router-link :to="item.route" active-class="active">
+          <div v-for="(item, index) in $store.state.mainRouters" :key="item.route" @click="isClicked" @mouseleave="currentIndex = -1" @mouseenter="currentIndex = index" :class="{show: currentIndex === index}">            <router-link :to="item.route" active-class="active">
               {{item.nowPage}}
               <i class="fa fa-angle-down" v-if="item.children"></i>
             </router-link>
