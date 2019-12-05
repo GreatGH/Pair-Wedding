@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex-center cg-topnav">
+    <div class="cg-topnav">
       <div class="logo">
         <router-link to="/">
           <img src="~img/z-public/logo.png" alt="">

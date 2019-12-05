@@ -49,10 +49,14 @@
 <script>
 import '../../Common/fontSize.js'
 import BridePhoto1 from '../../images/home/bride-photo.jpg'
+import BrideLove from '../../images/home/bride-groom-divider-love.png'
+import BridePhoto2 from '../../images/home/groom-photo.jpg'
 export default {
   data () {
     return {
-      BridePhoto1
+      BridePhoto1,
+      BridePhoto2,
+      BrideLove
     }
   }
 }
