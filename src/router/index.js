@@ -3,19 +3,19 @@ import Router from 'vue-router'
 
 const Final = () => import('comp/zzz-public/Final')
 const Home = () => import('comp/home/Home')
-const Blog = () => import('comp/blog/Blog')
+// const Blog = () => import('comp/blog/Blog')
 const SingleBlog = () => import('comp/blog/SingleBlog')
 const ChildBlog = () => import('comp/blog/ChildBlog')
 const BrideGroom = () => import('comp/gallery/BrideGroom')
-const Gallery = () => import('comp/gallery/Gallery')
+// const Gallery = () => import('comp/gallery/Gallery')
 const CGPages = () => import('comp/gallery/CGPages')
 const MGPage = () => import('comp/gallery/MGPage')
 const Story = () => import('comp/story/Story')
 const Rsvp = () => import('comp/friends/Rsvp')
-const Friends = () => import('comp/friends/Friends')
+// const Friends = () => import('comp/friends/Friends')
 const FirstFriends = () => import('comp/friends/FirstFriends')
 const SecondFriends = () => import('comp/friends/SecondFriends')
-const Pages = () => import('comp/pages/Pages')
+// const Pages = () => import('comp/pages/Pages')
 const ClassifyPages = () => import('comp/pages/ClassifyPages')
 const ErrorPages = () => import('comp/pages/ErrorPages')
 const SinglePages = () => import('comp/pages/SinglePages')
@@ -29,14 +29,14 @@ const finalChildren = [
     component: BrideGroom
   }, {
     path: '/blog',
-    component: Blog,
+    redirect: '/blog/blog',
     children: [{
       path: '/blog/singleBlog',
       component: SingleBlog
-    }, {
-      path: '/blog/blog',
-      component: ChildBlog
     }]
+  }, {
+    path: '/blog/blog',
+    component: ChildBlog
   }, {
     path: '/story',
     component: Story
@@ -45,11 +45,8 @@ const finalChildren = [
     component: Rsvp
   }, {
     path: '/pages',
-    component: Pages,
+    redirect: '/pages/classicGalleryPage',
     children: [{
-      path: '/pages/classicGalleryPage',
-      component: ClassifyPages
-    }, {
       path: '/pages/404Page',
       component: ErrorPages
     }, {
@@ -57,28 +54,31 @@ const finalChildren = [
       component: SinglePages
     }]
   }, {
+    path: '/pages/classicGalleryPage',
+    component: ClassifyPages
+  }, {
     path: '/home',
     component: Home
   }, {
     path: '/gallery',
-    component: Gallery,
+    redirect: '/gallery/masonaryGalleryPage',
     children: [{
       path: '/gallery/classicGalleryPage',
-      component: CGPages
-    }, {
-      path: '/gallery/masonaryGalleryPage',
       component: MGPage
     }]
   }, {
+    path: '/gallery/masonaryGalleryPage',
+    component: CGPages
+  }, {
     path: '/friends',
-    component: Friends,
+    redirect: '/friends/friendsStyle1',
     children: [{
-      path: '/friends/friendsStyle1',
-      component: FirstFriends
-    }, {
       path: '/friends/friendsStyle2',
       component: SecondFriends
     }]
+  }, {
+    path: '/friends/friendsStyle1',
+    component: FirstFriends
   }, {
     path: '/location',
     component: Location
