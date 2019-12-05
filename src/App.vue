@@ -11,4 +11,8 @@ export default {
 </script>
 
 <style>
+#app {
+  font-family: unset;
+    font-weight: 600;
+}
 </style>

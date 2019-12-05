@@ -8,11 +8,7 @@
       </div>
       <div class="outer">
         <div class="topnav-choose" :class="{show: !isDisplay}">
-<<<<<<< HEAD
           <div v-for="(item, index) in $store.state.mainRouters" :key="item.route" @mouseleave="currentIndex = -1" @mouseenter="currentIndex = index" :class="{show: currentIndex === index}">
-=======
-          <div v-for="(item, index) in $store.state.mainRouters" :key="item.route" @click="isClicked" @mouseleave="currentIndex = -1" @mouseenter="currentIndex = index" :class="{show: currentIndex === index}">
->>>>>>> 1b700b2a8053a21ea8d8ba0ebf36ee5c1708e14e
             <router-link :to="item.route" active-class="active">
               {{item.nowPage}}
               <i class="fa fa-angle-down" v-if="item.children"></i>
@@ -50,5 +46,5 @@ export default {
 </script>
 
 <style scoped lang="less">
-@import '~css/location.less';
+@import '~css/public-top-bottom.less';
 </style>
