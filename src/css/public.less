@@ -1,0 +1,191 @@
+// 封装公共样式
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+  font-size: 12px;
+  font-family: 'Playfair Display', serif;
+}
+.margin-auto{
+  margin: 0 auto;
+}
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+/*让此div的内部div从左右开始平分此div  不换行*/
+.flex-betwe{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+/*让此div的内部div从中间开始平分此div  不换行*/
+.flex-center{
+	display: flex;
+	justify-content: center;
+}
+/*让此div的内部div从中间开始按默认比例占满此div  不换行*/
+.flex-around{
+	display: flex;
+	justify-content: space-around;
+}
+/*让此div的内部div从左右开始平分此div  超出则换行*/
+.flex-betwe-w{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	flex-wrap: wrap;
+}
+/*让此div的内部div从中间开始平分此div  超出则换行*/
+.flex-center-w{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+/*让此div的内部div从中间开始按默认比例占满此div  超出则换行*/
+.flex-around-w{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.lr-center{
+	position: relative;
+	left: 50%;
+	transform: translate(-50%,0);
+}
+.lrtb-center{
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+.tb-center{
+	top: 50%;
+	transform: translate(0,-50%);
+}
+/*超过隐藏*/
+.overflow{
+	overflow: hidden;
+}
+.overflow-no{
+	overflow: hidden;
+	white-space: nowrap;
+}
+/*超出一行隐藏显示省略号*/
+.overflow-1{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.text-center{
+    text-align: center;
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+// 清除浮动
+.clearfix:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+// 边距封装
+.generate-columns(8,1);
+.generate-columns(@n, @i: 1, @count: 5 * @i) when (@i =< @n){
+  // 上下左右 例padding-10
+  .padding-@{count} {
+    padding: @i * 5px;
+  }
+  // 左 例padding-l-10
+  .padding-l-@{count} {
+    padding-left: @i * 5px;
+  }
+  // 右
+  .padding-r-@{count} {
+    padding-right: @i * 5px;
+  }
+  // 上
+  .padding-t-@{count} {
+    padding-top: @i * 5px;
+  }
+  // 下
+  .padding-b-@{count} {
+    padding-bottom: @i * 5px;
+  }
+  // 左右
+  .padding-lr-@{count} {
+    padding: 0 @i * 5px;
+  }
+  // 上下
+  .padding-tb-@{count} {
+    padding: @i * 5px 0;
+  }
+  // margin   上下左右
+  .margin-@{count} {
+    margin: @i * 5px;
+  }
+  // 左
+  .margin-l-@{count} {
+    margin-left: @i * 5px;
+  }
+  // 右
+  .margin-r-@{count} {
+    margin-right: @i * 5px;
+  }
+  // 上
+  .margin-t-@{count} {
+    margin-top: @i * 5px;
+  }
+  // 下
+  .margin-b-@{count} {
+    margin-bottom: @i * 5px;
+  }
+  // 左右
+  .margin-lr-@{count} {
+    margin: 0 @i * 5px;
+  }
+  // 上下
+  .margin-tb-@{count} {
+    margin: @i * 5px 0;
+  }
+  .generate-columns(@n, (@i + 1))
+}
+// 字体封装 例font-12
+.font-sizes(12, 6);
+.font-sizes(@font, @n, @size: 2 *@n) when (@n <= @font) {
+  .font-@{size} {
+    font-size: @size * 1px;
+  }
+  .font-sizes(@font, @n+1)
+}
+.font-30{
+  font-size: 30px;
+}
+.font-32{
+  font-size: 32px;
+}
+.font-36{
+  font-size: 36px;
+}
+.color-main{
+  color: #101127
+}
+.color-fff{
+  color: #fff;
+}
+.color-333{
+  color: #333;
+}
