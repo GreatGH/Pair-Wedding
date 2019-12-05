@@ -6,15 +6,17 @@
           <img src="~img/z-public/logo.png" alt="">
         </router-link>
       </div>
-      <div class="topnav-choose" :class="{show: !isDisplay}">
-        <div v-for="(item, index) in $store.state.mainRouters" :key="item.route" @click="isClicked" @mouseleave="currentIndex = -1" @mouseenter="currentIndex = index" :class="{show: currentIndex === index}">
-          <router-link :to="item.route" active-class="active">
-            {{item.nowPage}}
-            <i class="fa fa-angle-down"></i>
-          </router-link>
-          <div class="child-routers">
-            <div v-for="citem in item.children" :key="citem.route">
-              <router-link :to="citem.route">{{citem.nowPage}}</router-link>
+      <div class="outer">
+        <div class="topnav-choose" :class="{show: !isDisplay}">
+          <div v-for="(item, index) in $store.state.mainRouters" :key="item.route" @mouseleave="currentIndex = -1" @mouseenter="currentIndex = index" :class="{show: currentIndex === index}">
+            <router-link :to="item.route" active-class="active">
+              {{item.nowPage}}
+              <i class="fa fa-angle-down" v-if="item.children"></i>
+            </router-link>
+            <div class="child-routers">
+              <div v-for="citem in item.children" :key="citem.route">
+                <router-link :to="citem.route">{{citem.nowPage}}</router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -39,16 +41,12 @@ export default {
       isDisplay: true,
       currentIndex: -1
     }
-  },
-  methods: {
-    isClicked () {
-      console.log(123)
-    }
   }
 }
 </script>
 
 <style scoped lang="less">
+<<<<<<< HEAD
 .cg-topnav {
   padding: 0 16px;
   line-height: 80px;
@@ -204,4 +202,7 @@ export default {
     }
   }
 }
+=======
+@import '~css/location.less';
+>>>>>>> d0d51352b144d15b19b382b6c21cf949db0a76c4
 </style>
