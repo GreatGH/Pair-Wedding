@@ -14,5 +14,4 @@ export default {
 </script>
 
 <style lang="less">
- @import url('../../css/public.less');
 </style>

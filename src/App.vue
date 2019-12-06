@@ -10,9 +10,14 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: unset;
+<style scoped lang="less">
+body {
+  #app {
+    margin-right: -18px;
+    width: calc(100% + 18px);
     font-weight: 600;
+    overflow-y: auto;
+    height: 100%;
+  }
 }
 </style>

@@ -78,5 +78,4 @@ export default {
 </script>
 <style lang="less" scope>
 @import '../../css/blog.less';
-@import '../../css/public.less';
 </style>

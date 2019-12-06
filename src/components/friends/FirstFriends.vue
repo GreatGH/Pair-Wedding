@@ -132,5 +132,4 @@ export default {
 
 <style lang="less">
 @import '../../css/friends.less';
-@import '../../css/public.css';
 </style>

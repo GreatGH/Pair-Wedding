@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex-center cg-topnav">
+    <div class="cg-topnav">
       <div class="logo">
         <router-link to="/">
           <img src="~img/z-public/logo.png" alt="">
@@ -8,9 +8,8 @@
       </div>
       <div class="outer">
         <div class="topnav-choose" :class="{show: !isDisplay}">
-
           <div v-for="(item, index) in $store.state.mainRouters" :key="item.route" @mouseleave="currentIndex = -1" @mouseenter="currentIndex = index" :class="{show: currentIndex === index}">
-          <div v-for="(item, index) in $store.state.mainRouters" :key="item.route" @click="isClicked" @mouseleave="currentIndex = -1" @mouseenter="currentIndex = index" :class="{show: currentIndex === index}">            <router-link :to="item.route" active-class="active">
+            <router-link :to="item.route" active-class="active">
               {{item.nowPage}}
               <i class="fa fa-angle-down" v-if="item.children"></i>
             </router-link>
@@ -47,4 +46,4 @@ export default {
 </script>
 
 <style scoped lang="less">
-}</style>
+</style>
