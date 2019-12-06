@@ -32,7 +32,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json', '.css', '.less'],
+    extensions: ['.js', '.vue', '.json', '.css', '.less', '.jpg', '.png'],
     alias: {
       '@': resolve('src'),
       'css': resolve('src/css'),

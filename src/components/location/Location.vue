@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="relative">
+    <div class="relative gang-coontent">
       <div class="top flex-betwe-w">
         <div v-for="item in relative" :key="item.method" :class="item.class">
           <div class="flex-center">
@@ -32,12 +32,15 @@
           </div>
         </div>
       </div>
+      <div class="map">
+        <mapdemo></mapdemo>
+      </div>
     </div>
-    <div class="map"></div>
   </div>
 </template>
 
 <script>
+import mapdemo from './Map'
 export default {
   data () {
     return {
@@ -61,10 +64,22 @@ export default {
         detail2: 'Chotomirzapur, Khulna.'
       }]
     }
+  },
+  components: {
+    mapdemo
   }
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
+.map {
+  width: 100%;
+}
+img {
+  transition: all 1s ease-out;
+}
+img:hover {
+  transform: scale(1.1)
+}
 @import '~css/location.less';
 </style>
