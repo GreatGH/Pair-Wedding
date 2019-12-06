@@ -12,7 +12,5 @@ function fontResize () {
     deviceWidth = 320
   }
   document.querySelector('body').style.height = screenHeight + 'px'
-  console.log(document.querySelector('body').style.height)
-  console.log(screenHeight)
   document.documentElement.style.fontSize = (deviceWidth / 7.5) + 'px'
 }

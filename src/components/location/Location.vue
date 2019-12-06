@@ -32,12 +32,15 @@
           </div>
         </div>
       </div>
+      <div class="map">
+        <mapdemo></mapdemo>
+      </div>
     </div>
-    <div class="map"></div>
   </div>
 </template>
 
 <script>
+import mapdemo from './Map'
 export default {
   data () {
     return {
@@ -61,11 +64,17 @@ export default {
         detail2: 'Chotomirzapur, Khulna.'
       }]
     }
+  },
+  components: {
+    mapdemo
   }
 }
 </script>
 
 <style lang="less" scoped>
+.map {
+  width: 100%;
+}
 img {
   transition: all 1s ease-out;
 }
