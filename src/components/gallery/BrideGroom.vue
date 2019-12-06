@@ -14,6 +14,7 @@
         </div>
       </div>
     </div>
+    <PublicTab></PublicTab>
   </div>
   <BrideBanner></BrideBanner>
   <PublicTab></PublicTab>
