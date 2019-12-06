@@ -71,11 +71,10 @@ const finalChildren = [
     component: CGPages
   }, {
     path: '/friends',
-    redirect: '/friends/friendsStyle1',
-    children: [{
-      path: '/friends/friendsStyle2',
-      component: SecondFriends
-    }]
+    redirect: '/friends/friendsStyle1'
+  }, {
+    path: '/friends/friendsStyle2',
+    component: SecondFriends
   }, {
     path: '/friends/friendsStyle1',
     component: FirstFriends

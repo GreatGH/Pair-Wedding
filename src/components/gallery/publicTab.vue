@@ -3,7 +3,7 @@
     <div class="publictab-content-title text-center">
       <h2 class="section-hender">Our Gallery</h2>
       <img :src="divider"/>
-      <h3 class="publictab-content-detaile text-center">Aliquam erat volutpat. Curabitur tempor
+      <h3 class="publictab-content-detaile text-center font-16">Aliquam erat volutpat. Curabitur tempor
          nibh quis arcu convallis, sed viverra quam sollicitudin.
          Proin sed augue sed neque ultricies condimentum.</h3>
     </div>
@@ -58,7 +58,7 @@ export default {
 }
 </script>
 
-<style lang='less'>
+<style lang='less' scope>
 @import '../../css/public.less';
 @import '../../css/gallery.less';
 </style>
