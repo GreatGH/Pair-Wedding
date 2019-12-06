@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="relative">
+    <div class="relative gang-coontent">
       <div class="top flex-betwe-w">
         <div v-for="item in relative" :key="item.method" :class="item.class">
           <div class="flex-center">
@@ -65,6 +65,12 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
+img {
+  transition: all 1s ease-out;
+}
+img:hover {
+  transform: scale(1.1)
+}
 @import '~css/location.less';
 </style>
