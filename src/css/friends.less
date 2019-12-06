@@ -9,15 +9,106 @@
 .text-center{
     text-align: center;
 }
+// 顶部
+.banner-area {
+    height: 420px;
+    background-image: url(../images/friends/friends-page-banner-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    .setion-over {
+        background-color: rgba(16,17,39,.7);
+        height: 100%;
+        width: 100%;
+        .container {
+            height: 100%;
+            width: 400px;
+            // background: #324343;
+            position: relative;
+            .title {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                .main-title {
+                    font-size: 46px;
+                    color: white;
+                    font-style: italic;
+                    line-height: 55px;
+                }
+                .home-locations {
+                    font-size: 22px;
+                    .home {
+                    color: #ff4061;
+                    font-size: 22px;
+                    }
+                    .location {
+                        color: white;
+                        font-size: 22px;
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+// 轮播 模块carousel
+.friends-area {
+    background-image: url(../images/friends/friend-says-slide-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    .section-overlay {
+        padding: 80px 0;
+        background-color: rgba(255,64,97, .80);
+        .title {
+            color: #fff;
+            font-size: 48px;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        .container {
+            .carousel {
+                margin: 0 115px;
+                position: relative;
+                text-align: center;
+            }
+            .h2 {
+                color: #fff;
+                font-size: 32px;
+                padding: 23px 0;
+            }
+            .h3 {
+                color: #fff;
+                font-size: 20px;
+            }
+            .friend-says-img {
+                height: 188px;
+                width: 188px;
+                margin-top: 57px;
+                img {
+                    border-radius: 50%;
+                    border: 5px solid #fff;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
 @media screen and (min-width: 1200px ) {
-    .container {
-        max-width: 1140px;
-        background: greenyellow;
+    .container {     
+        max-width: 1200px;
         margin: 0 auto;
+    }
+    .frimode {
+        margin-top: 80px;
     }
     .coteng {
         flex: 0 0 25%;
-        max-width: 25%;
+        max-width: 285px;
         padding: 0 15px;
         .single-friend {
             margin-bottom: 12px;
@@ -56,6 +147,67 @@
                 .icon-fri {
                     width: 25px;
                     height: 25px;
+                    line-height: 25px;
+                    border-radius: 50%;
+                    border: 1px solid #777c87;
+                    display: inline-block;
+                }
+            }
+            
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 992px){
+    .container {     
+        // background: greenyellow;
+        width: 960px;
+        margin: 0 auto;
+        padding-top: 40px;
+    }
+    .coteng {
+        flex: 0 0 25%;
+        max-width: 240px;
+        padding: 0 15px;
+        .single-friend {
+            margin-bottom: 12px;
+            padding-bottom: 34px;
+            .friend-box {
+                overflow: hidden;
+               .friend-photo-box {
+                transform: rotate(44deg);
+                overflow: hidden;
+                .friend-p-wrap {
+                    max-width: 230px;
+                    max-height: 230px;
+                }
+                div img:hover {
+                    transform:rotate(-44deg) scale(0.9);
+                }
+                img {
+                    max-width: 210px;
+                    max-height: 210px;
+                    transition: all 1s;
+                    transform: rotate(-44deg);           
+                }
+                } 
+            }
+            .friend-content {
+                font-size: 16px;
+                .friend-name {
+                    color: #101127;
+                    font-size: 28px;
+                    font-family: 'Playball', cursive;
+                }
+                .friend-identity {
+                    padding: 2px 0 13px;
+                    color: #777c87;
+                }
+                .icon-fri {
+                    width: 25px;
+                    height: 25px;
+                    line-height: 25px;
                     border-radius: 50%;
                     border: 1px solid #777c87;
                     display: inline-block;
@@ -66,9 +218,137 @@
     }
 }
 
-@media screen and (max-width: 992px ) {
+@media only screen and (max-width: 991px) and (min-width: 768px){
+    .container {
+        max-width: 720px;
+        background: gray;
+        margin: 0 auto;
+    }
     .coteng {
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 25%;
+        max-width: 330px;
+        padding: 0 15px;
+        .single-friend {
+            margin-bottom: 12px;
+            padding-bottom: 34px;
+            .friend-box {
+                overflow: hidden;
+               .friend-photo-box {
+                transform: rotate(44deg);
+                // overflow: hidden;
+                .friend-p-wrap {
+                    max-width: 363px;
+                    max-height: 363px;
+                }
+                div img:hover {
+                    transform:rotate(-44deg) scale(0.9);
+                }
+                img {
+                    max-width: 363px;
+                    max-height: 363px;
+                    transition: all 1s;
+                    transform: rotate(-44deg);           
+                }
+                } 
+            }
+            .friend-content {
+                font-size: 16px;
+                .friend-name {
+                    color: #101127;
+                    font-size: 28px;
+                    font-family: 'Playball', cursive;
+                }
+                .friend-identity {
+                    padding: 2px 0 13px;
+                    color: #777c87;
+                }
+                .icon-fri {
+                    width: 25px;
+                    height: 25px;
+                    line-height: 25px;
+                    border-radius: 50%;
+                    border: 1px solid #777c87;
+                    display: inline-block;
+                }
+            }
+            
+        }
+    }
+}
+
+@media screen and (max-width: 767px ) {
+    .container {
+        width: 100%;
+        padding: 50px 15px 0;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .coteng {
+        flex: 0 0 25%;
+        width: 100%;
+        padding: 0 15px;
+    }
+    .coteng {
+        .single-friend {
+            margin-bottom: 12px;
+            padding-bottom: 34px;
+            .friend-box {
+                overflow: hidden;
+               .friend-photo-box {
+                // transform: rotate(44deg);
+                .friend-p-wrap {
+                    // max-width: 363px;
+                    // max-height: 363px;
+                }
+                div img:hover {
+                    transform: scale(0.9);
+                }
+                img {
+                    width: 100%;
+                    height: 100%;           
+                }
+                } 
+            }
+            .friend-content {
+                font-size: 16px;
+                .friend-name {
+                    color: #101127;
+                    font-size: 28px;
+                    font-family: 'Playball', cursive;
+                    margin-top: 30px;
+                }
+                .friend-identity {
+                    padding: 2px 0 13px;
+                    color: #777c87;
+                }
+                .icon-fri {
+                    width: 25px;
+                    height: 25px;
+                    line-height: 25px;
+                    border-radius: 50%;
+                    border: 1px solid #777c87;
+                    display: inline-block;
+                }
+            }
+            
+        }
+    }
+
+}
+
+// RSVP
+.rsvp-come-area {
+    padding: 80px 0 70px;
+}
+.rsvp-form-area {
+    background-image: url(../images/friends/rsvp-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 0 64px 158px;
+    margin: 0 46px;
+    .from {
+        height: 525px;
+        background: #fff;
     }
 }
