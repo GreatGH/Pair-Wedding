@@ -14,3 +14,10 @@ function fontResize () {
   document.querySelector('body').style.height = screenHeight + 'px'
   document.documentElement.style.fontSize = (deviceWidth / 7.5) + 'px'
 }
+
+window.onscroll = function () {
+  console.log(document.querySelector('bofy').scrollTop)
+  if (document.querySelector('bofy').scrollTop >= 100) {
+    document.querySelector('.cg-topnav').classList.add('position')
+  }
+}

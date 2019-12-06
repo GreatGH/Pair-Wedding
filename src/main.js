@@ -19,14 +19,14 @@ Vue.use(VueAMap)
 // ToolBar: 缩放工具栏
 // PlaceSearch: 搜索
 VueAMap.initAMapApiLoader({
-  key: 'mapkey',
+  key: 'map key',
   plugin: [
     'AMap.Autocomplete',
-    'AMap.PlaceSearch',
+    // 'AMap.PlaceSearch',
     'AMap.Scale',
     'AMap.Overflow',
     'AMap.ToolBar',
-    'AMap.MapType',
+    // 'AMap.MapType',
     'AMap.PolyEditor',
     'AMap.CircleEditor',
     'AMap.Geolocation'
