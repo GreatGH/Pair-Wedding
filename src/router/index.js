@@ -31,8 +31,11 @@ const finalChildren = [
     path: '/blog',
     redirect: '/blog/blog'
   }, {
-      path: '/blog/singleBlog',
-      component: SingleBlog
+    path: '/blog/singleBlog',
+    component: SingleBlog
+  }, {
+    path: '/blog/blog',
+    component: ChildBlog
   }, {
     path: '/story',
     component: Story
@@ -44,15 +47,13 @@ const finalChildren = [
     redirect: '/pages/classicGalleryPage'
   }, {
     path: '/pages/classicGalleryPage',
-    component: ClassifyPages,
-
+    component: ClassifyPages
   }, {
-      path: '/pages/404Page',
-      component: ErrorPages
+    path: '/pages/404Page',
+    component: ErrorPages
   }, {
-      path: '/pages/singleBlogPage',
-      component: SinglePages
-  }, {
+    path: '/pages/singleBlogPage',
+    component: SinglePages
   }, {
     path: '/home',
     component: Home
@@ -71,6 +72,9 @@ const finalChildren = [
   }, {
     path: '/friends/friendsStyle1',
     component: FirstFriends
+  }, {
+    path: '/friends/friendsStyle2',
+    component: SecondFriends
   }, {
     path: '/location',
     component: Location
