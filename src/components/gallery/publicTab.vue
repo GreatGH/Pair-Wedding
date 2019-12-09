@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import '../../Common/fontSize'
 import divider from '../../images/gallery/divider.png'
 import TabFirst from './Tabfirst'
 import TabSecond from './TabSecond'
