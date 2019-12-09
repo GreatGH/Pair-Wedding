@@ -14,9 +14,12 @@
         </div>
       </div>
     </div>
-    <PublicTab></PublicTab>
+  </div>
+  <div class="margin-t-40">
+    <NewPeoPleModule></NewPeoPleModule>
   </div>
   <BrideBanner></BrideBanner>
+  <StoryModel></StoryModel>
   <PublicTab></PublicTab>
 </div>
 </template>
@@ -24,10 +27,14 @@
 <script>
 import PublicTab from './publicTab.vue'
 import BrideBanner from './Bridebanner.vue'
+import StoryModel from '../home/storymodel'
+import NewPeoPleModule from '../home/NewPeopleModle'
 export default {
   components: {
     PublicTab,
-    BrideBanner
+    StoryModel,
+    BrideBanner,
+    NewPeoPleModule
   }
 }
 </script>

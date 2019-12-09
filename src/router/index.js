@@ -29,11 +29,10 @@ const finalChildren = [
     component: BrideGroom
   }, {
     path: '/blog',
-    redirect: '/blog/blog',
-    children: [{
-      path: '/blog/singleBlog',
-      component: SingleBlog
-    }]
+    redirect: '/blog/blog'
+  }, {
+    path: '/blog/singleBlog',
+    component: SingleBlog
   }, {
     path: '/blog/blog',
     component: ChildBlog
@@ -45,30 +44,29 @@ const finalChildren = [
     component: Rsvp
   }, {
     path: '/pages',
-    redirect: '/pages/classicGalleryPage',
-    children: [{
-      path: '/pages/404Page',
-      component: ErrorPages
-    }, {
-      path: '/pages/singleBlogPage',
-      component: SinglePages
-    }]
+    redirect: '/pages/classicGalleryPage'
+  }, {
+    path: '/pages/singleBlogPage',
+    component: SinglePages
   }, {
     path: '/pages/classicGalleryPage',
     component: ClassifyPages
+  },
+  {
+    path: '/pages/404Page',
+    component: ErrorPages
   }, {
     path: '/home',
     component: Home
   }, {
     path: '/gallery',
-    redirect: '/gallery/masonaryGalleryPage',
-    children: [{
-      path: '/gallery/classicGalleryPage',
-      component: MGPage
-    }]
+    redirect: '/gallery/masonaryGalleryPage'
+  }, {
+    path: '/gallery/classicGalleryPage',
+    component: CGPages
   }, {
     path: '/gallery/masonaryGalleryPage',
-    component: CGPages
+    component: MGPage
   }, {
     path: '/friends',
     redirect: '/friends/friendsStyle1'
