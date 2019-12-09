@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import '~css/location.less';
 @import '../../css/friends.less';
 </style>

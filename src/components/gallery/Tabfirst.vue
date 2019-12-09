@@ -1,15 +1,16 @@
 <template>
+<div>
   <div class="public-tab-content">
-    <div class="position-reletive clearfix">
+    <div class="position-reletive content clearfix">
       <div class="story-photo-box position-reletive fl">
-        <img class="img" :src="Img1"/>
-         <div class="gallery-tab">
+       <img class="img" :src="Img1"/>
+        <div class="gallery-tab">
            <div class="gallery-tab-content">
                <span class="el-icon-circle-plus-outline"></span>
            </div>
          </div>
       </div>
-       <div class="story-photo-box position-reletive fl margin-lr-30">
+       <div class="story-photo-box position-reletive fl">
          <img class="img" :src="Img2"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -35,7 +36,7 @@
               </div>
           </div>
         </div>
-         <div class="story-photo-box position-reletive fl margin-t-30">
+         <div class="story-photo-box position-reletive fl">
           <img class="img" :src="Img5"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -43,7 +44,7 @@
             </div>
           </div>
         </div>
-        <div class="story-photo-box position-reletive fl margin-t-30 margin-lr-25">
+        <div class="story-photo-box position-reletive fl">
           <img class="img" :src="Img6"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -51,7 +52,7 @@
             </div>
           </div>
         </div>
-        <div class="story-photo-box position-reletive fl margin-t-30 margin-l-10">
+        <div class="story-photo-box position-reletive fl">
           <img class="img" :src="Img7"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -59,7 +60,7 @@
             </div>
           </div>
         </div>
-        <div class="story-photo-box position-reletive public-img margin-l-10">
+        <div class="story-photo-box position-reletive public-img">
           <img class="img" :src="Img8"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -67,7 +68,7 @@
             </div>
           </div>
         </div>
-        <div class="story-photo-box position-reletive margin-t-25 fl margin-l-10">
+        <div class="story-photo-box position-reletive fl">
           <img class="img" :src="Img9"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -77,6 +78,96 @@
         </div>
     </div>
   </div>
+  <!-- 二 -->
+  <div class="public-tab-content-two">
+    <ul class="tab-content-lists clearfix">
+      <li>
+        <div class="position-reletive overflow">
+          <img :src="Img1">
+          <div class="gallery-tab-two">
+          <div class="gallery-tab-content-two">
+            <span class="el-icon-circle-plus-outline"></span>
+          </div>
+        </div>
+        </div>
+        <div class="margin-t-15 position-reletive overflow">
+          <img :src="Img4">
+          <div class="gallery-tab-two">
+            <div class="gallery-tab-content-two">
+              <span class="el-icon-circle-plus-outline"></span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="overflow position-reletive">
+            <img :src="Img2">
+            <div class="gallery-tab-two">
+              <div class="gallery-tab-content-two">
+                <span class="el-icon-circle-plus-outline"></span>
+              </div>
+            </div>
+        </div>
+        <div class="margin-t-15 overflow position-reletive">
+          <img :src="Img3">
+          <div class="gallery-tab-two">
+            <div class="gallery-tab-content-two">
+              <span class="el-icon-circle-plus-outline"></span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="position-reletive overflow margin-t-25">
+          <img :src="Img5">
+          <div class="gallery-tab-two">
+            <div class="gallery-tab-content-two">
+              <span class="el-icon-circle-plus-outline"></span>
+            </div>
+          </div>
+        </div>
+        <div class="margin-t-15 position-reletive overflow">
+          <img :src="Img7">
+          <div class="gallery-tab-two">
+            <div class="gallery-tab-content-two">
+              <span class="el-icon-circle-plus-outline"></span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="margin-t-25 position-reletive overflow">
+          <img :src="Img6">
+          <div class="gallery-tab-two">
+            <div class="gallery-tab-content-two">
+              <span class="el-icon-circle-plus-outline"></span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="margin-t-25 position-reletive overflow">
+          <img :src="Img8">
+          <div class="gallery-tab-two">
+            <div class="gallery-tab-content-two">
+              <span class="el-icon-circle-plus-outline"></span>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="margin-t-25 position-reletive overflow">
+          <img :src="Img9">
+          <div class="gallery-tab-two">
+            <div class="gallery-tab-content-two">
+              <span class="el-icon-circle-plus-outline"></span>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 </template>
 
 <script>
@@ -106,6 +197,6 @@ export default {
 }
 </script>
 
-<style lang='less' scope>
+<style lang='less' scoped>
 // @import '~../css/publicTab.less';
 </style>

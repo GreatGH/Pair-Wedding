@@ -7,18 +7,22 @@
       </keep-alive>
     </div>
     <Bottom></Bottom>
+    <Aside></Aside>
   </div>
 </template>
 
 <script>
 import Top from './Top'
 import Bottom from './Bottom'
+import Aside from './Aside'
 export default {
   components: {
     Top,
-    Bottom
+    Bottom,
+    Aside
   }
 }
+
 </script>
 
 <style>

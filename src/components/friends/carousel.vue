@@ -40,7 +40,7 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .el-carousel__item h3 {
 color: #475669;
 opacity: 0.75;

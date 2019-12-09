@@ -13,6 +13,7 @@ export default {
 <style scoped lang="less">
 body {
   #app {
+    position: relative;
     margin-right: -18px;
     width: calc(100% + 18px);
     font-weight: 600;

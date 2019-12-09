@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import '../../Common/fontSize'
 import divider from '../../images/gallery/divider.png'
 import TabFirst from './Tabfirst'
 import TabSecond from './TabSecond'
@@ -58,7 +59,6 @@ export default {
 }
 </script>
 
-<style lang='less' scope>
-@import '../../css/public.less';
+<style lang='less' scoped>
 @import '../../css/gallery.less';
 </style>
