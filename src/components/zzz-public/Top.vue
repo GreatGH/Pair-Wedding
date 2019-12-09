@@ -46,4 +46,5 @@ export default {
 </script>
 
 <style scoped lang="less">
+@import '~css/public-top-bottom.less';
 </style>

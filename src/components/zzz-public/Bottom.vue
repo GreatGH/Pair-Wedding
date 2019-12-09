@@ -103,10 +103,12 @@ export default {
         img2: 'https://www.17sucai.com/preview/1424582/2019-12-02/wedding/assets/img/footer-img/gallery6.jpg'
       }]
     }
+  },
+  mounted () {
   }
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import '~css/public-top-bottom.less';
 </style>

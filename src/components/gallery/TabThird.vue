@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="public-tab-content">
    <div class="position-reletive clearfix">
       <div class="story-photo-box position-reletive fl">
@@ -35,12 +36,53 @@
         </div>
    </div>
   </div>
+  <div class="public-tab-content-two">
+    <ul class="tab-content-lists clearfix">
+      <li>
+        <div class="overflow position-reletive">
+            <img :src="Img1">
+            <div class="gallery-tab-two">
+              <div class="gallery-tab-content-two">
+                <span class="el-icon-circle-plus-outline"></span>
+              </div>
+            </div>
+        </div>
+        <div class="margin-t-15 overflow position-reletive">
+          <img :src="Img7">
+          <div class="gallery-tab-two">
+            <div class="gallery-tab-content-two">
+              <span class="el-icon-circle-plus-outline"></span>
+            </div>
+          </div>
+        </div>
+      </li>
+       <li>
+        <div class="overflow position-reletive">
+            <img :src="Img3">
+            <div class="gallery-tab-two">
+              <div class="gallery-tab-content-two">
+                <span class="el-icon-circle-plus-outline"></span>
+              </div>
+            </div>
+        </div>
+        <div class="margin-t-15 overflow position-reletive">
+          <img :src="Img9">
+          <div class="gallery-tab-two">
+            <div class="gallery-tab-content-two">
+              <span class="el-icon-circle-plus-outline"></span>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 </template>
 
 <script>
 import Img1 from '../../images/gallery/5.jpg'
 import Img3 from '../../images/gallery/3.jpg'
-import Img7 from '../../images/gallery/1.jpg'
+import Img7 from '../../images/gallery/9.jpg'
 import Img9 from '../../images/gallery/10.jpg'
 export default {
   data () {
