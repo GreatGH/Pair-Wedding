@@ -88,6 +88,6 @@ export default {
 }
 </script>
 
-<style lang="less" scope="scope">
-    @import url('../../css/homeNewpeople.less');
+<style lang="less" scoped>
+  @import '../../css/home.less';
 </style>

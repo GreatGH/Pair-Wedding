@@ -99,6 +99,6 @@ export default {
 }
 </script>
 
-<style lang="less" scope="scope">
-  @import '../../css/homeNewpeople.less';
+<style lang="less" scoped>
+  @import '../../css/home.less';
 </style>
