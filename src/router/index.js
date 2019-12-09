@@ -29,14 +29,14 @@ const finalChildren = [
     component: BrideGroom
   }, {
     path: '/blog',
-    redirect: '/blog/blog',
+    redirect: '/blog/blog'
+  }, {
+    path: '/blog/blog',
+    component: ChildBlog,
     children: [{
       path: '/blog/singleBlog',
       component: SingleBlog
     }]
-  }, {
-    path: '/blog/blog',
-    component: ChildBlog
   }, {
     path: '/story',
     component: Story
@@ -45,7 +45,10 @@ const finalChildren = [
     component: Rsvp
   }, {
     path: '/pages',
-    redirect: '/pages/classicGalleryPage',
+    redirect: '/pages/classicGalleryPage'
+  }, {
+    path: '/pages/classicGalleryPage',
+    component: ClassifyPages,
     children: [{
       path: '/pages/404Page',
       component: ErrorPages
@@ -54,30 +57,28 @@ const finalChildren = [
       component: SinglePages
     }]
   }, {
-    path: '/pages/classicGalleryPage',
-    component: ClassifyPages
-  }, {
     path: '/home',
     component: Home
   }, {
     path: '/gallery',
-    redirect: '/gallery/masonaryGalleryPage',
-    children: [{
-      path: '/gallery/classicGalleryPage',
-      component: MGPage
-    }]
+    redirect: '/gallery/masonaryGalleryPage'
   }, {
     path: '/gallery/masonaryGalleryPage',
-    component: CGPages
+    component: MGPage,
+    children: [{
+      path: '/gallery/classicGalleryPage',
+      component: CGPages
+    }]
   }, {
     path: '/friends',
     redirect: '/friends/friendsStyle1'
   }, {
-    path: '/friends/friendsStyle2',
-    component: SecondFriends
-  }, {
     path: '/friends/friendsStyle1',
-    component: FirstFriends
+    component: FirstFriends,
+    children: [{
+      path: '/friends/friendsStyle2',
+      component: SecondFriends
+    }]
   }, {
     path: '/location',
     component: Location

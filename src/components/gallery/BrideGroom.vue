@@ -32,8 +32,6 @@ export default {
 }
 </script>
 
-<style lang='less' scope>
-@import '../../css/public.less';
+<style lang='less' scoped>
 @import '../../css/gallery.less';
-
 </style>

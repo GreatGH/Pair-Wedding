@@ -3,6 +3,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
+import {axiosRequest} from '@/Common/axios'
 import 'element-ui/lib/theme-chalk/index.css'
 import VueAMap from 'vue-amap'
 
@@ -14,6 +15,8 @@ import 'css/font-awesome/css/font-awesome.min'
 Vue.use(ElementUI)
 Vue.use(ElementUI)
 Vue.use(VueAMap)
+
+Vue.prototype.axiosRequest = axiosRequest
 
 // MapType: 卫星地图切换
 // ToolBar: 缩放工具栏
