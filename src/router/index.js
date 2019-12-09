@@ -45,17 +45,16 @@ const finalChildren = [
     component: Rsvp
   }, {
     path: '/pages',
-    redirect: '/pages/classicGalleryPage',
-    children: [{
-      path: '/pages/404Page',
-      component: ErrorPages
-    }, {
-      path: '/pages/singleBlogPage',
-      component: SinglePages
-    }]
+    redirect: '/pages/classicGalleryPage'
   }, {
     path: '/pages/classicGalleryPage',
     component: ClassifyPages
+  }, {
+    path: '/pages/404Page',
+    component: ErrorPages
+  }, {
+    path: '/pages/singleBlogPage',
+    component: SinglePages
   }, {
     path: '/home',
     component: Home
