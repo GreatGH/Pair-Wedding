@@ -5,6 +5,7 @@ import store from './store'
 import ElementUI from 'element-ui'
 import {axiosRequest} from '@/Common/axios'
 import 'element-ui/lib/theme-chalk/index.css'
+import 'swiper/css/swiper.min.css'
 import VueAMap from 'vue-amap'
 
 // 公共样式
