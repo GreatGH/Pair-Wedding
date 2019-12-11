@@ -2,19 +2,22 @@
   <div class="friends-area">
       <div class="section-overlay">
           <div class="container">
-              <div class="text-center">
-                  <div>
-                      <h3 class="title">Friends Says</h3>
-                      <img src="~img/friends/divider.png" alt="">
-                  </div>
+              <div class="flex-center-w">
+                <div>
+                  <h3 class="title">Friends Says</h3>
+                  <img src="~img/friends/divider.png" alt="">
+                </div>
               </div>
-              <div class="carousel">
-                <el-carousel indicator-position="outside">
-                    <el-carousel-item :key="index" v-for="(item,index) in lists.slice(0, 8)">
+              <div class="carousel carousel-box-model">
+                <el-carousel :interval="5000" indicator-position="outside">
+                    <el-carousel-item :key="index" v-for="(item,index) in lists">
                         <div class="friend-says-img">
                             <img :src="crown" alt="">
+                            <div class="backticks">
+                                <img :src="crown">
+                            </div>
                         </div>
-                        <div>
+                        <div class="flex-center-w">
                             <h2 class="h2">{{item.title}}</h2>
                             <h3 class="h3">{{ item.content }}</h3>
                         </div>
@@ -26,13 +29,22 @@
   </div>
 </template>
 <script>
-import crown from '../../images/friends/divider.png'
+import crown from '../../images/friends/1.png'
+// import backticks from '../../images/friends/backticks.png'
 export default {
   data () {
     return {
       crown,
       lists: [{
-        img: '',
+        imgto: '~img/friends/1.png',
+        title: 'Zoey',
+        content: '“Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum.”'
+      }, {
+        imgto: '~img/friends/1.png',
+        title: 'Zoey',
+        content: '“Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum.”'
+      }, {
+        imgto: '~img/friends/1.png',
         title: 'Zoey',
         content: '“Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum.”'
       }]
@@ -41,8 +53,5 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-.el-carousel__item h3 {
-color: #475669;
-opacity: 0.75;
-}
+@import '../../css/friends.less';
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="banner-area">
+  <div class="banner-area ">
       <div class="setion-over">
           <div class="container">
               <div class="title">
@@ -24,5 +24,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+@import '../../css/friends.less';
 </style>

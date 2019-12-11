@@ -1,21 +1,21 @@
 <template>
   <div>
-    <div>
+    <div class="first">
       <Top></Top>
     </div>
-    <div class="frimode container">
-      <smallss></smallss>
+    <div>
+      <Smallss></Smallss>
     </div>
     <div>
-      <carousel></carousel>
+      <Carousel></Carousel>
     </div>
  </div>
 </template>
 
 <script>
-import smallss from './first-small.vue'
 import Top from './top'
-import carousel from './carousel'
+import Smallss from './first-small.vue'
+import Carousel from './carousel'
 export default {
   data () {
     return {
@@ -24,13 +24,13 @@ export default {
   },
   components: {
     Top,
-    smallss,
-    carousel
+    Smallss,
+    Carousel
   }
 
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import '../../css/friends.less';
 </style>
