@@ -1,16 +1,22 @@
 <template>
   <div class="locations">
     <div class="banner">
-      <div class="img">
-        <img src="~img/z-public/location-banner.jpg" alt="">
-      </div>
+      <bounceIn>
+        <div class="img" slot="bounceIn" v-if="$store.state.show">
+          <img src="~img/z-public/location-banner.jpg" alt="">
+        </div>
+      </bounceIn>
       <div class="title">
         <div>
-          <div class="main-title">Locations</div>
-          <div class="home-locations">
-            <router-link to="/home" class="home">Home</router-link>
+          <bounceInDown>
+            <div class="main-title" slot="bounceInDown" v-if="$store.state.show">
+              locations
+            </div>
+          </bounceInDown>
+          <div class="home-locations" slot="bounceInLeft">
+            <router-link to="/home" class="home" v-if="$store.state.show">Home</router-link>
             <span>/</span>
-            <router-link to="/location" class="location">Locations</router-link>
+            <router-link to="/location" class="location" v-if="$store.state.show">Locations</router-link>
           </div>
         </div>
       </div>
@@ -38,12 +44,16 @@
     </div>
   </div>
 </template>
-
 <script>
+import bounceInDown from './slot/BounceInDown'
+import bounceInLeft from './slot/BounceInLeft'
+import bounceInRight from './slot/BounceInRight'
+import bounceIn from './slot/BounceIn'
 import mapdemo from './Map'
 export default {
   data () {
     return {
+      show: false,
       relative: [{
         class: 'phone',
         icon: 'fa fa-phone',
@@ -66,7 +76,23 @@ export default {
     }
   },
   components: {
-    mapdemo
+    mapdemo,
+    bounceInDown,
+    bounceInLeft,
+    bounceInRight,
+    bounceIn
+  },
+  methods: {
+    handleScroll () {
+      console.log(111)
+    }
+  },
+  // created () {
+  //   window.addEventListener('resize', this.handleScroll)
+  // },
+  mounted () {
+    this.$store.commit('changeShow')
+    // this.$router.options.scrollBehavior()
   }
 }
 </script>
