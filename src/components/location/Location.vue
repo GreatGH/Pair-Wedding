@@ -6,11 +6,19 @@
       </div>
       <div class="title">
         <div>
-          <div class="main-title">Locations</div>
+          <bounceInDown>
+            <div class="main-title" slot="bounceInDown" v-if="show">
+              locations
+            </div>
+          </bounceInDown>
           <div class="home-locations">
-            <router-link to="/home" class="home">Home</router-link>
+            <bounceInLeft>
+              <router-link to="/home" class="home" slot="bounceInLeft" v-if="show">Home</router-link>
+            </bounceInLeft>
             <span>/</span>
-            <router-link to="/location" class="location">Locations</router-link>
+            <bounceInRight>
+              <router-link to="/location" class="location" slot="bounceInRight" v-if="show">Locations</router-link>
+            </bounceInRight>
           </div>
         </div>
       </div>
@@ -40,10 +48,14 @@
 </template>
 
 <script>
+import bounceInDown from './slot/BounceInDown'
+import bounceInLeft from './slot/BounceInLeft'
+import bounceInRight from './slot/BounceInRight'
 import mapdemo from './Map'
 export default {
   data () {
     return {
+      show: false,
       relative: [{
         class: 'phone',
         icon: 'fa fa-phone',
@@ -66,7 +78,14 @@ export default {
     }
   },
   components: {
-    mapdemo
+    mapdemo,
+    bounceInDown,
+    bounceInLeft,
+    bounceInRight
+  },
+  mounted () {
+    this.show = true
+    this.$router.options.scrollBehavior()
   }
 }
 </script>

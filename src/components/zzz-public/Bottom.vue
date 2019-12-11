@@ -27,7 +27,7 @@
           <div class="choose">
             <div v-for="item in recentpost" :key="item.img" class="flex">
               <div class="recent-img">
-                <img :src="item.img" />
+                <img :src="item.img"/>
               </div>
               <div class="past">
                 <div class="past-event">{{item.intro}}</div>

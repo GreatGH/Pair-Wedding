@@ -8,6 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import VueAMap from 'vue-amap'
 
 // 公共样式
+import '@/Common/animate.min'
 import 'css/public.less'
 import '@/Common/fontSize.js'
 // 字体图标引入
