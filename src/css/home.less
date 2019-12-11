@@ -25,6 +25,9 @@
     bottom: 0;
     animation: zoomheart 30s infinite;
 }
+.color-pink{
+    color: #ff4061;
+}
 @keyframes zoomheart {
     0%{
         transform: scale(1);
@@ -34,7 +37,7 @@
     }
 }
 .home-banner-box .home-container{
-    margin: 0 60px;
+    // margin: 0 60px;
 }
 .banner-caption{
     width: 50%;
@@ -50,14 +53,14 @@
 .banner-content-img{
     width: 71%;
     left: -15%;
-    top: -66%;
+    top: -70%;
 }
 .banner-inner-text{
     font-family: '华文隶书';
     color: #101127;
 }
 .banner-inner-text h3{
-    font-size: 30px;
+    font-size: 26px;
     text-transform: capitalize;
 }
 .font-family{
@@ -68,12 +71,12 @@
     text-transform: capitalize;
 }
 .banner-inner-text h1{
-    font-size: 48px;
+    font-size: 41px;
     line-height: 49px;
     color: #ff4061;
 }
 .banner-inner-text p{
-    font-size: 26px;
+    font-size: 20px;
 }
 .event-count{
     padding-top: 20%;
@@ -111,12 +114,40 @@
 .event-count-box{
     display: inline-block;
 }
-.bride-groom-area{
+.bride-groom-area,.love-story-area,.planners-area{
     padding: 80px 0;
 }
+.bride-rsvg-area{
+    padding: 80px 0 74px;
+}
+.our-gallery-area{
+    padding: 80px 0 50px;
+}
+.our-best-friends-area {
+    padding: 80px 0 16px;
+}
+.love-story-area,.bride-rsvg-area{
+    background: #f9f9f9;
+}
+.title-content h2{
+    font-size: 43px;
+    margin-bottom: 10px;
+    font-family: '华文隶书';
+}
+.title-content h3{
+    font-family: 'Playfair Display', serif;
+    width: 67%;
+    margin: 15px auto 60px;
+    color: #777c87;
+}
+
 // center
 .home-container{
+    max-width: 1200px;
     margin: 0 auto;
+}
+.home-container.my-home{
+    width: 1200px;
 }
 // newspeople
 .row-module{
@@ -244,7 +275,7 @@ img {
     cursor: pointer;
     margin-left: 8px;
     text-align: center;
-    line-height: 28px;
+    line-height: 26px;
 }
 .bride-groom-social a:hover{
     color: #ff4061;
