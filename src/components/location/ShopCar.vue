@@ -6,30 +6,33 @@
       </div>
       <div class="title-name">婚礼预约订单</div>
     </div>
-    <div class="my-menu">
-      <div class="left-show">
-        <div class="enviroment">
-          <div class="enviroment-outer">
-            <div class="enviroment-inner">
-              <img src="" alt="">
-            </div>
-          </div>
+    <div class="menu">
+      <div class="header">
+        <div class="check-all">
+          <input type="checkbox">
         </div>
-        <div class="presee">
-          <div class="presee-outer">
-            <div class="presee-inner">
-              <img src="" alt="">
-            </div>
-          </div>
-        </div>
+        <div v-for="item in menuheader" class="header-nav" :key="item">{{item}}</div>
       </div>
-      <div class="right-choose"></div>
+      <div class="all-shop" v-for="item in shops" :key="item.position"></div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      index: 0,
+      choose: ['海滩', '森林', '小路'],
+      yourchoose: '海滩',
+      menuheader: ['拍摄地点', '预览', '价格'],
+      shops: [{
+        position: '海滩',
+        img: '',
+        price: ''
+      }]
+    }
+  }
 }
 </script>
 
@@ -51,35 +54,22 @@ export default {
       letter-spacing: 2px;
     }
   }
-  .my-menu {
-    display: flex;
+  .menu {
     >div {
-      flex: 1;
-      &.left-show {
-        padding: 30px;
-        width: 40%;
+      padding: 10px 20px;
+      &.header {
         display: flex;
         >div {
-          flex: 1;
-          flex-direction: column;
-          &.presee {
-            height: 10%;
+          font-size: 20px;
+          text-align: center;
+          &.check-all {
+            width: 10%;
+            text-align: left;
           }
-          &.enviroment {
-            >div {
-              overflow: hidden;
-              .caroso-outer {
-                width: 999999px;
-                .caroso-inner {
-
-                }
-              }
-            }
+          &.header-nav {
+            width: 30%;
           }
         }
-      }
-      &.right-choose {
-        width: 60%;
       }
     }
   }

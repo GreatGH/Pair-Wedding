@@ -13,11 +13,13 @@
               locations
             </div>
           </bounceInDown>
-          <div class="home-locations" slot="bounceInLeft">
-            <router-link to="/home" class="home" v-if="$store.state.show">Home</router-link>
+          <bounceInLeft>
+          <div class="home-locations" v-if="$store.state.show" slot="bounceInLeft">
+            <router-link to="/home" class="home">Home</router-link>
             <span>/</span>
-            <router-link to="/location" class="location" v-if="$store.state.show">Locations</router-link>
+            <router-link to="/location" class="location">Locations</router-link>
           </div>
+          </bounceInLeft>
         </div>
       </div>
     </div>

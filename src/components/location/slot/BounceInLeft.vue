@@ -1,6 +1,6 @@
 <template>
   <transition
-  enter-active-class="animated bounceInLeft"
+  enter-active-class="animated slideInLeft"
   leave-active-class="animated"
   >
     <slot name="bounceInLeft"></slot>

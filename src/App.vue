@@ -6,7 +6,16 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted () {
+    window.onscroll = () => {
+      let nowScrollTop = document.documentElement.scrollTop | document.body.scrollTop
+      if (nowScrollTop > 100) {
+      }
+      // if(window.screenTop)
+      // document.querySelector('.cg-topnav')
+    }
+  }
 }
 </script>
 
