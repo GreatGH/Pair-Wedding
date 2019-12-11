@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="">
     <div class="banner-area rsvp-form-area">
         <div class="setion-over">
             <div class="container">

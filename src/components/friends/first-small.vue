@@ -1,5 +1,5 @@
 <template>
-  <div class=" coteng-box ">
+  <div class="coteng-box  fly-content flex-betwe-w">
       <!-- 111 -->
       <div :key="index" class="coteng" v-for="(item,index) in date.slice(0, 8)">
         <div class="single-friend">
