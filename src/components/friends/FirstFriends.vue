@@ -16,6 +16,7 @@
 import Top from './top'
 import Smallss from './first-small.vue'
 import Carousel from './carousel'
+import Bottom from 'comp/story/carousel'
 export default {
   data () {
     return {
@@ -25,7 +26,8 @@ export default {
   components: {
     Top,
     Smallss,
-    Carousel
+    Carousel,
+    Bottom
   }
 
 }

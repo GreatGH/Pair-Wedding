@@ -1,7 +1,7 @@
 <template>
   <div class="friends-area">
       <div class="section-overlay">
-          <div class="container">
+          <div class="container  fly-content">
               <div class="flex-center-w">
                 <div>
                   <h3 class="title">Friends Says</h3>
@@ -10,16 +10,16 @@
               </div>
               <div class="carousel carousel-box-model">
                 <el-carousel :interval="5000" indicator-position="outside">
-                    <el-carousel-item :key="index" v-for="(item,index) in lists">
+                    <el-carousel-item :key="index" v-for="(item,index) in list.slice(4, 7)">
                         <div class="friend-says-img">
-                            <img :src="crown" alt="">
+                            <img :src=" apiimg + item.img"/>
                             <div class="backticks">
-                                <img :src="crown">
+                                <img :src=" apiimg + item.img"/>
                             </div>
                         </div>
                         <div class="flex-center-w">
-                            <h2 class="h2">{{item.title}}</h2>
-                            <h3 class="h3">{{ item.content }}</h3>
+                            <h2 class="h2">{{item.NAME}}</h2>
+                            <h3 class="h3">{{item.say}}</h3>
                         </div>
                     </el-carousel-item>
                 </el-carousel>
@@ -29,26 +29,29 @@
   </div>
 </template>
 <script>
-import crown from '../../images/friends/1.png'
-// import backticks from '../../images/friends/backticks.png'
+
+import Axios from 'axios'
 export default {
   data () {
     return {
-      crown,
-      lists: [{
-        imgto: '~img/friends/1.png',
-        title: 'Zoey',
-        content: '“Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum.”'
-      }, {
-        imgto: '~img/friends/1.png',
-        title: 'Zoey',
-        content: '“Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum.”'
-      }, {
-        imgto: '~img/friends/1.png',
-        title: 'Zoey',
-        content: '“Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum.”'
-      }]
+      list: [],
+      apiimg: 'http://192.168.97.236:3000/friends/',
+      api: 'http://192.168.97.236:3000/friend'
     }
+  },
+  components: {
+
+  },
+  mounted () {
+    Axios({
+      url: this.api,
+      method: 'get'
+    }).then((res) => {
+      res = res.data
+      if (res.status === 200) {
+        this.list = res.data
+      }
+    })
   }
 }
 </script>
