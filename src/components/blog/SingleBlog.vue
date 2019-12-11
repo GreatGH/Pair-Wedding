@@ -184,7 +184,7 @@
                      <div class="leave-comment-area">
                        <h2>Leave a Comment</h2>
                        <!-- form表单验证 -->
-                       <el-form label-position="top" label-width="80px" :model="dynamicValidateForm" ref="dynamicValidateForm">
+                       <el-form label-position="top" label-width="80px" :model="Form" ref="Form">
                           <div class="row">
                             <el-form-item
                               label="Full Name"
@@ -194,7 +194,7 @@
                               }"
                               class="col-sm-6"
                             >
-                              <el-input v-model="dynamicValidateForm.name"></el-input>
+                              <el-input v-model="Form.name"></el-input>
                             </el-form-item>
                             <el-form-item
                               prop="email"
@@ -205,23 +205,21 @@
                               ]"
                               class="col-sm-6"
                             >
-                              <el-input v-model="dynamicValidateForm.email"></el-input>
+                              <el-input v-model="Form.email"></el-input>
                             </el-form-item>
                            <el-form-item
-                              v-for="(domain, index) in dynamicValidateForm.domains"
-                              label="Write Comment"
-                              :key="domain.key"
-                              :prop="'domains.' + index + '.value'"
+                              prop="content"
+                              label="Content"
                               :rules="{
                                 required: true, message: '内容不能为空！', trigger: 'blur'
                               }"
                               class="col-sm-12"
                             >
-                              <el-input v-model="domain.value"/>
+                              <el-input v-model="Form.content"></el-input>
                             </el-form-item>
                             <el-form-item class="col-sm-12">
-                              <el-button class="text-uppercase" type="primary" @click="submitForm('dynamicValidateForm')">submit</el-button>
-                              <el-button class="text-uppercase" @click="resetForm('dynamicValidateForm')">cancel</el-button>
+                              <el-button class="text-uppercase" type="primary" @click="submitForm('Form')">submit</el-button>
+                              <el-button class="text-uppercase" @click="resetForm('Form')">cancel</el-button>
                             </el-form-item>
                           </div>
                        </el-form>
@@ -367,12 +365,10 @@ export default {
         {src: require('../../images/blog/sidebar-recent-posts-2.jpg')},
         {src: require('../../images/blog/sidebar-recent-posts-3.jpg')}
       ],
-      dynamicValidateForm: {
-        name,
+      Form: {
+        name: '',
         email: '',
-        domains: [{
-          value: ''
-        }]
+        content: ''
       }
     }
   },

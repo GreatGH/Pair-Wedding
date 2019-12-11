@@ -38,7 +38,4 @@ export default {
 
 <style lang="less" scoped>
 @import '../../css/friends.less';
-.leave {
-  padding: 80px
-}
 </style>

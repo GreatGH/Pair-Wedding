@@ -78,9 +78,9 @@
           <h3 class="font-16">Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum. </h3>
         </div>
       </div>
-      <!-- <HomeFriends></HomeFriends> -->
+      <HomeFriends></HomeFriends>
     </div>
-    <!-- <Carousel></Carousel> -->
+    <Carousel></Carousel>
     <div class="planners-area">
       <div class="row-module flex-center-w">
         <div class="title-content text-center">
@@ -89,6 +89,7 @@
           <h3 class="font-16">Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum. </h3>
         </div>
       </div>
+      <footerCalsoul></footerCalsoul>
     </div>
   </div>
 </template>
@@ -99,7 +100,7 @@ import StoryModel from './storymodel'
 import FormModel from './formModel'
 import HomeFriends from '../friends/first-small'
 import Carousel from '../friends/carousel'
-// import footerCalsoul from './footerCalsoul'
+import footerCalsoul from '../story/carousel'
 import LoveImg from '../../images/home/header-love-bg.png'
 import Divider from '../../images/home/divider.png'
 export default {
@@ -127,7 +128,8 @@ export default {
     FormModel,
     StoryModel,
     Carousel,
-    HomeFriends
+    HomeFriends,
+    footerCalsoul
   },
   created () {
     this.countTime()

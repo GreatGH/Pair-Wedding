@@ -9,22 +9,40 @@
             </div>
           </div>
           <div class="swiper-slide">
-            <div class="img-box"><img src="../../images/home/7.jpg"/></div>
+            <div class="img-box">
+              <img src="../../images/home/7.jpg"/>
+              <div class="img-mask"></div>
+            </div>
           </div>
           <div class="swiper-slide">
-            <div class="img-box"><img src="../../images/home/8.jpg"/></div>
+            <div class="img-box">
+              <img src="../../images/home/8.jpg"/>
+              <div class="img-mask"></div>
+            </div>
           </div>
           <div class="swiper-slide">
-            <div class="img-box"><img src="../../images/home/9.jpg"/></div>
+            <div class="img-box">
+              <img src="../../images/home/9.jpg"/>
+              <div class="img-mask"></div>
+            </div>
           </div>
           <div class="swiper-slide">
-            <div class="img-box"><img src="../../images/home/10.jpg"/></div>
+            <div class="img-box">
+              <img src="../../images/home/10.jpg"/>
+              <div class="img-mask"></div>
+            </div>
           </div>
           <div class="swiper-slide">
-            <div class="img-box"><img src="../../images/home/10.jpg"/></div>
+            <div class="img-box">
+              <img src="../../images/home/10.jpg"/>
+              <div class="img-mask"></div>
+            </div>
           </div>
           <div class="swiper-slide">
-            <div class="img-box"><img src="../../images/home/10.jpg"/></div>
+            <div class="img-box">
+              <img src="../../images/home/10.jpg"/>
+              <div class="img-mask"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -34,11 +52,13 @@
 import Swiper from 'swiper'
 export default {
   mounted () {
-    new Swiper('.swiper-container', {
+    // swiper 插件
+    let swiper = new Swiper('.swiper-container', {
       autoplay: true,
       loop: true,
       slidesPerView: 'auto'
     })
+    console.log(swiper)
   }
 }
 </script>
@@ -54,7 +74,7 @@ export default {
     padding-right: 15px;
     .img-box{
       height: 100%;
-      border: 1px solid gray;
+      border: 1px solid #ccc;
       position: relative;
       .img-mask{
         position: absolute;
@@ -73,7 +93,7 @@ export default {
     .img-box:hover .img-mask{
       display: block;
       opacity: 0.5;
-      transition: all 1s ease-in-out;
+      transition: all .5s ease-in-out;
     }
   }
   @media only screen and (min-width: 1180px) {
