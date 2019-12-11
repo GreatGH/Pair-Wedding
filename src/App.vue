@@ -14,10 +14,10 @@ export default {
 body {
   #app {
     position: relative;
-    margin-right: -18px;
-    width: calc(100% + 18px);
+    // margin-right: -18px;
+    // width: calc(100% + 18px);
     font-weight: 600;
-    overflow-y: auto;
+    // overflow-y: auto;
     height: 100%;
   }
 }

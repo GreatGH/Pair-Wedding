@@ -3,7 +3,7 @@
     <div class="home-banner-box">
       <div class="love-area zoom-heart position-relative">
         <div class="news-content-warp zoom-heart-background"></div>
-        <div class="home-container">
+        <div class="home-container my-home">
           <div class="row-module">
             <div class="banner-caption text-left position-relative">
               <div class="banner-content">
@@ -32,12 +32,64 @@
       </div>
     </div>
     <div class="bride-groom-area">
-      <div class="row-module">
+      <div class="row-module flex-center-w">
+        <div class="title-content text-center">
+          <h2 class="color-pink">Bride & Groom</h2>
+          <img :src="Divider" class="margin-t-20"/>
+          <h3 class="font-16">Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum. </h3>
+        </div>
       </div>
       <NewPeopleModle></NewPeopleModle>
     </div>
-    <StoryModel></StoryModel>
-    <FormModel></FormModel>
+    <div class="love-story-area">
+      <div class="row-module flex-center-w">
+        <div class="title-content text-center">
+          <h2 class="color-pink">Love Story</h2>
+          <img :src="Divider" class="margin-t-20"/>
+          <h3 class="font-16">Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum. </h3>
+        </div>
+      </div>
+      <StoryModel></StoryModel>
+    </div>
+    <div class="our-gallery-area">
+      <div class="row-module flex-center-w">
+        <div class="title-content text-center">
+          <h2 class="color-pink">Our Gallery</h2>
+          <img :src="Divider" class="margin-t-20"/>
+          <h3 class="font-16">Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum. </h3>
+        </div>
+      </div>
+    </div>
+    <div class="bride-rsvg-area">
+      <div class="row-module flex-center-w">
+        <div class="title-content text-center">
+          <h2 class="color-pink">RSVP</h2>
+          <img :src="Divider" class="margin-t-20"/>
+          <h3 class="font-16">Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum. </h3>
+        </div>
+      </div>
+      <FormModel></FormModel>
+    </div>
+    <div class="our-best-friends-area">
+      <div class="row-module flex-center-w">
+        <div class="title-content text-center">
+          <h2 class="color-pink">Our Best Friends</h2>
+          <img :src="Divider" class="margin-t-20"/>
+          <h3 class="font-16">Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum. </h3>
+        </div>
+      </div>
+      <!-- <HomeFriends></HomeFriends> -->
+    </div>
+    <!-- <Carousel></Carousel> -->
+    <div class="planners-area">
+      <div class="row-module flex-center-w">
+        <div class="title-content text-center">
+          <h2 class="color-pink">Planners</h2>
+          <img :src="Divider" class="margin-t-20"/>
+          <h3 class="font-16">Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum. </h3>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -45,12 +97,16 @@
 import NewPeopleModle from './NewPeopleModle'
 import StoryModel from './storymodel'
 import FormModel from './formModel'
+import HomeFriends from '../friends/first-small'
+import Carousel from '../friends/carousel'
 // import footerCalsoul from './footerCalsoul'
 import LoveImg from '../../images/home/header-love-bg.png'
+import Divider from '../../images/home/divider.png'
 export default {
   data () {
     return {
       LoveImg,
+      Divider,
       time: [{
         nowtime: [0, 0],
         name: 'day'
@@ -69,7 +125,9 @@ export default {
   components: {
     NewPeopleModle,
     FormModel,
-    StoryModel
+    StoryModel,
+    Carousel,
+    HomeFriends
   },
   created () {
     this.countTime()
@@ -81,7 +139,6 @@ export default {
       let day = {}
       day.nowtime = [shiwei, gewei]
       day.name = name
-      console.log(day)
       return day
     }
   },

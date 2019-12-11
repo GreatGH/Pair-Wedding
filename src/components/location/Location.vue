@@ -1,24 +1,22 @@
 <template>
   <div class="locations">
     <div class="banner">
-      <div class="img">
-        <img src="~img/z-public/location-banner.jpg" alt="">
-      </div>
+      <bounceIn>
+        <div class="img" slot="bounceIn" v-if="$store.state.show">
+          <img src="~img/z-public/location-banner.jpg" alt="">
+        </div>
+      </bounceIn>
       <div class="title">
         <div>
           <bounceInDown>
-            <div class="main-title" slot="bounceInDown" v-if="show">
+            <div class="main-title" slot="bounceInDown" v-if="$store.state.show">
               locations
             </div>
           </bounceInDown>
-          <div class="home-locations">
-            <bounceInLeft>
-              <router-link to="/home" class="home" slot="bounceInLeft" v-if="show">Home</router-link>
-            </bounceInLeft>
+          <div class="home-locations" slot="bounceInLeft">
+            <router-link to="/home" class="home" v-if="$store.state.show">Home</router-link>
             <span>/</span>
-            <bounceInRight>
-              <router-link to="/location" class="location" slot="bounceInRight" v-if="show">Locations</router-link>
-            </bounceInRight>
+            <router-link to="/location" class="location" v-if="$store.state.show">Locations</router-link>
           </div>
         </div>
       </div>
@@ -46,11 +44,11 @@
     </div>
   </div>
 </template>
-
 <script>
 import bounceInDown from './slot/BounceInDown'
 import bounceInLeft from './slot/BounceInLeft'
 import bounceInRight from './slot/BounceInRight'
+import bounceIn from './slot/BounceIn'
 import mapdemo from './Map'
 export default {
   data () {
@@ -81,11 +79,20 @@ export default {
     mapdemo,
     bounceInDown,
     bounceInLeft,
-    bounceInRight
+    bounceInRight,
+    bounceIn
   },
+  methods: {
+    handleScroll () {
+      console.log(111)
+    }
+  },
+  // created () {
+  //   window.addEventListener('resize', this.handleScroll)
+  // },
   mounted () {
-    this.show = true
-    this.$router.options.scrollBehavior()
+    this.$store.commit('changeShow')
+    // this.$router.options.scrollBehavior()
   }
 }
 </script>

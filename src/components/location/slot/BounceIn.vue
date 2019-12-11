@@ -1,9 +1,9 @@
 <template>
   <transition
-  enter-active-class="animated bounceInLeft"
+  enter-active-class="animated bounceIn"
   leave-active-class="animated"
   >
-    <slot name="bounceInLeft"></slot>
+    <slot name="bounceIn"></slot>
   </transition>
 </template>
 
