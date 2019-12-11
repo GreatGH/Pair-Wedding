@@ -1,18 +1,30 @@
 <template>
   <div>
-    <First></First>
+    <div class="seconfri">
+      <Top></Top>
+    </div>
+    <div>
+      <Conder></Conder>
+    </div>
+    <div>
+      <Carousel></Carousel>
+    </div>
   </div>
 </template>
 
 <script>
-import First from './FirstFriends'
+import Top from './top.vue'
+import Conder from './Second/first-small'
+import Carousel from './carousel'
 export default {
   components: {
-    First
+    Top,
+    Conder,
+    Carousel
   }
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+@import '../../css/friends.less';
 </style>
