@@ -14,6 +14,9 @@ Vue.use(Vuex)
 // 公共的store
 let mutations = {
   changeRouters (state, page) {
+  },
+  changeShow (state, show) {
+    this.state.show = true
   }
 }
 
@@ -92,7 +95,8 @@ export default new Vuex.Store({
       nowPage: 'location',
       route: '/location',
       isHere: false
-    }]
+    }],
+    show: false
   },
   mutations,
   actions,

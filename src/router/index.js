@@ -20,8 +20,22 @@ const ClassifyPages = () => import('comp/pages/ClassifyPages')
 const ErrorPages = () => import('comp/pages/ErrorPages')
 const SinglePages = () => import('comp/pages/SinglePages')
 const Location = () => import('comp/location/Location')
+const ShopCar = () => import('comp/location/ShopCar')
 
 Vue.use(Router)
+
+const scrollBehavior = (to, from, savedPosition) => {
+  console.log(111)
+  // let returnData = {}
+  // if(savedPosition){
+  //     returnData = savedPosition
+  // }
+  // else{
+  //     returnData.x = 0
+  //     returnData.y = 0
+  // }
+  return savedPosition
+}
 
 const finalChildren = [
   {
@@ -77,7 +91,8 @@ const finalChildren = [
     component: SecondFriends
   }, {
     path: '/location',
-    component: Location
+    component: Location,
+    scrollBehavior
   }, {
     path: '',
     redirect: '/home'
@@ -147,11 +162,26 @@ const finalChildren = [
 */
 
 export default new Router({
+  mode: 'history',
+  // scrollBehavior: (to, from, savedPosition) => {
+  //   if (savedPosition) {
+  //     return savedPosition
+  //   } else {
+  //     return new Promise((resolve) => {
+  //       setTimeout(() => {
+  //         resolve({x: 0, y: 100})
+  //       }, 1000)
+  //     })
+  //   }
+  // },
   routes: [
     {
       path: '/',
       component: Final,
       children: finalChildren
+    }, {
+      path: '/shopcar',
+      component: ShopCar
     }
   ]
 })
