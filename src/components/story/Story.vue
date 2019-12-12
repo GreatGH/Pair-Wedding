@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-    <!--电影-->
+    <!--电影！！-->
     <div class="video-mask" v-if="show">
       <video controls poster="./miss.jpg"  >
         <source src="./F2kGbmy6ip.mp4" type="video/mp4">
