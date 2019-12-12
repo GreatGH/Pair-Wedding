@@ -2,7 +2,7 @@
 <div>
   <div class="public-tab-content">
    <div class="position-reletive clearfix">
-     <div class="story-photo-box position-reletive fl margin-t-30">
+     <div class="story-photo-box position-reletive small-img fl margin-t-30">
           <img class="img" :src="Img2"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -10,7 +10,7 @@
             </div>
           </div>
         </div>
-        <div class="story-photo-box position-reletive public-img4 margin-l-10">
+        <div class="story-photo-box position-reletive small-img public-img4 margin-l-10">
           <img class="img" :src="Img9"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -18,7 +18,7 @@
             </div>
           </div>
         </div>
-         <div class="story-photo-box position-reletive fl margin-lr-25 margin-t-30">
+         <div class="story-photo-box position-reletive small-img fl margin-lr-25 margin-t-30">
           <img class="img" :src="Img5"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -26,7 +26,7 @@
             </div>
           </div>
         </div>
-        <div class="story-photo-box position-reletive fl margin-t-30">
+        <div class="story-photo-box position-reletive small-img fl margin-t-30">
           <img class="img" :src="Img8"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -39,7 +39,7 @@
   <div class="public-tab-content-two">
     <ul class="tab-content-lists clearfix">
       <li>
-        <div class="overflow position-reletive">
+        <div class="overflow position-reletive small-img">
             <img :src="Img2">
             <div class="gallery-tab-two">
               <div class="gallery-tab-content-two">
@@ -47,7 +47,7 @@
               </div>
             </div>
         </div>
-        <div class="margin-t-15 overflow position-reletive">
+        <div class="margin-t-15 overflow position-reletive small-img">
           <img :src="Img8">
           <div class="gallery-tab-two">
             <div class="gallery-tab-content-two">
@@ -57,7 +57,7 @@
         </div>
       </li>
        <li>
-        <div class="overflow position-reletive">
+        <div class="overflow position-reletive small-img">
             <img :src="Img5">
             <div class="gallery-tab-two">
               <div class="gallery-tab-content-two">
@@ -65,7 +65,7 @@
               </div>
             </div>
         </div>
-        <div class="margin-t-15 overflow position-reletive">
+        <div class="margin-t-15 overflow position-reletive small-img">
           <img :src="Img9">
           <div class="gallery-tab-two">
             <div class="gallery-tab-content-two">
@@ -96,6 +96,6 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang='less' scoped>
+@import '../../css/gallery.less';
 </style>

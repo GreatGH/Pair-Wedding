@@ -6,6 +6,7 @@ import ElementUI from 'element-ui'
 import {axiosRequest} from '@/Common/axios'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'swiper/css/swiper.min.css'
+import vueSwiper from 'vue-awesome-swiper'
 import VueAMap from 'vue-amap'
 
 // 公共样式
@@ -17,7 +18,7 @@ import 'css/font-awesome/css/font-awesome.min'
 Vue.use(ElementUI)
 Vue.use(ElementUI)
 Vue.use(VueAMap)
-
+Vue.use(vueSwiper)
 Vue.prototype.axiosRequest = axiosRequest
 
 // MapType: 卫星地图切换

@@ -28,6 +28,6 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang='less' scope>
+@import '../../css/gallery.less';
 </style>

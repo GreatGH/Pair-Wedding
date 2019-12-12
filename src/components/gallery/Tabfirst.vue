@@ -2,7 +2,7 @@
 <div>
   <div class="public-tab-content">
     <div class="position-reletive content clearfix">
-      <div class="story-photo-box position-reletive fl">
+      <div class="story-photo-box position-reletive big-img fl">
        <img class="img" :src="Img1"/>
         <div class="gallery-tab">
            <div class="gallery-tab-content">
@@ -10,7 +10,7 @@
            </div>
          </div>
       </div>
-       <div class="story-photo-box position-reletive fl">
+       <div class="story-photo-box position-reletive small-img fl">
          <img class="img" :src="Img2"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -18,7 +18,7 @@
             </div>
           </div>
         </div>
-        <div class="story-photo-box position-reletive fl">
+        <div class="story-photo-box position-reletive big-img fl">
           <img class="img" :src="Img3"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -26,17 +26,15 @@
             </div>
           </div>
         </div>
-        <div class="img-box">
-          <div>
+        <div class="img-box small-img">
           <img class="img" :src="Img4"/>
-              <div class="gallery-tab">
-                <div class="gallery-tab-content">
-                    <span class="el-icon-circle-plus-outline"></span>
-                </div>
-              </div>
+          <div class="gallery-tab">
+            <div class="gallery-tab-content">
+              <span class="el-icon-circle-plus-outline"></span>
+            </div>
           </div>
-        </div>
-         <div class="story-photo-box position-reletive fl">
+          </div>
+         <div class="story-photo-box position-reletive small-img fl">
           <img class="img" :src="Img5"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -44,7 +42,7 @@
             </div>
           </div>
         </div>
-        <div class="story-photo-box position-reletive fl">
+        <div class="story-photo-box position-reletive big-img fl">
           <img class="img" :src="Img6"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -52,7 +50,7 @@
             </div>
           </div>
         </div>
-        <div class="story-photo-box position-reletive fl">
+        <div class="story-photo-box position-reletive small-img fl">
           <img class="img" :src="Img7"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -60,7 +58,7 @@
             </div>
           </div>
         </div>
-        <div class="story-photo-box position-reletive public-img">
+        <div class="story-photo-box position-reletive small-img public-img">
           <img class="img" :src="Img8"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -68,7 +66,7 @@
             </div>
           </div>
         </div>
-        <div class="story-photo-box position-reletive fl">
+        <div class="story-photo-box position-reletive small-img fl">
           <img class="img" :src="Img9"/>
           <div class="gallery-tab">
             <div class="gallery-tab-content">
@@ -82,7 +80,7 @@
   <div class="public-tab-content-two">
     <ul class="tab-content-lists clearfix">
       <li>
-        <div class="position-reletive overflow">
+        <div class="position-reletive big-img overflow">
           <img :src="Img1">
           <div class="gallery-tab-two">
           <div class="gallery-tab-content-two">
@@ -90,7 +88,7 @@
           </div>
         </div>
         </div>
-        <div class="margin-t-15 position-reletive overflow">
+        <div class="margin-t-15 position-reletive small-img overflow">
           <img :src="Img4">
           <div class="gallery-tab-two">
             <div class="gallery-tab-content-two">
@@ -100,7 +98,7 @@
         </div>
       </li>
       <li>
-        <div class="overflow position-reletive">
+        <div class="overflow position-reletive small-img">
             <img :src="Img2">
             <div class="gallery-tab-two">
               <div class="gallery-tab-content-two">
@@ -108,7 +106,7 @@
               </div>
             </div>
         </div>
-        <div class="margin-t-15 overflow position-reletive">
+        <div class="margin-t-15 overflow big-img position-reletive">
           <img :src="Img3">
           <div class="gallery-tab-two">
             <div class="gallery-tab-content-two">
@@ -118,7 +116,7 @@
         </div>
       </li>
       <li>
-        <div class="position-reletive overflow margin-t-25">
+        <div class="position-reletive overflow small-img margin-t-25">
           <img :src="Img5">
           <div class="gallery-tab-two">
             <div class="gallery-tab-content-two">
@@ -126,7 +124,7 @@
             </div>
           </div>
         </div>
-        <div class="margin-t-15 position-reletive overflow">
+        <div class="margin-t-15 position-reletive small-img overflow">
           <img :src="Img7">
           <div class="gallery-tab-two">
             <div class="gallery-tab-content-two">
@@ -136,7 +134,7 @@
         </div>
       </li>
       <li>
-        <div class="margin-t-25 position-reletive overflow">
+        <div class="margin-t-25 position-reletive big-img overflow">
           <img :src="Img6">
           <div class="gallery-tab-two">
             <div class="gallery-tab-content-two">
@@ -146,7 +144,7 @@
         </div>
       </li>
       <li>
-        <div class="margin-t-25 position-reletive overflow">
+        <div class="margin-t-25 position-reletive small-img overflow">
           <img :src="Img8">
           <div class="gallery-tab-two">
             <div class="gallery-tab-content-two">
@@ -156,7 +154,7 @@
         </div>
       </li>
       <li>
-        <div class="margin-t-25 position-reletive overflow">
+        <div class="margin-t-25 position-reletive small-img overflow">
           <img :src="Img9">
           <div class="gallery-tab-two">
             <div class="gallery-tab-content-two">
@@ -198,5 +196,5 @@ export default {
 </script>
 
 <style lang='less' scoped>
-// @import '~../css/publicTab.less';
+@import '../../css/gallery.less';
 </style>
