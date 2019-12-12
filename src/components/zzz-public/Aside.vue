@@ -5,7 +5,7 @@
         <i class="fa fa-shopping-cart"></i>
       </router-link>
     </div>
-    <div class="gotop">
+    <div class="gotop" @click="gotop">
       <router-link to>
         <i class="fa fa-arrow-up"></i>
       </router-link>
@@ -15,6 +15,18 @@
 
 <script>
 export default {
+  methods: {
+    gotop () {
+      let nowScrollTop = document.documentElement.scrollTop
+      let gotopTime = setInterval(() => {
+        document.documentElement.scrollTop -= (nowScrollTop / 10)
+        console.log(1, nowScrollTop / 10, document.documentElement.scrollTop)
+        if (document.documentElement.scrollTop <= 10) {
+          clearInterval(gotopTime)
+        }
+      }, 30)
+    }
+  }
 }
 </script>
 

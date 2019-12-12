@@ -30,26 +30,26 @@
                     <div class="blog-overlay">
                       <router-link to="/blog/singleBlog">
                         <figure>
-                          <img :src="item.src"/>
+                          <img :src="item.blog_cover"/>
                           <figcaption></figcaption>
                         </figure>
                       </router-link>
                     </div>
                     <div class="card-body">
                        <router-link to="/blog/singleBlog">
-                         <h4 class="card-title">{{item.title}}</h4>
+                         <h4 class="card-title">{{item.content}}</h4>
                        </router-link>
                        <div class="card-footer">
                          <div class="card-footer-box d-flex">
                            <div class="author-box">
                              <a href="#">
                                <img :src="header1"/>
-                               <span>{{item.username}}</span>
+                               <span>{{item.author}}</span>
                              </a>
                            </div>
                            <div class="blog-date text-uppercase">
                              <i class="fa fa-calendar"></i>
-                             <span>{{item.time}}</span>
+                             <span>{{item.TIME}}</span>
                            </div>
                          </div>
                        </div>
@@ -78,105 +78,71 @@
 
 <script>
 import Vue from 'vue'
+// import axios from 'axios'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-// import img from '../../images/blog/blogimg1.jpg'
 import header1 from '../../images/blog/header1.png'
 Vue.use(Element)
 export default {
   data () {
     return {
       header1: header1,
+      // blog静态数据渲染 listArray
       listArray: [{
-        'title': '25 Places To Get The Best Wedding...',
-        'username': 'liulong',
-        'time': '2019/12/6',
-        src: require('../../images/blog/blogimg1.jpg')
+        'author': '112',
+        'content': 'dsgfdfsgsdfg',
+        blog_cover: require('../../images/blog/blogimg1.jpg'),
+        'TIME': '234234234'
       }, {
-        'title': '10 Bridal Bouquets You’ll Fall In Love...',
-        'username': 'wangxianhui',
-        'time': '2019/12/7',
-        src: require('../../images/blog/blogimg2.jpg')
+        'author': '112',
+        'content': 'dsgfdfsgsdfg',
+        blog_cover: require('../../images/blog/blogimg1.jpg'),
+        'TIME': '234234234'
       }, {
-        'title': 'Tips For Choosing The Right Weddi...',
-        'username': 'chenggang',
-        'time': '2019/12/8',
-        src: require('../../images/blog/blogimg3.jpg')
+        'author': '112',
+        'content': 'dsgfdfsgsdfg',
+        blog_cover: require('../../images/blog/blogimg1.jpg'),
+        'TIME': '234234234'
       }, {
-        'title': 'Planning The Perfect Bachelorette...',
-        'username': 'wangwengang',
-        'time': '2019/12/9',
-        src: require('../../images/blog/blogimg4.jpg')
+        'author': '112',
+        'content': 'dsgfdfsgsdfg',
+        blog_cover: require('../../images/blog/blogimg1.jpg'),
+        'TIME': '234234234'
       }, {
-        'title': 'Top 20 Tips for Wedding Invitat...',
-        'username': 'yuzhiwei',
-        'time': '2019/12/10',
-        src: require('../../images/blog/blogimg5.jpg')
+        'author': '112',
+        'content': 'dsgfdfsgsdfg',
+        blog_cover: require('../../images/blog/blogimg1.jpg'),
+        'TIME': '234234234'
       }, {
-        'title': 'Best Tips for the Bride and Groom...',
-        'username': 'zhaopu',
-        'time': '2019/12/11',
-        src: require('../../images/blog/blogimg6.jpg')
+        'author': '112',
+        'content': 'dsgfdfsgsdfg',
+        blog_cover: require('../../images/blog/blogimg1.jpg'),
+        'TIME': '234234234'
       }, {
-        'title': '30 Places To Get The Best Wedding...',
-        'username': 'liulong',
-        'time': '2019/12/6',
-        src: require('../../images/blog/blogimg1.jpg')
+        'author': '112',
+        'content': 'dsgfdfsgsdfg',
+        blog_cover: require('../../images/blog/blogimg1.jpg'),
+        'TIME': '234234234'
       }, {
-        'title': '10 Bridal Bouquets You’ll Fall In Love...',
-        'username': 'wangxianhui',
-        'time': '2019/12/7',
-        src: require('../../images/blog/blogimg2.jpg')
+        'author': '112',
+        'content': 'dsgfdfsgsdfg',
+        blog_cover: require('../../images/blog/blogimg1.jpg'),
+        'TIME': '234234234'
       }, {
-        'title': 'Tips For Choosing The Right Weddi...',
-        'username': 'chenggang',
-        'time': '2019/12/8',
-        src: require('../../images/blog/blogimg3.jpg')
+        'author': '112',
+        'content': 'dsgfdfsgsdfg',
+        blog_cover: require('../../images/blog/blogimg1.jpg'),
+        'TIME': '234234234'
       }, {
-        'title': 'Planning The Perfect Bachelorette...',
-        'username': 'wangwengang',
-        'time': '2019/12/9',
-        src: require('../../images/blog/blogimg4.jpg')
+        'author': '112',
+        'content': 'dsgfdfsgsdfg',
+        blog_cover: require('../../images/blog/blogimg1.jpg'),
+        'TIME': '234234234'
       }, {
-        'title': 'Top 20 Tips for Wedding Invitat...',
-        'username': 'yuzhiwei',
-        'time': '2019/12/10',
-        src: require('../../images/blog/blogimg5.jpg')
-      }, {
-        'title': 'Best Tips for the Bride and Groom...',
-        'username': 'zhaopu',
-        'time': '2019/12/11',
-        src: require('../../images/blog/blogimg6.jpg')
-      }, {
-        'title': '35 Places To Get The Best Wedding...',
-        'username': 'liulong',
-        'time': '2019/12/6',
-        src: require('../../images/blog/blogimg1.jpg')
-      }, {
-        'title': '10 Bridal Bouquets You’ll Fall In Love...',
-        'username': 'wangxianhui',
-        'time': '2019/12/7',
-        src: require('../../images/blog/blogimg2.jpg')
-      }, {
-        'title': 'Tips For Choosing The Right Weddi...',
-        'username': 'chenggang',
-        'time': '2019/12/8',
-        src: require('../../images/blog/blogimg3.jpg')
-      }, {
-        'title': 'Planning The Perfect Bachelorette...',
-        'username': 'wangwengang',
-        'time': '2019/12/9',
-        src: require('../../images/blog/blogimg4.jpg')
-      }, {
-        'title': 'Top 20 Tips for Wedding Invitat...',
-        'username': 'yuzhiwei',
-        'time': '2019/12/10',
-        src: require('../../images/blog/blogimg5.jpg')
-      }, {
-        'title': 'Best Tips for the Bride and Groom...',
-        'username': 'zhaopu',
-        'time': '2019/12/11',
-        src: require('../../images/blog/blogimg6.jpg')
+        'author': '112',
+        'content': 'dsgfdfsgsdfg',
+        blog_cover: require('../../images/blog/blogimg1.jpg'),
+        'TIME': '234234234'
       }],
       // 控制每页显示数据的数数量
       pageSize: 6,
@@ -185,6 +151,7 @@ export default {
       // 总数据
       totalPage: [],
       // 当前显示的数据
+      // 一个数组dataShow接收dataShow的内容
       dataShow: []
     }
   },
@@ -205,7 +172,20 @@ export default {
       this.currentPage = page
       this.dataShow = this.totalPage[this.currentPage]
     }
+    // 渲染blog 页面内容
+    // getlists () {
+    //   // 相当于ajax请求
+    //   axios({
+    //     method: 'get',
+    //     url: 'http://192.168.97.236:3000/blog/'
+    //   }).then((res) => {
+    //     this.dataShow = res.data.data
+    //   })
+    // }
   },
+  // mounted () {
+  //   this.getlists()
+  // },
   created: function () {
     this.pageNum = Math.ceil(this.listArray.length / this.pageSize) || 1
     for (var i = 0; i < this.pageNum; i++) {
