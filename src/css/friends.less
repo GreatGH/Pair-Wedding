@@ -2,6 +2,10 @@
     max-width: 1200px;
     margin: 0 auto;
 }
+// rest
+.leave {
+    padding: 60px 0;
+}
 
 // TOP
 .first {
@@ -231,8 +235,38 @@
     
 } 
 
+// 底部小轮播
+.main-plan {
+    padding: 80px 0;
+    // background: #777c87;
+    text-align: center;
+    .h2 {
+        margin-bottom: 25px;
+        color: #ff4061;
+        font-size: 48px;
+        font-style: italic;
+        font-family: "华文隶书";
+    }
+    .neque {
+        color: #777c87;
+        font-size: 16px;
+        font-weight: 400;
+        width: 67%;
+        line-height: 30px;
+        margin: 15px auto 60px;
+    }
+}
 
-
+@media only screen and (min-width:1200px) {
+    .coteng-box{
+       max-width: 1140px; 
+    }
+}
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+    .coteng-box{
+        max-width: 960px;
+    }
+}
 @media only screen and (max-width: 992px) {
     .single-friend .friend-box .friend-photo-box {
         overflow: unset;
@@ -255,6 +289,9 @@
     }
 }
 @media only screen and (max-width: 576px) {
+    .banner-area {
+        height: 330px;
+    }
     .coteng-box{
         display: flex;
         flex-wrap: wrap;

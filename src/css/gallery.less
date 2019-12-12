@@ -1,65 +1,52 @@
-.section-wadding-container {
-  overflow-x: hidden;
-}
-*{
-  font-size:14px;
-}
 .publictab-content{
- padding:.8rem 0 .5rem;
- width:100%;
- .el-tabs__nav-wrap::after{
-   content: none;
- }
- .publictab-content-title{
-   h2{
-     &.section-hender{
-       font-size:40px;
-       margin-bottom:10px;
-       line-height:30px;
-       color:#ff4061;
-       font-family: "CommercialScript BT";
-       margin-bottom:10px;
-     }
-   }
-   h3{
-     &.publictab-content-detaile{
-       color:#777c87;
-       font-weight:400;
-       width:67%;
-       margin:.15rem 1.6rem .6rem;
-       line-height:.3rem;
-     }
-   }
- }
-  .el-tabs__nav-scroll{
-    margin-left:400px;
+  padding:.8rem 0 .5rem;
+  width:100%;
+  .el-tabs__nav-wrap::after{
+    content: none;
   }
-  .el-tabs__active-bar{
-    text-align: center;
-    background-color:#ff4061;
-  }
-  .el-tabs__item{
-    color:#101127;
-    &.is-active{
-      color:#ff4061;
+  .publictab-content-title{
+    h2{
+      &.section-hender{
+        font-size:40px;
+        margin-bottom:10px;
+        line-height:30px;
+        color:#ff4061;
+        font-family: "CommercialScript BT";
+        margin-bottom:10px;
+      }
+    }
+    h3{
+      &.publictab-content-detaile{
+        color:#777c87;
+        font-weight:400;
+        width:67%;
+        margin:.15rem 1.6rem .6rem;
+        line-height:.3rem;
+      }
     }
   }
-  .tab-content{
-    margin: 0 auto;
-  }
+  .el-tabs__nav-scroll{
+      
+    }
+    .el-tabs__active-bar{
+      text-align: center;
+      background-color:#ff4061;
+    }
+    .el-tabs__item{
+      color:#101127;
+      &.is-active{
+        color:#ff4061;
+      }
+    }
 }
-
 // Tab内容
 .public-tab-content{
   position: relative;
   height:100%;
   width:100%;
   overflow: hidden;
-  // display:flex;
-  // flex-wrap:wrap;
-  margin-left:.4rem;
- 
- .img-box{
+  margin-left:.52rem;
+  .img-box{
     position: absolute;
     top:3.4rem;
     right:5.2rem;
@@ -67,6 +54,9 @@
     box-shadow:0 0 .16rem .02rem rgba(0, 0, 0, .2);
     margin: .2rem 0;
     width:3.50rem;
+    &.small-img{
+      height:310px;
+    }
     &.img-box4{
     position: absolute;
     top:3.4rem;
@@ -113,11 +103,20 @@
       box-shadow:0 0 .16rem 0.02rem rgba(0, 0, 0, .2);
       margin:.15rem .2rem;
       width:3.50rem;
+      &.big-img{
+        height:650px;
+      }
+      &.small-img{
+        height:310px;
+      }
       &.public-img{
         position: absolute;
         left:0.0rem;
         bottom:10px;
         width:3.50rem;
+        &.small-img{
+          height:310px;
+      }
       }
       &.public-img4{
         position: absolute;
@@ -153,7 +152,6 @@
            font-size:50px;
            color:#fff;
         }
-      
       }
     }
   }
@@ -165,11 +163,10 @@
   .img-box:hover .gallery-tab{
     opacity:0.6;
   }
- 
 }
 .public-tab-content-two{
   display: none;
-  padding: .5rem 0 .2rem .6rem;
+  padding: .5rem 0 .2rem .3rem;
   .tab-content-lists li{
     width:40%;
     margin-left:25px;
@@ -184,6 +181,12 @@
     }
     .position-reletive{
       position: relative;
+      &.big-img{
+        height:392px;
+      }
+      &.small-img{
+        height:187px;
+      }
     }
     .gallery-tab-two{
       position: absolute;
@@ -208,6 +211,9 @@
    .tab-content-lists li:hover .gallery-tab-two{
       opacity:0.6;
   }
+}
+.module-store{
+  background:#f9f9f9;
 }
 // Bride顶部
 .Brid-groom-content{
@@ -252,19 +258,17 @@
             font-size:24px;
             color:#ff6e87;
           }
-          background:transparent;
-          padding: 0;
           .container-wrap-list{
             font-size:30px;
             &.active{
                 color:#fff;
               }
-            }
           }
         }
       }
     }
   }
+}
 //Bridebanner
 .banner-wadding-content{
   height:800px;
@@ -279,9 +283,7 @@
       padding:.8rem 0;
       height:100%;
       width:100%;
-      .section-row{
-        margin-left:-0.15rem;
-        margin-right:-0.15rem;
+      
       h2{
         font-family: "CommercialScript BT";
         color:#fefefe;
@@ -295,64 +297,63 @@
         line-height:30px;
         margin:15px auto 60px;
         font-size:24px;
-        margin-left:2.3rem;
         font-family: "CommercialScript BT";
      }
      
     }
-    .el-carousel__item .medium{
-      color: #475669;
-      font-size: 14px;
-      opacity: 0.75;
-      line-height: 200px;
-      margin: 0;
+    .swiper-slide{
+      position: relative;
+      .surface-content{
+        position: absolute;
+        top:9.5%;
+        left:10%;
+        width:80%;
+        height:80%;
+        background:rgba(255, 64, 97, 0.7);
+        text-align: center;
+        color:#fff;
+        padding:1rem .4rem 0 .4rem;
+        h4{
+          font-size:.24rem;
+          border-bottom:0.01rem solid #fff;
+          font-family: "CommercialScript BT";
+          padding-bottom:5px;
+        }
+        .surface-content-title{
+          margin-top:.15rem;
+        }
+        p{
+          margin-top:.15rem;
+          color:#fefefe;
+        }
+        
+      }
     }
     
-    .el-carousel__item:nth-child(2n) {
-      background-color: #99a9bf;
+    .swiper-slide{
+      transition:1s;
+      transform: scale(0.85);
     }
-  
-  .el-carousel__item:nth-child(2n+1) {
-      background-color: #d3dce6;
-  }
-  .el-carousel__item{
-    width:33%;
-    
-  }
-  .el-carousel{
-    &.el-carousel--horizontal{
-      margin-left:180px;
+    .swiper-slide-active,.swiper-slide-duplicate-active {
+      position: relative;
+      overflow: hidden;
+      transform: scale(1.1);
     }
-  }
-  .surface-content{
-    padding:60px;
-    text-align: center;
-    color:#fff;
-    line-height:30px;
-    position: absolute;
-    top:0px;
-    left:0px;
-    font-size:24px;
-    display: inline-block;
-    width:400px;
-    height:400px;
-    background:rgba(255, 64, 97, .7);
-    .surface-content-title{
-      font-size:30px;
-      font-family: "CommercialScript BT";
-    }
-  }
-  }
   }
 }
-
+@media screen and (max-width:900px)  {
+   .surface-content{
+    display: none;
+   }
+}
 @media screen and (max-width:992px)  {
-  
   .public-tab-content{
-  display: none;
+    display: none;
 }
 .public-tab-content-two{
-  display: block;
+    display: block;
 }
+.tab-content{}
+ 
 }
 

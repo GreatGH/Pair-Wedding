@@ -2,7 +2,7 @@
 <div>
   <div class="public-tab-content">
    <div class="position-reletive clearfix">
-      <div class="story-photo-box position-reletive fl">
+      <div class="story-photo-box position-reletive small-img fl">
         <img class="img" :src="Img4"/>
          <div class="gallery-tab">
            <div class="gallery-tab-content">
@@ -10,7 +10,7 @@
            </div>
          </div>
       </div>
-      <div class="story-photo-box position-reletive margin-l-30 fl">
+      <div class="story-photo-box position-reletive margin-l-30 small-img fl">
         <img class="img" :src="Img7"/>
          <div class="gallery-tab">
            <div class="gallery-tab-content">
@@ -23,7 +23,7 @@
   <div class="public-tab-content-two">
     <ul class="tab-content-lists clearfix">
       <li>
-        <div class="overflow position-reletive">
+        <div class="overflow position-reletive small-img">
             <img :src="Img4">
             <div class="gallery-tab-two">
               <div class="gallery-tab-content-two">
@@ -33,7 +33,7 @@
         </div>
       </li>
        <li>
-        <div class="overflow position-reletive">
+        <div class="overflow position-reletive small-img">
             <img :src="Img7">
             <div class="gallery-tab-two">
               <div class="gallery-tab-content-two">
@@ -61,6 +61,6 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang='less' scoped>
+@import '../../css/gallery.less';
 </style>

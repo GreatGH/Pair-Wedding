@@ -6,28 +6,30 @@
           <div class="friend-box">
             <div class="friend-photo-box photo-box">
               <Bounin>
-                <div class="friend-p-wrap" slot="bounceInDown" v-if="show">
+                <div class="friend-p-wrap" slot="bounceIn" v-if="show">
                    <img :src=" apiimg + item.img"/>
                 </div>
               </Bounin>
             </div>
           </div>
-          <div class="friend-content text-center">
-            <h3 class="luck">{{item.NAME}}</h3>
-            <p class="identify">{{item.groomsman}}</p>
-            <ul>
-              <li class="icon-fri fa fa-facebook"></li>
-              <li class="icon-fri fa fa-twitter"></li>
-              <li class="icon-fri fa fa-linkedin"></li>
-            </ul>
-          </div>
+          <Bounin>
+            <div class="friend-content text-center" slot="bounceIn" v-if="show">
+              <h3 class="luck">{{item.NAME}}</h3>
+              <p class="identify">{{item.groomsman}}</p>
+              <ul>
+                <li class="icon-fri fa fa-facebook"></li>
+                <li class="icon-fri fa fa-twitter"></li>
+                <li class="icon-fri fa fa-linkedin"></li>
+              </ul>
+            </div>
+          </Bounin>
         </div>
       </div>
     </div>
 </template>
 
 <script>
-import Bounin from 'comp/location/slot/BounceInDown'
+import Bounin from 'comp/location/slot/BounceIn'
 import smallss from './first-small'
 import Axios from 'axios'
 export default {
