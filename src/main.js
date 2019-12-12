@@ -7,6 +7,7 @@ import {axiosRequest} from '@/Common/axios'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'swiper/css/swiper.min.css'
 import VueAMap from 'vue-amap'
+import myvalidate from '@/Common/myvalidate'
 
 // 公共样式
 import '@/Common/animate.min'
@@ -19,6 +20,7 @@ Vue.use(ElementUI)
 Vue.use(VueAMap)
 
 Vue.prototype.axiosRequest = axiosRequest
+Vue.prototype.myvalidate = myvalidate
 
 // MapType: 卫星地图切换
 // ToolBar: 缩放工具栏

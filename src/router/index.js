@@ -21,6 +21,7 @@ const ErrorPages = () => import('comp/pages/ErrorPages')
 const SinglePages = () => import('comp/pages/SinglePages')
 const Location = () => import('comp/location/Location')
 const ShopCar = () => import('comp/location/ShopCar')
+const Login = () => import('comp/location/Login')
 
 Vue.use(Router)
 
@@ -162,7 +163,6 @@ const finalChildren = [
 */
 
 export default new Router({
-  mode: 'history',
   // scrollBehavior: (to, from, savedPosition) => {
   //   if (savedPosition) {
   //     return savedPosition
@@ -182,6 +182,9 @@ export default new Router({
     }, {
       path: '/shopcar',
       component: ShopCar
+    }, {
+      path: '/login',
+      component: Login
     }
   ]
 })
