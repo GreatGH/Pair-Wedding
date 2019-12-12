@@ -28,6 +28,7 @@ let getters = {
 
 export default new Vuex.Store({
   state: {
+    story: home,
     mainRouters: [{
       nowPage: 'HOME',
       route: '/home',
