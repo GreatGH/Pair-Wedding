@@ -14,7 +14,7 @@
                         <div class="friend-says-img">
                             <img :src=" apiimg + item.img"/>
                             <div class="backticks">
-                                <img :src=" apiimg + item.img"/>
+                                <img :src=" apiimg +item.img"/>
                             </div>
                         </div>
                         <div class="flex-center-w">

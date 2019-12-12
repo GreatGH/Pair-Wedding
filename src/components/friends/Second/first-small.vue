@@ -15,9 +15,15 @@
             <p class="identify">{{item.groomsman}}</p>
             <div>
               <ul>
-                <li class="icon-fri fa fa-facebook"></li>
-                <li class="icon-fri fa fa-twitter"></li>
-                <li class="icon-fri fa fa-linkedin"></li>
+                <li class="fl">
+                  <a href="/rsvp" class="icon-fri fa fa-facebook"></a>
+                </li>
+                <li class="fl">
+                  <a href="/rsvp" class="icon-fri fa fa-twitter"></a>
+                </li>
+                <li class="fl">
+                  <a  href="https://github.com/GreatGH/Pair-Wedding/commits/master" class="icon-fri fa fa-linkedin"></a>
+                </li>
               </ul>
             </div>
           </div>

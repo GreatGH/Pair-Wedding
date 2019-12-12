@@ -1,54 +1,51 @@
 <template>
-  <div class="home-container">
-    <div class="row-model flex-center-w">
-      <div class="story-out-box">
+  <div class="home-container" >
+    <div  class="row-model flex-center-w"  >
+      <div :key="index" class="story-out-box" v-for="(item,index) in lists.slice(0, 1)">
         <div class="story-box story-left">
           <div class="story-content-wrap">
             <div class="story-photo-box position-relative">
-              <img :src="Story1" alt="爱情故事图片">
+              <img :src="apiimg + item.story_img" alt="爱情故事图片">
             </div>
             <div class="story-text text-right">
-              <h4>Our First Proposed <span>01</span></h4>
-              <h5>23 october 2019</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi odio arcu, aliquet quis sem nec, tristique varius purus. Nulla facilisi. </p>
+              <h4>{{item.title}}<span>01</span></h4>
+              <h5>{{item.TIME}}</h5>
+              <p>{{item.story}}</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="middle-box2">
+      <div class="middle-box2" >
         <div class="story-divider-img flex-center">
           <img :src="Bgflower"/>
         </div>
       </div>
-      <div class="story-out-box">
+      <div :key="'info' + index" class="story-out-box" v-for="(item,index) in lists.slice(1, 2)">
         <div class="story-box story-right">
           <div class="story-content-wrap">
-            <div class="story-photo-box position-relative show-mobile-device">
-              <img :src="Story2" alt="图片" />
-            </div>
             <div class="story-text text-left two">
-              <h4>Our First Meet <span>02</span></h4>
-              <h5>20 sept 2019</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi odio arcu, aliquet quis sem nec, tristique varius purus. Nulla facilisi. </p>
+              <h4>{{item.title}}<span>02</span></h4>
+              <h5>{{item.TIME}}</h5>
+              <p>{{item.story}}</p>
             </div>
             <div class="story-photo-box position-relative show-large-device">
-              <img :src="Story2" alt="图片" />
+               <img :src="apiimg + item.story_img"  alt="图片" />
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="row-model flex-center-w">
-      <div class="story-out-box">
+      <div :key="'infot' + index" class="story-out-box" v-for="(item,index) in lists.slice(2, 3)">
         <div class="story-box story-left">
           <div class="story-content-wrap">
             <div class="story-photo-box position-relative">
-              <img :src="Story3" alt="爱情故事图片">
+              <img :src="apiimg + item.story_img"  alt="图片" />
             </div>
             <div class="story-text text-right">
-              <h4>Our First Proposed <span>03</span></h4>
-              <h5>23 october 2019</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi odio arcu, aliquet quis sem nec, tristique varius purus. Nulla facilisi. </p>
+              <h4>{{item.title}}<span>03</span></h4>
+              <h5>{{item.TIME}}</h5>
+              <p>{{item.story}}</p>
             </div>
           </div>
         </div>
@@ -58,19 +55,16 @@
           <img :src="Bgflower"/>
         </div>
       </div>
-      <div class="story-out-box">
+      <div :key="'infots' + index" class="story-out-box" v-for="(item,index) in lists.slice(3, 4)">
         <div class="story-box story-right">
           <div class="story-content-wrap">
-            <div class="story-photo-box position-relative show-mobile-device">
-              <img :src="Story4" alt="图片" />
-            </div>
             <div class="story-text text-left two">
-              <h4>Our First Meet <span>04</span></h4>
-              <h5>20 sept 2019</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi odio arcu, aliquet quis sem nec, tristique varius purus. Nulla facilisi. </p>
+              <h4>{{item.title}}<span>04</span></h4>
+              <h5>{{item.TIME}}</h5>
+              <p>{{item.story}}</p>
             </div>
             <div class="story-photo-box position-relative show-large-device">
-              <img :src="Story4" alt="图片" />
+              <img :src="apiimg + item.story_img"  alt="图片" />
             </div>
           </div>
         </div>
@@ -81,20 +75,28 @@
 
 <script>
 import '../../Common/fontSize.js'
-import Story1 from '../../images/home/1.jpg'
-import Story2 from '../../images/home/2.jpg'
-import Story3 from '../../images/home/3.jpg'
-import Story4 from '../../images/home/4.jpg'
 import Bgflower from '../../images/home/story-divider.png'
+import Axios from 'axios'
 export default {
   data () {
     return {
-      Story1,
-      Story2,
-      Story3,
-      Story4,
-      Bgflower
+      Bgflower,
+      lists: [],
+      api: 'http://192.168.97.236:3000/lovestory/',
+      apiimg: 'http://192.168.97.236:3000/home/'
     }
+  },
+  mounted () {
+    Axios({
+      url: this.api,
+      method: 'get'
+    }).then((res) => {
+      res = res.data
+      if (res.status === 200) {
+        this.lists = res.data
+        console.log(this.lists)
+      }
+    })
   }
 }
 </script>

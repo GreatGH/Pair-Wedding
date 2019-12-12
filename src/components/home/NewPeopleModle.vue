@@ -1,11 +1,11 @@
 <template>
   <div class="home-container">
-      <div class="row-Module flex-center-w">
+      <div :key="index" class="row-Module flex-center-w" v-for="(item,index) in lists">
         <div class="pic-out-box frist-box">
             <div class="bride-groom-box">
               <div class="bride-groom-photo position-relative">
                 <div class="bride-photo-box position-relative">
-                  <img :src="BridePhoto1" alt="新娘图片">
+                   <img :src="apiimg + item.bride_img"  alt="新娘图片"/>
                 </div>
                 <div class="bride-border-box">
                   <span class="bride-groom-border"></span>
@@ -15,8 +15,8 @@
                 </div>
               </div>
               <div class="bride-groom-content">
-                <a href="#"><h3 class="transion-ease5 color-main">Alice</h3></a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi odio arcu, aliquet quis sem nec, tristique varius purus. Nulla facilisi. Integer pretium tortor nec purus sollicitudin condimentum.</p>
+                <a href="#"><h3 class="transion-ease5 color-main">{{item.bride}}</h3></a>
+                <p>{{item.bride_introduce}}</p>
                 <div class="bride-groom-social text-center">
                   <ul>
                     <li>
@@ -44,7 +44,7 @@
             <div class="bride-groom-box">
               <div class="bride-groom-photo position-relative">
                 <div class="bride-photo-box position-relative">
-                  <img :src="BridePhoto2" alt="新郎图片">
+                  <img :src="apiimg + item.groom_img"  alt="新郎图片"/>
                 </div>
                 <div class="bride-border-box">
                   <span class="bride-groom-border"></span>
@@ -54,8 +54,8 @@
                 </div>
               </div>
               <div class="bride-groom-content">
-                <a href="#"><h3 class="transion-ease5 color-main">Mark</h3></a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi odio arcu, aliquet quis sem nec, tristique varius purus. Nulla facilisi. Integer pretium tortor nec purus sollicitudin condimentum.</p>
+                <a href="#"><h3 class="transion-ease5 color-main">{{item.groom}}</h3></a>
+                <p>{{item.groom_introduce}}</p>
                 <div class="bride-groom-social text-center">
                   <ul>
                     <li>
@@ -80,13 +80,29 @@
 import BridePhoto1 from '../../images/home/bride-photo.jpg'
 import BrideLove from '../../images/home/bride-groom-divider-love.png'
 import BridePhoto2 from '../../images/home/groom-photo.jpg'
+import Axios from 'axios'
 export default {
   data () {
     return {
       BridePhoto1,
       BridePhoto2,
-      BrideLove
+      BrideLove,
+      lists: [],
+      api: 'http://192.168.97.236:3000/Pair/',
+      apiimg: 'http://192.168.97.236:3000/Home/'
     }
+  },
+  mounted () {
+    Axios({
+      url: this.api,
+      method: 'get'
+    }).then((res) => {
+      res = res.data
+      if (res.status === 200) {
+        this.lists = res.data
+        console.log(this.lists)
+      }
+    })
   }
 }
 </script>
