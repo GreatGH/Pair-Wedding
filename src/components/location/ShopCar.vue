@@ -20,10 +20,30 @@
         </div>
         <div class="header-nav">{{item.position}}</div>
         <div class="header-nav">
-          <img :src="item.img" alt="">
+          <img :src="item.img" alt="" @click="changeSize">
         </div>
         <div class="header-nav">{{item.price | price}}</div>
       </div>
+      <div class="header buy">
+        <div @click="judgeToken">立即购买</div>
+      </div>
+    </div>
+    <div class="pic-model" v-show="show">
+      <div class="outer">
+        <div class="inner">
+          <img src="~img/z-public/shopcar-bg.jpg" alt="">
+          <img src="~img/z-public/shopcar-bg.jpg" alt="">
+          <img src="~img/z-public/shopcar-bg.jpg" alt="">
+          <img src="~img/z-public/shopcar-bg.jpg" alt="">
+        </div>
+      </div>
+      <div class="left-arrow arrow" @click="arrowClick(-1)">
+        <i class="fa fa-angle-left"></i>
+      </div>
+      <div class="right-arrow arrow" @click="arrowClick(1)">
+        <i class="fa fa-angle-right"></i>
+      </div>
+      <div class="close" @click="show =false">X</div>
     </div>
   </div>
 </template>
@@ -33,6 +53,8 @@ export default {
   data () {
     return {
       index: 0,
+      carosoIndex: 0,
+      show: false,
       allChoose: false,
       isChoosed: [false, false, false],
       choose: ['海滩', '森林', '小路'],
@@ -40,17 +62,22 @@ export default {
       menuheader: ['拍摄地点', '预览', '价格'],
       shops: [{
         position: '海滩',
-        img: '',
+        img: 'https://www.17sucai.com/preview/1424582/2019-12-02/wedding/assets/img/footer-img/gallery5.jpg',
+        price: 12988.99
+      }, {
+        position: '森林',
+        img: 'https://www.17sucai.com/preview/1424582/2019-12-02/wedding/assets/img/footer-img/gallery6.jpg',
+        price: 6988.99
+      }, {
+        position: '小路',
+        img: 'https://www.17sucai.com/preview/1424582/2019-12-02/wedding/assets/img/footer-img/gallery3.jpg',
         price: 9988.99
       }, {
-        position: '海滩',
+        position: '自定义',
         img: '',
-        price: 9988.99
-      }, {
-        position: '海滩',
-        img: '',
-        price: 9988.99
-      }]
+        price: 16888.99
+      }],
+      modelImg: []
     }
   },
   methods: {
@@ -60,77 +87,71 @@ export default {
     },
     changeChoose (index) {
       this.isChoosed.splice(index, 1, !this.isChoosed[index])
-      console.log(1)
       if (this.isChoosed.filter(item => item).length === this.isChoosed.length) {
-        console.log(2)
         this.allChoose = true
       } else {
-        console.log(3)
         this.allChoose = false
       }
+    },
+    changeSize () {
+      this.show = true
+      this.axiosRequest({
+        url: '',
+        method: 'get'
+      }).then(res => {
+        this.modelImg = res.data.data
+        let modelImg = document.querySelectorAll('.pic-model img')
+        modelImg.forEach(item => {
+          item.style.width = item.parentNode.parentNode.clientWidth
+        })
+        modelImg[0].parentNode.style.width = modelImg[0].clientWidth * modelImg.length
+      }).catch(err => {
+        console.log(err)
+      })
+    },
+    arrowClick (direct) {
+      let arrowImg = document.querySelectorAll('.pic-model img')
+      if ((direct === 1 && this.index < arrowImg.length - 1) || (direct === -1 && this.index > 0)) {
+        this.index += direct
+      }
+      arrowImg[0].parentNode.style.left = -arrowImg[0].clientWidth * this.index + 'px'
+    },
+    judgeToken () {
+      if (this.$store.state.token === '') {
+        this.$router.push('login')
+        return
+      }
+      let bought = []
+      bought = this.isChoosed.map((item, index) => {
+        if (item) {
+          return index + 1
+        }
+      }).filter(item => item)
+      this.axiosRequest({
+        url: '/display',
+        method: 'post'
+      }).then(res => {
+        console.log('buy：' + res.data.data)
+      }).catch(err => {
+        console.log(err)
+      })
+      console.log(bought)
     }
   },
   filters: {
     price (num) {
       return '$' + num.toFixed(2)
     }
+  },
+  mounted () {
+    document.querySelectorAll('.header input[type=checkbox]').forEach(item => {
+      this.isChoosed.push(false)
+    })
+    this.isChoosed.shift()
   }
 }
 </script>
 
 <style lang="less" scoped>
-.shopcar {
-  .shopcar-title {
-    background: url(~img/z-public/shopcar-banner.jpg) no-repeat;
-    background-size: 100%;
-    display: flex;
-    justify-content: center;
-    line-height: 70px;
-    box-shadow: 0 2px 6px 1px rgba(0, 0, 0, .5);
-    >div {
-      img {
-        vertical-align: middle;
-      }
-      padding: 0 20px;
-      color: #e2e2e2;
-      letter-spacing: 2px;
-    }
-  }
-  .menu {
-    >div {
-      padding: 10px 20px;
-      &.header {
-        display: flex;
-
-        >div {
-          font-size: 20px;
-          text-align: center;
-          &.check-all {
-            width: 10%;
-            text-align: left;
-            >input {
-              appearance: none;
-              position: relative;
-              width: 20px;
-              height: 20px;
-              border: 1px solid black;
-              &.show::after {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                left: 0;
-                top: 0;
-                display: block;
-                content: '\2714';
-              }
-            }
-          }
-          &.header-nav {
-            width: 30%;
-          }
-        }
-      }
-    }
-  }
-}
+@import '~css/shopcar.less';
 </style>

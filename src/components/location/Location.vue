@@ -1,11 +1,11 @@
 <template>
   <div class="locations">
     <div class="banner">
-      <bounceIn>
-        <div class="img" slot="bounceIn" v-if="$store.state.show">
-          <img src="~img/z-public/location-banner.jpg" alt="">
+        <div class="img">
+          <bounceIn>
+            <img src="~img/z-public/location-banner.jpg" alt="" slot="bounceIn" v-if="$store.state.show">
+          </bounceIn>
         </div>
-      </bounceIn>
       <div class="title">
         <div>
           <bounceInDown>
