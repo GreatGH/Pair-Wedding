@@ -5,17 +5,25 @@
       <div class="section-overlay d-flex">
          <div class="container">
             <div class="page-banner-wrap">
-               <h1 class="page-banner-heading">Single Blog</h1>
-               <div>
-                  <ul class="breadcrumb clearfix">
-                     <li class="breadcrumb-item text-capitalize">
-                        <router-link to="/home">Home</router-link>
-                     </li>
-                     <li class="breadcrumb-item text-capitalize active">
-                        Blog Single
-                     </li>
-                  </ul>
-               </div>
+               <BounceInDown>
+                 <div slot="bounceInDown" v-if="show">
+                   <h1 class="page-banner-heading">Single Blog</h1>
+                 </div>
+               </BounceInDown>
+               <BounceIn>
+                 <div slot="bounceIn" v-if="show">
+                    <div>
+                      <ul class="breadcrumb clearfix">
+                        <li class="breadcrumb-item text-capitalize">
+                            <router-link to="/home">Home</router-link>
+                        </li>
+                        <li class="breadcrumb-item text-capitalize active">
+                            Blog Single
+                        </li>
+                      </ul>
+                  </div>
+                 </div>
+               </BounceIn>
             </div>
          </div>
       </div>
@@ -27,18 +35,18 @@
         <div class="row clearfix">
             <div class="single-blog-details fl">
                 <div id="content">
-                   <div class="block-1">
+                   <div  class="block-1" >
                      <div class="card">
-                        <img src="../../images/blog/single-blog-details-img.jpg"/>
+                        <img :src="dataShow.img1"/>
                         <div class="card-footer d-flex">
                           <div class="card-footer-box d-flex">
                             <div class="author-box">
-                              <img src="../../images/blog/blog-writer.png" />
-                              <span>by John Doe</span>
+                              <img :src="dataShow.img2" />
+                              <span>{{dataShow.author}}</span>
                             </div>
                             <div class="blog-date">
                                <i class="fa fa-calendar"></i>
-                                06 Sep, 2019
+                                {{dataShow.TIME}}
                             </div>
                             <div class="card-footer-share">
                               <i class="el-icon-document-copy"></i>
@@ -51,7 +59,7 @@
                           </div>
                         </div>
                         <div class="card-body">
-                          <h2 class="card-title text-capitalize">Tips For Choosing The Right Wedding Dress</h2>
+                          <h2 class="card-title text-capitalize">{{dataShow.title}}</h2>
                         </div>
                      </div>
                      <p>
@@ -59,7 +67,7 @@
                       ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.
                      </p>
                      <div class="blog-content-media">
-                       <img src="../../images/blog/block-2-1.jpg">
+                       <img :src="dataShow.img2">
                      </div>
                      <p>
                        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
@@ -125,7 +133,7 @@
                      <h2>3 Comments</h2>
                      <div class="blog-comments-section">
                        <div class="main-comment">
-                         <div class="about-author d-flex justify-content-between">
+                         <div class="about-author d-flex fjustify-content-between">
                            <div class="author-img">
                              <img src="../../images/blog/blog-details-author-65-2.png" />
                            </div>
@@ -161,22 +169,20 @@
                            </div>
                          </div>
                        </div>
-                       <div class="main-comment">
-                         <div class="about-author d-flex justify-content-between">
+                       <div :key="index" v-for="(item, index) in commentlist" class="main-comment">
+                         <div class="about-author d-flex flex-betwe">
                            <div class="author-img">
-                             <img src="../../images/blog/blog-details-author-65-1.png" />
+                             <img :src="item.head" />
                            </div>
                            <div class="author-details">
                              <div class="d-flex justify-content-between align-items-center">
                                <h4 class="author-name">
-                                 Rosta Doe
-                                 <span class="comment-date-time">13 June, 2019 at 07:30</span>
+                                 {{item.name}}
+                                 <span class="comment-date-time">{{item.time}}</span>
                                </h4>
                                <span class="reply-btn">Reply</span>
                              </div>
-                             <p>
-                               Ut enim ad minima veniam, quis nostrum exerci tationem ullam corporis suscipit den ser mori ten.
-                             </p>
+                             <p>{{item.content}}</p>
                            </div>
                          </div>
                        </div>
@@ -184,37 +190,15 @@
                      <div class="leave-comment-area">
                        <h2>Leave a Comment</h2>
                        <!-- form表单验证 -->
-                       <el-form label-position="top" label-width="80px" :model="Form" ref="Form">
+                       <el-form label-position="top" :rules="rules" label-width="80px" :model="Form" ref="Form">
                           <div class="row">
-                            <el-form-item
-                              label="Full Name"
-                              prop="name"
-                              :rules="{
-                                required: true, message: '用户名不能为空！', trigger: 'blur'
-                              }"
-                              class="col-sm-6"
-                            >
+                            <el-form-item  label="Full Name"  prop="name"  class="col-sm-6">
                               <el-input v-model="Form.name"></el-input>
                             </el-form-item>
-                            <el-form-item
-                              prop="email"
-                              label="Email"
-                              :rules="[
-                                { required: true, message: '请输入邮箱地址！', trigger: 'blur' },
-                                { type: 'email', message: '请输入正确的邮箱地址！', trigger: ['blur', 'change'] }
-                              ]"
-                              class="col-sm-6"
-                            >
+                            <el-form-item  prop="email"  label="Email"  class="col-sm-6">
                               <el-input v-model="Form.email"></el-input>
                             </el-form-item>
-                           <el-form-item
-                              prop="content"
-                              label="Content"
-                              :rules="{
-                                required: true, message: '内容不能为空！', trigger: 'blur'
-                              }"
-                              class="col-sm-12"
-                            >
+                           <el-form-item  prop="content"  label="Content"  class="col-sm-12">
                               <el-input v-model="Form.content"></el-input>
                             </el-form-item>
                             <el-form-item class="col-sm-12">
@@ -337,6 +321,11 @@
 </template>
 
 <script>
+import axios from 'axios'
+import BounceInLeft from 'comp/location/slot/BounceInLeft'
+import BounceIn from 'comp/location/slot/BounceIn'
+import BounceInDown from 'comp/location/slot/BounceInDown'
+import BounceInRight from 'comp/location/slot/BounceInRight'
 export default {
   data () {
     return {
@@ -369,23 +358,87 @@ export default {
         name: '',
         email: '',
         content: ''
+      },
+      show: false,
+      api: 'http://192.168.97.236:3000/',
+      // block
+      dataShow: [],
+      // 评论
+      commentlist: [],
+      rules: {
+        name: [
+          {required: true, message: '用户名不能为空！', trigger: 'blur'}
+        ],
+        email: [
+          {required: true, message: '请输入邮箱地址！', trigger: 'blur'},
+          {type: 'email', message: '请输入正确的邮箱地址！', trigger: ['blur']}
+        ],
+        content: [
+          {required: true, message: '内容不能为空！', trigger: 'blur'}
+        ]
       }
     }
   },
+  components: {
+    BounceInLeft,
+    BounceIn,
+    BounceInRight,
+    BounceInDown
+  },
   methods: {
+    // block数据渲染 content内容
+    // 提交按钮
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('submit!')
+          console.log(111)
+          axios({
+            method: 'post',
+            url: this.api + 'submitmessage',
+            data: {
+              name: this.Form.name,
+              email: this.Form.email,
+              content: this.Form.content
+            }
+          }).then((res) => {
+            alert('成功')
+            if (res.status === 200) {
+              console.log('success')
+            }
+          })
         } else {
-          console.log('error submit!!')
           return false
         }
       })
     },
+    // 取消按钮
     resetForm (formName) {
       this.$refs[formName].resetFields()
+    },
+    // 评论内容渲染
+    comment () {
+      axios({
+        method: 'get',
+        url: this.api + 'comments'
+      }).then((res) => {
+        this.commentlist = res.data.data
+        // console.log(this.commentlist)
+      })
     }
+  },
+  mounted () {
+    // this.getlists()
+    this.show = true
+    this.comment()
+    axios({
+      method: 'get',
+      url: this.api + 'blog/'
+    }).then((res) => {
+      if (res.status === 200) {
+        this.dataShow = res.data.data[0]
+      }
+    })
+    this.dataShow = this.$store.state.blog.dataShow[0]
   }
 }
 </script>
