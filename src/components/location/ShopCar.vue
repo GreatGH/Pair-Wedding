@@ -117,8 +117,8 @@ export default {
       arrowImg[0].parentNode.style.left = -arrowImg[0].clientWidth * this.index + 'px'
     },
     judgeToken () {
-      if (this.$store.state.token === '') {
-        this.$router.push('login')
+      if (this.$store.state.token !== 'login') {
+        this.$router.replace({path: '/login'})
         return
       }
       let bought = []
