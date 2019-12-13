@@ -64,7 +64,6 @@ export default {
       res = res.data
       if (res.status === 200) {
         this.storyLists = res.data
-        // console.log(res.data)
       }
     })
     this.storyLists = this.$store.state.home.storyLists

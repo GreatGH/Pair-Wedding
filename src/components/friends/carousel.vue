@@ -50,7 +50,6 @@ export default {
         this.firstlist = res.data
       }
     })
-    // this.friendscou = this.$store.state.rsvp.friendscou
     this.firstlist = this.$store.state.rsvp.firstlist
   }
 }
