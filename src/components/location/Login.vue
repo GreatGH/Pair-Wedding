@@ -10,7 +10,7 @@
         </div>
         <div>
           <div class="email">
-            <input type="text" placeholder="请输入手机号" key="login-email" @input="judge" name="email">
+            <input type="text" placeholder="请输入邮箱" key="login-email" @input="judge" name="email">
           </div>
           <div class="pwd">
             <input type="password" placeholder="请输入密码" @input="judge" key="login-pwd" name="pwd">
@@ -25,7 +25,7 @@
         </div>
         <div>
           <div class="email">
-            <input type="text" placeholder="请输入手机号" key="register-email" @input="judge" name="email">
+            <input type="text" placeholder="请输入邮箱" key="register-email" @input="judge" name="email">
           </div>
           <div class="code">
             <div>
@@ -37,7 +37,7 @@
             <input type="password" @input="judge" placeholder="请输入密码" key="register-pwd" name="pwd">
           </div>
           <div class="repwd">
-            <input type="password" @input="judge" placeholder="请再次输入密码" key="register-repwd" name="pwd">
+            <input type="password" @input="judge" placeholder="请再次输入密码" key="register-repwd" name="repwd">
           </div>
           <div class="login-btn" @click="allJudge">立即注册</div>
           <span class="toregister" @click="show = !show">立即登录</span>
@@ -50,6 +50,7 @@
 
 <script>
 import flipInY from 'comp/location/slot/FlipInY'
+import arr1 from './heart'
 export default {
   data () {
     return {
@@ -70,21 +71,23 @@ export default {
     allJudge (e) {
       let inp = e.target.parentNode.querySelectorAll('input')
       let result = []
-      let data = []
+      let data = {}
       inp.forEach(item => {
         result.push(this.myvalidate({
           name: item.getAttribute('name'),
           value: item.value,
           el: item
         }))
-        data.push(item.value)
+        if (item.getAttribute('name') !== 'repwd') {
+          data[item.getAttribute('name')] = item.value
+        }
       })
       if (result.filter(item => !item).length > 0) {
         console.log(result)
       } else {
         let url = ''
         if (this.show === true) {
-          url = '/login'
+          url = '/userlogin'
         } else {
           url = '/register'
         }
@@ -94,9 +97,13 @@ export default {
           data: data,
           method: 'post'
         }).then(res => {
+          if (this.show === false && res.data.status === 200) {
+            this.show = true
+          }
           console.log(res)
-          if (this.show === true) {
-            this.$router.push = '/shopcar'
+          if (this.show === true && res.data.status === 200) {
+            console.log(this.$router)
+            this.$router.replace({path: '/shopcar'})
           }
         }).catch(err => {
           console.log(err)
@@ -109,16 +116,82 @@ export default {
       valida.forEach(item => {
         item.parentNode.removeChild(item)
       })
+    },
+    canvas () {
+      let canvas = document.querySelector('#love')
+      let ctx = canvas.getContext('2d')
+      let canvasDiv = canvas.parentNode
+      console.log(canvasDiv.clientWidth)
+      canvas.setAttribute('width', canvasDiv.clientWidth)
+      canvas.setAttribute('height', canvasDiv.clientHeight)
+      setTimeout(() => {
+        arr1.forEach((item, index) => {
+          setTimeout(() => {
+            for (let i = 0; i < 20; i++) {
+              let a = Math.floor(Math.random() * 50 - 25)
+              let b = Math.floor(Math.random() * 50 - 25)
+              let c1 = Math.floor(Math.random() * 200 + 50)
+              let c2 = Math.floor(Math.random() * 200 + 50)
+              let c3 = Math.floor(Math.random() * 200 + 50)
+              ctx.beginPath()
+              ctx.moveTo(item.x, item.y)
+              ctx.lineTo(item.x - a, item.y - b)
+              ctx.setLineDash([0])
+              ctx.strokeStyle = 'rgb(' + c1 + ', ' + c2 + ', ' + c3 + ')'
+              ctx.stroke()
+            }
+          }, 1000)
+        })
+      }, 500)
+      // canvasDiv.onmousemove = e => {
+      //   let arr = []
+      //   let x = e.clientX
+      //   let y = e.clientY
+      //   for (let i = 0; i < 20; i++) {
+      //     let a = Math.floor(Math.random() * 50 - 25)
+      //     let b = Math.floor(Math.random() * 50 - 25)
+      //     let c1 = Math.floor(Math.random() * 100 + 50)
+      //     let c2 = Math.floor(Math.random() * 100 + 50)
+      //     let c3 = Math.floor(Math.random() * 100 + 50)
+      //     arr.push({
+      //       a: x - a,
+      //       b: y - b
+      //     })
+      //     ctx.beginPath()
+      //     ctx.moveTo(x, y)
+      //     ctx.lineTo(x - a, y - b)
+      //     ctx.setLineDash([0])
+      //     ctx.strokeStyle = 'rgb(' + c1 + ', ' + c2 + ', ' + c3 + ')'
+      //     ctx.stroke()
+      //   }
+      //   arr.map((item, index) => {
+      //     setTimeout(() => {
+      //       ctx.beginPath()
+      //       ctx.moveTo(x, y)
+      //       ctx.lineTo(item.a, item.b)
+      //       ctx.strokeStyle = 'transparent'
+      //       ctx.stroke()
+      //     }, 100)
+      //     return false
+      //   })
+      // }
     }
   },
   mounted () {
     this.show = !this.show
+    this.canvas()
   }
 }
 </script>
 
 <style lang="less" scoped>
 .login {
+  #love {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
   .top-banner {
     width: 100%;
     height: 100%;
@@ -145,7 +218,7 @@ export default {
     padding: 50px 30px;
     border-radius: 10px;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

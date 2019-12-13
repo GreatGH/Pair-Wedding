@@ -20,7 +20,7 @@ let validate = options => {
     if (options.value === '') {
       result.status = false
       result.msg = '密码不能为空'
-    } else if (options.value.length >= 16 || options.value.length <= 8) {
+    } else if (options.value.length > 16 || options.value.length < 8) {
       result.status = false
       result.msg = '密码长度为8-16位'
     } else {
@@ -37,6 +37,18 @@ let validate = options => {
     } else {
       result.status = false
       result.msg = '请输入正确邮箱'
+    }
+  } else if (options.name === 'repwd') {
+    let pwdvalue = options.el.parentNode.parentNode.querySelector('[name=pwd]')
+    if (options.value === '') {
+      result.status = false
+      result.msg = '密码不能为空'
+    } else if (options.value !== pwdvalue.value) {
+      result.status = false
+      result.msg = '前后密码不一致'
+    } else {
+      result.status = true
+      result.msg = ''
     }
   } else {
     if (options.value === '') {
