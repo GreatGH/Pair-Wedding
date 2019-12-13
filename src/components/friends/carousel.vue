@@ -10,11 +10,11 @@
               </div>
               <div class="carousel carousel-box-model">
                 <el-carousel :interval="5000" indicator-position="outside">
-                    <el-carousel-item :key="index" v-for="(item,index) in list.slice(4, 7)">
+                    <el-carousel-item :key="index" v-for="(item,index) in firstlist.slice(4, 7)">
                         <div class="friend-says-img">
-                            <img :src=" apiimg + item.img"/>
+                            <img :src="item.img"/>
                             <div class="backticks">
-                                <img :src=" apiimg + item.img"/>
+                                <img :src="item.img"/>
                             </div>
                         </div>
                         <div class="flex-center-w">
@@ -34,9 +34,7 @@ import Axios from 'axios'
 export default {
   data () {
     return {
-      list: [],
-      apiimg: 'http://192.168.97.236:3000/friends/',
-      api: 'http://192.168.97.236:3000/friend'
+      firstlist: []
     }
   },
   components: {
@@ -44,14 +42,16 @@ export default {
   },
   mounted () {
     Axios({
-      url: this.api,
+      url: 'http://192.168.97.236:3000/friend',
       method: 'get'
     }).then((res) => {
       res = res.data
       if (res.status === 200) {
-        this.list = res.data
+        this.firstlist = res.data
       }
     })
+    // this.friendscou = this.$store.state.rsvp.friendscou
+    this.firstlist = this.$store.state.rsvp.firstlist
   }
 }
 </script>

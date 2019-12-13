@@ -6,10 +6,10 @@
         <div class="container-wrap">
           <h1>Bride and Groom</h1>
           <ul class="container-wrap-lists clearfix">
-            <li class="container-wrap-list fl margin-r-5">
+            <li class="container-wrap-list fl">
               <router-link to="/home">Home</router-link>
             </li>
-            <li class="container-wrap-list active fl margin-l-5">Bride & Groom</li>
+            <li class="container-wrap-list active fl">Bride & Groom</li>
           </ul>
         </div>
       </div>
@@ -18,22 +18,25 @@
   <div class="margin-t-40">
     <NewPeoPleModule></NewPeoPleModule>
   </div>
-  <BrideBanner></BrideBanner>
-  <StoryModel></StoryModel>
+  <!-- <BrideBanner></BrideBanner> -->
+  <div class="module-store">
+    <StoryModel></StoryModel>
+  </div>
   <PublicTab></PublicTab>
 </div>
 </template>
 
 <script>
+import '../../Common/fontSize'
 import PublicTab from './publicTab.vue'
-import BrideBanner from './Bridebanner.vue'
+// import BrideBanner from './Bridebanner.vue'
 import StoryModel from '../home/storymodel'
 import NewPeoPleModule from '../home/NewPeopleModle'
 export default {
   components: {
     PublicTab,
     StoryModel,
-    BrideBanner,
+    // BrideBanner,
     NewPeoPleModule
   }
 }

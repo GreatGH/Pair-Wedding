@@ -54,7 +54,7 @@ export default {
   mounted () {
     // swiper 插件
     let swiper = new Swiper('.swiper-container', {
-      autoplay: true,
+      // autoplay: true,
       loop: true,
       slidesPerView: 'auto'
     })
@@ -124,12 +124,21 @@ export default {
     }
   }
 
-  @media only screen and (min-width: 100px) and (max-width: 800px) {
+  @media only screen and (min-width: 576px) and (max-width: 800px) {
     .content{
       width: 489px;
       .swiper-slide{
         width: 125px;
         height: 70px;
+      }
+    }
+  }
+  @media screen and (max-width:576px) {
+    .content{
+      width: 330px;
+      .swiper-slide{
+        width: 170px;
+        height: 80px;
       }
     }
   }

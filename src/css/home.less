@@ -161,7 +161,7 @@
     // margin-right: -15px;
 }
 .pic-out-box,.story-out-box{
-    max-width: 37%;
+    max-width: 50%;
     flex: 0 0 41%;
 }
 .position-relative{
@@ -402,6 +402,10 @@ input::placeholder,textarea::placeholder{
 }
 
 // story
+.row-model.love{
+    background: url(../images/home/story-divider.png) repeat-y;
+    background-position: 50% 50%;
+}
 .story-box.story-left {
     padding-bottom: 60px;
 }
@@ -430,6 +434,7 @@ input::placeholder,textarea::placeholder{
     position: relative;
     font-size: 21px;
     z-index: 10;
+    color: #101127;
 }
 .story-text h5 {
     font-size: 15px;
@@ -478,6 +483,10 @@ input::placeholder,textarea::placeholder{
     .home-container.my-home{
         width: 960px;
     }
+    .row-model.love{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 @media screen and (max-width:992px) {
     .banner-content-img{
@@ -486,9 +495,9 @@ input::placeholder,textarea::placeholder{
     .home-container{
         max-width: 720px;
     }
-    // .home-container.my-home{
-    //     width: 720px;
-    // }
+    .home-container.my-home{
+        margin-left: 12%;
+    }
     .banner-caption{
         width: 100%;
         justify-content: center;
@@ -508,8 +517,10 @@ input::placeholder,textarea::placeholder{
     }
 }
 @media only screen and (max-width: 768px) {
-    .story-out-box{
-        max-width: 28%
+    .row-model.love{
+        background: none;
+        margin-left: .6rem;
+        margin-right: .6rem;
     }
     .show-mobile-device{
         display: block;
@@ -519,9 +530,6 @@ input::placeholder,textarea::placeholder{
     }
     .story-box.story-right .story-text {
         padding-top: 70px;
-    }
-    .story-divider-img{
-        display: none;
     }
     .rsvp-form-area {
         padding: 0 0 85px;
@@ -536,9 +544,13 @@ input::placeholder,textarea::placeholder{
         max-width: 540px;
     }
     .home-banner-box .home-container{
-        // margin: 0 20px;
         padding-left: 15px;
         padding-right: 15px;
+    }
+    .row-model.love{
+        background: none;
+        margin-left: 0;
+        margin-right: 0;
     }
     .pic-out-box,.story-out-box{
         max-width: 100%;

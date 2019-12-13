@@ -8,26 +8,26 @@
          Proin sed augue sed neque ultricies condimentum.</h3>
     </div>
     <div class="tab-content">
-    <el-tabs v-model="activeName">
-    <el-tab-pane label="ALL" name="first">
-      <TabFirst></TabFirst>
-    </el-tab-pane>
-    <el-tab-pane label="Bride" name="second">
-      <TabSecond></TabSecond>
-    </el-tab-pane>
-    <el-tab-pane label="Groom" name="third">
-      <TabThird></TabThird>
-    </el-tab-pane>
-    <el-tab-pane label="Love Slory" name="fourth">
-      <TabFourth></TabFourth>
-    </el-tab-pane>
-    <el-tab-pane label="Friends" name="fifth">
-      <TabFifth></TabFifth>
-    </el-tab-pane>
-    <el-tab-pane label="Parly" name="sixth">
-      <TabSixth></TabSixth>
-    </el-tab-pane>
-  </el-tabs>
+      <el-tabs v-model="activeName">
+          <el-tab-pane label="ALL" name="first">
+            <TabFirst></TabFirst>
+          </el-tab-pane>
+          <el-tab-pane label="Bride" name="second">
+            <TabSecond></TabSecond>
+          </el-tab-pane>
+          <el-tab-pane label="Groom" name="third">
+            <TabThird></TabThird>
+          </el-tab-pane>
+          <el-tab-pane label="Love Slory" name="fourth">
+            <TabFourth></TabFourth>
+          </el-tab-pane>
+          <el-tab-pane label="Friends" name="fifth">
+            <TabFifth></TabFifth>
+          </el-tab-pane>
+          <el-tab-pane label="Parly" name="sixth">
+            <TabSixth></TabSixth>
+          </el-tab-pane>
+      </el-tabs>
     </div>
   </div>
 </template>
@@ -59,6 +59,6 @@ export default {
 }
 </script>
 
-<style lang='less' scoped>
+<style lang='less'>
 @import '../../css/gallery.less';
 </style>

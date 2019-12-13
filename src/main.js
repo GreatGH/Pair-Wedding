@@ -6,7 +6,9 @@ import ElementUI from 'element-ui'
 import {axiosRequest} from '@/Common/axios'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'swiper/css/swiper.min.css'
+import vueSwiper from 'vue-awesome-swiper'
 import VueAMap from 'vue-amap'
+import myvalidate from '@/Common/myvalidate'
 
 // 公共样式
 import '@/Common/animate.min'
@@ -17,8 +19,9 @@ import 'css/font-awesome/css/font-awesome.min'
 Vue.use(ElementUI)
 Vue.use(ElementUI)
 Vue.use(VueAMap)
-
+Vue.use(vueSwiper)
 Vue.prototype.axiosRequest = axiosRequest
+Vue.prototype.myvalidate = myvalidate
 
 // MapType: 卫星地图切换
 // ToolBar: 缩放工具栏
