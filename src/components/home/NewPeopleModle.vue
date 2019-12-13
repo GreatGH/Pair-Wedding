@@ -1,11 +1,11 @@
 <template>
   <div class="home-container">
-      <div :key="index" class="row-Module flex-center-w" v-for="(item,index) in lists">
+      <div :key="index" class="row-Module flex-center-w" v-for="(item,index) in newpeopleList">
         <div class="pic-out-box frist-box">
             <div class="bride-groom-box">
               <div class="bride-groom-photo position-relative">
                 <div class="bride-photo-box position-relative">
-                   <img :src="apiimg + item.bride_img"  alt="新娘图片"/>
+                   <img :src="item.bride_img"  alt="新娘图片"/>
                 </div>
                 <div class="bride-border-box">
                   <span class="bride-groom-border"></span>
@@ -44,7 +44,7 @@
             <div class="bride-groom-box">
               <div class="bride-groom-photo position-relative">
                 <div class="bride-photo-box position-relative">
-                  <img :src="apiimg + item.groom_img"  alt="新郎图片"/>
+                  <img :src="item.groom_img"  alt="新郎图片"/>
                 </div>
                 <div class="bride-border-box">
                   <span class="bride-groom-border"></span>
@@ -87,7 +87,7 @@ export default {
       BridePhoto1,
       BridePhoto2,
       BrideLove,
-      lists: [],
+      newpeopleList: [],
       api: 'http://192.168.97.236:3000/Pair/',
       apiimg: 'http://192.168.97.236:3000/Home/'
     }
@@ -99,10 +99,11 @@ export default {
     }).then((res) => {
       res = res.data
       if (res.status === 200) {
-        this.lists = res.data
+        this.newpeopleList = res.data
         console.log(this.lists)
       }
     })
+    this.newpeopleList = this.$store.state.home.newpeopleList
   }
 }
 </script>
