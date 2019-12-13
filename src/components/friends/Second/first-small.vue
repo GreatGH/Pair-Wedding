@@ -1,12 +1,12 @@
 <template>
   <div class=" scond-style coteng-box fly-content">
       <!-- 111 -->
-      <div :key="index" class="coteng" v-for="(item,index) in list.slice(0, 8)">
+      <div :key="index" class="coteng" v-for="(item,index) in firstlist.slice(0, 8)">
         <div class="single-friend">
           <div class="friend-box">
             <div class="friend-photo-box ">
                 <div class="friend-p-wrap">
-                  <img :src=" apiimg + item.img"/>
+                  <img :src="item.img"/>
                 </div>
             </div>
           </div>
@@ -39,7 +39,7 @@ import Axios from 'axios'
 export default {
   data () {
     return {
-      list: [],
+      firstlist: [],
       apiimg: 'http://192.168.97.236:3000/friends/',
       api: 'http://192.168.97.236:3000/friend'
     }
@@ -55,9 +55,10 @@ export default {
     }).then((res) => {
       res = res.data
       if (res.status === 200) {
-        this.list = res.data
+        this.firstlist = res.data
       }
     })
+    this.firstlist = this.$store.state.rsvp.firstlist
   }
 }
 
