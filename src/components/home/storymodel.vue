@@ -47,10 +47,6 @@ export default {
   data () {
     return {
       storyLists: [],
-      // Story1,
-      // Story2,
-      // Story3,
-      // Story4,
       Bgflower,
       api: 'http://192.168.97.236:3000/lovestory',
       imgapi: 'http://192.168.97.236:3000/home/'

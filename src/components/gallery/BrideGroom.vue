@@ -30,6 +30,7 @@
 import '../../Common/fontSize'
 import PublicTab from './publicTab.vue'
 // import BrideBanner from './Bridebanner.vue'
+
 import StoryModel from '../home/storymodel'
 import NewPeoPleModule from '../home/NewPeopleModle'
 export default {
