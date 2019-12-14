@@ -6,55 +6,39 @@
         <transition-group tag="ul"  class="lists" name="animate">
           <li class="animate-item" :key="item.id" v-for="item in filteredItems">
             <el-image
-              :src="item.src"
+              :src="item.img"
               :preview-src-list="imgList1">
             </el-image>
           </li>
         </transition-group>
       </div>
 </template>
+
 <script>
-import one from '../../images/gallery/1.jpg'
-import two from '../../images/gallery/2.jpg'
-import three from '../../images/gallery/3.jpg'
-import four from '../../images/gallery/5.jpg'
-import five from '../../images/gallery/6.jpg'
-import six from '../../images/gallery/7.jpg'
-import seven from '../../images/gallery/8.jpg'
-import eight from '../../images/gallery/9.jpg'
-import nine from '../../images/gallery/10.jpg'
+import Axios from 'axios'
 export default {
   data () {
     return {
       current: 0,
-      srcLists: [
-        {id: 1, src: one, type: 'Birde'},
-        {id: 2, src: two, type: 'Birde'},
-        {id: 3, src: three, type: 'Birde'},
-        {id: 4, src: four, type: 'Groom'},
-        {id: 5, src: five, type: 'Friends'},
-        {id: 6, src: six, type: 'LoveStory'},
-        {id: 7, src: seven, type: 'LoveStory'},
-        {id: 8, src: eight, type: 'LoveStory'},
-        {id: 9, src: nine, type: 'Party'}
-      ],
+      srcLists: [],
       tabitems: [
-        {name: 'All'},
-        {name: 'Birde'},
-        {name: 'Groom'},
-        {name: 'LoveStory'},
-        {name: 'Friends'},
-        {name: 'Party'}],
-      filt: 'All'
+        {name: 'all'},
+        {name: 'bride'},
+        {name: 'groom'},
+        {name: 'lovestory'},
+        {name: 'friend'},
+        {name: 'party'}],
+      filt: 'all',
+      api: 'http://192.168.97.236:3000/'
     }
   },
   computed: {
     filteredItems () {
       var result
-      if (this.filt !== 'All') {
+      if (this.filt !== 'all') {
         var filt = this.filt
         result = this.srcLists.filter(function (a) {
-          return a.type === filt
+          return a.classify === filt
         })
       } else {
         result = this.srcLists
@@ -62,8 +46,8 @@ export default {
       return result
     },
     imgList1 () {
-      let imgList = this.filteredItems.map(function (item) {
-        return item.src
+      let imgList = this.filteredItems.map((item) => {
+        return item.img
       })
       return imgList
     }
@@ -72,6 +56,20 @@ export default {
     addClass (index) {
       this.current = index
     }
+  },
+  created () {
+    Axios({
+      url: this.api + 'gallery/',
+      method: 'get'
+    }).then((res) => {
+      if (res.status === 200) {
+        this.srcLists = res.data.data
+        console.log(this.srcLists)
+      }
+    })
+  },
+  mounted () {
+    this.srcLists = this.$store.state.story.srcLists
   }
 }
 </script>
@@ -115,6 +113,7 @@ export default {
       display: inline-block;
       margin: 10px 10px;
       cursor: default;
+      text-transform: capitalize;
     }
   }
   .tab-title{

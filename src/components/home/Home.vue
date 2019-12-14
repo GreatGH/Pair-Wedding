@@ -59,6 +59,7 @@
           <h3 class="font-16">Aliquam erat volutpat. Curabitur tempor nibh quis arcu convallis, sed viverra quam sollicitudin. Proin sed augue sed neque ultricies condimentum. </h3>
         </div>
       </div>
+      <Tab></Tab>
     </div>
     <div class="bride-rsvg-area">
       <div class="row-module flex-center-w">
@@ -103,6 +104,7 @@ import Carousel from '../friends/carousel'
 import footerCalsoul from '../story/carousel'
 import LoveImg from '../../images/home/header-love-bg.png'
 import Divider from '../../images/home/divider.png'
+import Tab from '../story/tabList.vue'
 export default {
   data () {
     return {
@@ -129,7 +131,8 @@ export default {
     StoryModel,
     Carousel,
     HomeFriends,
-    footerCalsoul
+    footerCalsoul,
+    Tab
   },
   created () {
     this.countTime()
