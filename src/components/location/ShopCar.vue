@@ -129,13 +129,13 @@ export default {
       }).filter(item => item)
       this.axiosRequest({
         url: '/display',
+        data: bought,
         method: 'post'
       }).then(res => {
         console.log('buy：' + res.data.data)
       }).catch(err => {
         console.log(err)
       })
-      console.log(bought)
     }
   },
   filters: {
