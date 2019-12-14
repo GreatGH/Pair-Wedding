@@ -132,7 +132,7 @@
                    <div class="block-3">
                      <h2>3 Comments</h2>
                      <div class="blog-comments-section">
-                       <div class="main-comment">
+                       <!-- <div class="main-comment clearfix">
                          <div class="about-author d-flex fjustify-content-between">
                            <div class="author-img">
                              <img src="../../images/blog/blog-details-author-65-2.png" />
@@ -164,12 +164,12 @@
                              </div>
                              <p>
                                Ut enim ad minima veniam, quis nostrum exerci
-                                    tationem ullam corporis suscipit.
+                               tationem ullam corporis suscipit.
                              </p>
                            </div>
                          </div>
-                       </div>
-                       <div :key="index" v-for="(item, index) in commentlist" class="main-comment">
+                       </div> -->
+                       <div :key="index" v-for="(item, index) in commentData" class="main-comment">
                          <div class="about-author d-flex flex-betwe">
                            <div class="author-img">
                              <img :src="item.head" />
@@ -178,13 +178,27 @@
                              <div class="d-flex justify-content-between align-items-center">
                                <h4 class="author-name">
                                  {{item.name}}
-                                 <span class="comment-date-time">{{item.time}}</span>
+                                 <span class="comment-date-time">{{item.time.slice(0,19)}}</span>
                                </h4>
                                <span class="reply-btn">Reply</span>
                              </div>
-                             <p>{{item.content}}</p>
+                             <div class="comment-content">{{item.content}}</div>
                            </div>
                          </div>
+                       </div>
+                       <!-- 分页按钮组 -->
+                       <div class="page">
+                          <ul class="pagination clearfix flex-center">
+                              <li class="page-item stic">
+                                <a class="page-link "  v-on:click="prePage">Prev</a>
+                              </li>
+                              <li class="page-item" :key="index" v-for="(item, index) in ComtotalPage">
+                                <a class="page-link"  v-on:click="toPage(item)" :class="{active: currentPage == item}">{{ item }}</a>
+                              </li>
+                              <li class="page-item">
+                                <a class="page-link"  v-on:click="nextPage">Next</a>
+                              </li>
+                          </ul>
                        </div>
                      </div>
                      <div class="leave-comment-area">
@@ -202,8 +216,14 @@
                               <el-input v-model="Form.content"></el-input>
                             </el-form-item>
                             <el-form-item class="col-sm-12">
-                              <el-button class="text-uppercase" type="primary" @click="submitForm('Form')">submit</el-button>
-                              <el-button class="text-uppercase" @click="resetForm('Form')">cancel</el-button>
+                              <el-button class="text-uppercase btn" @click="submitForm('Form')">
+                                submit
+                                <div class="bgposition">submit</div>
+                              </el-button>
+                              <el-button class="text-uppercase btn" @click="resetForm('Form')">
+                                cancel
+                                <div class="bgposition">cancel</div>
+                              </el-button>
                             </el-form-item>
                           </div>
                        </el-form>
@@ -363,8 +383,7 @@ export default {
       api: 'http://192.168.97.236:3000/',
       // block
       dataShow: [],
-      // 评论
-      commentlist: [],
+      // commentData: [],
       rules: {
         name: [
           {required: true, message: '用户名不能为空！', trigger: 'blur'}
@@ -391,7 +410,6 @@ export default {
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          console.log(111)
           axios({
             method: 'post',
             url: this.api + 'submitmessage',
@@ -415,21 +433,32 @@ export default {
     resetForm (formName) {
       this.$refs[formName].resetFields()
     },
-    // 评论内容渲染
-    comment () {
-      axios({
-        method: 'get',
-        url: this.api + 'comments'
-      }).then((res) => {
-        this.commentlist = res.data.data
-        // console.log(this.commentlist)
-      })
+    // 下一页
+    nextPage: function () {
+      var next = this.currentPage
+      next++
+      // 限制next跳转的范围
+      next = next > this.ComtotalPage ? this.ComtotalPage : next
+      // 触发store里面nowPage
+      this.$store.commit('nowPage', next)
+    },
+    // 上一页
+    prePage: function () {
+      var pre = this.currentPage
+      if (pre > 1) {
+        pre--
+        this.$store.commit('nowPage', pre)
+      }
+    },
+    // 跳转至某一页
+    toPage: function (page) {
+      var clickPage = this.currentPage
+      clickPage = page
+      this.$store.commit('nowPage', clickPage)
     }
   },
   mounted () {
-    // this.getlists()
     this.show = true
-    this.comment()
     axios({
       method: 'get',
       url: this.api + 'blog/'
@@ -439,6 +468,29 @@ export default {
       }
     })
     this.dataShow = this.$store.state.blog.dataShow[0]
+    // 评论内容渲染
+    axios({
+      method: 'get',
+      url: this.api + 'comments'
+    }).then((res) => {
+      if (res.status === 200) {
+        this.$store.commit('singleComment', res.data.data)
+      }
+    })
+  },
+  computed: {
+    // 数据存储在state里面 从数据存储在state里面拿到数据 res.data.data的内容替换中blogDataShow改变
+    commentData () {
+      return this.$store.getters.ComcurrentData
+    },
+    // 当前页的内容
+    currentPage () {
+      return this.$store.state.blog.currentPage
+    },
+    // axios后台数据的总页数
+    ComtotalPage () {
+      return this.$store.getters.ComtotalPage
+    }
   }
 }
 </script>

@@ -12,13 +12,13 @@
                     <input v-model="ruleForm.email" type="text" placeholder="Your Email"/>
                   </el-form-item>
                   <el-form-item class="form-item-input" prop="guest">
-                      <input type="number" placeholder="Guest"/>
+                      <input v-model.number="ruleForm.guest" placeholder="Guest"/>
                   </el-form-item>
                   <el-form-item class="form-item-input" prop="classtype">
-                    <input type="text" placeholder="Ceremony & Party"/>
+                    <input v-model="ruleForm.classtype" type="text" placeholder="Ceremony & Party"/>
                   </el-form-item>
-                  <el-form-item class="form-item-input textarea-box">
-                    <textarea placeholder="Share Something..."></textarea>
+                  <el-form-item class="form-item-input textarea-box" prop="content">
+                    <textarea v-model="ruleForm.content" placeholder="Share Something..."></textarea>
                     <div class="rsvp-submit-button text-center"><el-button @click="submitForm('ruleForm')" class="submit-btn" type="default">RSVG</el-button></div>
                   </el-form-item>
                 </div>
@@ -31,55 +31,61 @@
 
 <script>
 import '../../Common/fontSize.js'
+import axios from 'axios'
 export default {
   data () {
-    var user = (rule, value, callback) => {
-      if (!value) {
-        return callback(new Error('名称不能为空'))
-      }
-    }
-    var guest = (rule, value, callback) => {
-      if (!value) {
-        return callback(new Error('宾客数量不能为空'))
-      }
-      setTimeout(() => {
-        if (!Number.isInteger(value)) {
-          callback(new Error('请输入数字值'))
-        }
-      }, 1000)
-    }
     return {
       ruleForm: {
         user: '',
         email: '',
         guest: '',
-        classtype: ''
+        classtype: '',
+        content: ''
       },
       rules: {
         user: [
-          {required: true, message: '名称不能为空', trigger: 'blur'},
-          {validator: user, trigger: 'blur'}
+          {required: true, message: '名称不能为空', trigger: 'blur'}
         ],
         email: [
           {required: true, message: '请输入邮箱地址', trigger: 'blur'},
-          {type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur']}
+          {type: 'email', message: '请输入正确的邮箱地址', trigger: 'blur'}
         ],
         guest: [
-          {validator: guest, trigger: 'blur'}
+          {required: true, message: '请输入宾客数量'},
+          {type: 'number', message: '请输入数字'}
         ],
         classtype: [
           {required: true, message: '类型不能为空(聚会或婚礼等)', trigger: 'blur'}
+        ],
+        content: [
+          {required: true, message: '说点什么吧！！！', trigger: 'blur'}
         ]
-      }
+      },
+      api: 'http://192.168.97.236:3000'
     }
   },
   methods: {
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
+        console.log(valid)
         if (valid) {
-          this.$message({
-            message: '登录成功',
-            type: 'success'
+          axios({
+            method: 'post',
+            url: this.api + '/sendmessage',
+            data: {
+              user: this.ruleForm.user,
+              email: this.ruleForm.email,
+              guest: this.ruleForm.guest,
+              classtype: this.ruleForm.classtype,
+              content: this.ruleForm.content
+            }
+          }).then((res) => {
+            if (res.status === 200) {
+              this.$message({
+                message: '登录成功',
+                type: 'success'
+              })
+            }
           })
         }
       })

@@ -4,6 +4,7 @@ import blogimg3 from '../images/blog/blogimg3.jpg'
 import blogimg4 from '../images/blog/blogimg4.jpg'
 import blogimg5 from '../images/blog/blogimg5.jpg'
 import blogimg6 from '../images/blog/blogimg6.jpg'
+import head1 from '../images/blog/blog-details-author-65-1.png'
 let state = {
   // 每页显示的内容数据条数
   pageSize: 6,
@@ -105,6 +106,13 @@ let state = {
     img1: blogimg1,
     img2: blogimg2,
     title: 'To Get The Best Wedding'
+  }],
+  commentData: [{
+    id: 1,
+    name: 'liulong',
+    head: head1,
+    time: '2019/12/14 10:26',
+    content: 'this my first comment'
   }]
 }
 
@@ -115,6 +123,9 @@ let mutations = {
   },
   nowPage (state, pageindex) {
     state.currentPage = pageindex
+  },
+  singleComment (state, commentData) {
+    state.commentData = commentData
   }
 }
 
@@ -129,6 +140,14 @@ let getters = {
   currentData (state) {
     // 当前数组截取的页数 slice（0,6）包含0 不包含6
     return state.dataShow.slice((state.currentPage - 1) * state.pageSize, state.pageSize * state.currentPage)
+  },
+  ComtotalPage (state) {
+    let total = Math.ceil(state.commentData.length / state.pageSize)
+    return total
+  },
+  ComcurrentData (state) {
+    // 当前数组截取的页数 slice（0,6）包含0 不包含6
+    return state.commentData.slice((state.currentPage - 1) * state.pageSize, state.pageSize * state.currentPage)
   }
 }
 

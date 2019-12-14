@@ -100,7 +100,6 @@ export default {
       res = res.data
       if (res.status === 200) {
         this.newpeopleList = res.data
-        console.log(this.lists)
       }
     })
     this.newpeopleList = this.$store.state.home.newpeopleList
