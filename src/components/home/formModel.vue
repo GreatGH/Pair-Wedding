@@ -82,7 +82,7 @@ export default {
           }).then((res) => {
             if (res.status === 200) {
               this.$message({
-                message: '登录成功',
+                message: '留言成功',
                 type: 'success'
               })
             }
