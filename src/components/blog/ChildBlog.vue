@@ -4,19 +4,27 @@
     <header class="page-banner-area blog-banner-area">
       <div class="section-overlay d-flex">
          <div class="container">
-            <div class="page-banner-wrap">
-               <h1 class="page-banner-heading">Blog</h1>
-               <div>
-                  <ul class="breadcrumb clearfix">
-                     <li class="breadcrumb-item text-capitalize">
-                        <router-link to="/home">Home</router-link>
-                     </li>
-                     <li class="breadcrumb-item text-capitalize active">
-                        Blog
-                     </li>
-                  </ul>
-               </div>
-            </div>
+              <div class="page-banner-wrap">
+                <BounceInLeft>
+                  <div slot="bounceInLeft" v-if="show">
+                    <h1 class="page-banner-heading">Blog</h1>
+                  </div>
+                </BounceInLeft>
+                <BounceInRight>
+                  <div slot="bounceInRight" v-if="show">
+                    <div>
+                        <ul class="breadcrumb clearfix">
+                          <li class="breadcrumb-item text-capitalize">
+                              <router-link to="/home">Home</router-link>
+                          </li>
+                          <li class="breadcrumb-item text-capitalize active">
+                              Blog
+                          </li>
+                        </ul>
+                    </div>
+                  </div>
+                </BounceInRight>
+              </div>
          </div>
       </div>
     </header>
@@ -64,7 +72,7 @@
                    <a class="page-link "  v-on:click="prePage">Prev</a>
                 </li>
                 <li class="page-item" :key="index" v-for="(item, index) in totalPage">
-                   <a class="page-link"  v-on:click="toPage(index)" :class="{active: currentPage == index}">{{ index+1 }}</a>
+                   <a class="page-link"  v-on:click="toPage(item)" :class="{active: currentPage == item}">{{ item }}</a>
                 </li>
                 <li class="page-item">
                    <a class="page-link"  v-on:click="nextPage">Next</a>
@@ -78,120 +86,86 @@
 
 <script>
 import Vue from 'vue'
-// import axios from 'axios'
+import axios from 'axios'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import header1 from '../../images/blog/header1.png'
+import BounceInLeft from 'comp/location/slot/BounceInLeft'
+import BounceIn from 'comp/location/slot/BounceIn'
+import BounceInDown from 'comp/location/slot/BounceInDown'
+import BounceInRight from 'comp/location/slot/BounceInRight'
 Vue.use(Element)
 export default {
   data () {
     return {
-      header1: header1,
-      // blog静态数据渲染 listArray
-      listArray: [{
-        'author': '112',
-        'content': 'dsgfdfsgsdfg',
-        blog_cover: require('../../images/blog/blogimg1.jpg'),
-        'TIME': '234234234'
-      }, {
-        'author': '112',
-        'content': 'dsgfdfsgsdfg',
-        blog_cover: require('../../images/blog/blogimg1.jpg'),
-        'TIME': '234234234'
-      }, {
-        'author': '112',
-        'content': 'dsgfdfsgsdfg',
-        blog_cover: require('../../images/blog/blogimg1.jpg'),
-        'TIME': '234234234'
-      }, {
-        'author': '112',
-        'content': 'dsgfdfsgsdfg',
-        blog_cover: require('../../images/blog/blogimg1.jpg'),
-        'TIME': '234234234'
-      }, {
-        'author': '112',
-        'content': 'dsgfdfsgsdfg',
-        blog_cover: require('../../images/blog/blogimg1.jpg'),
-        'TIME': '234234234'
-      }, {
-        'author': '112',
-        'content': 'dsgfdfsgsdfg',
-        blog_cover: require('../../images/blog/blogimg1.jpg'),
-        'TIME': '234234234'
-      }, {
-        'author': '112',
-        'content': 'dsgfdfsgsdfg',
-        blog_cover: require('../../images/blog/blogimg1.jpg'),
-        'TIME': '234234234'
-      }, {
-        'author': '112',
-        'content': 'dsgfdfsgsdfg',
-        blog_cover: require('../../images/blog/blogimg1.jpg'),
-        'TIME': '234234234'
-      }, {
-        'author': '112',
-        'content': 'dsgfdfsgsdfg',
-        blog_cover: require('../../images/blog/blogimg1.jpg'),
-        'TIME': '234234234'
-      }, {
-        'author': '112',
-        'content': 'dsgfdfsgsdfg',
-        blog_cover: require('../../images/blog/blogimg1.jpg'),
-        'TIME': '234234234'
-      }, {
-        'author': '112',
-        'content': 'dsgfdfsgsdfg',
-        blog_cover: require('../../images/blog/blogimg1.jpg'),
-        'TIME': '234234234'
-      }],
-      // 控制每页显示数据的数数量
-      pageSize: 6,
-      // 默认显示第几页
-      currentPage: 0,
-      // 总数据
-      totalPage: [],
-      // 当前显示的数据
-      // 一个数组dataShow接收dataShow的内容
-      dataShow: []
+      show: false,
+      header1: header1
     }
+  },
+  // 定义组件
+  components: {
+    BounceInLeft,
+    BounceIn,
+    BounceInRight,
+    BounceInDown
   },
   methods: {
+    // 下一页
     nextPage: function () {
-      if (this.currentPage === this.pageNum - 1) {
-        return
-      }
-      this.dataShow = this.totalPage[++this.currentPage]
+      var next = this.currentPage
+      next++
+      // 限制next跳转的范围
+      next = next > this.totalPage ? this.totalPage : next
+      // 触发store里面nowPage
+      this.$store.commit('nowPage', next)
     },
+    // 上一页
     prePage: function () {
-      if (this.currentPage === 0) {
-        return
+      var pre = this.currentPage
+      if (pre > 1) {
+        pre--
+        this.$store.commit('nowPage', pre)
       }
-      this.dataShow = this.totalPage[--this.currentPage]
     },
+    // 跳转至某一页
     toPage: function (page) {
-      this.currentPage = page
-      this.dataShow = this.totalPage[this.currentPage]
-    }
+      var clickPage = this.currentPage
+      clickPage = page
+      this.$store.commit('nowPage', clickPage)
+    },
     // 渲染blog 页面内容
-    // getlists () {
-    //   // 相当于ajax请求
-    //   axios({
-    //     method: 'get',
-    //     url: 'http://192.168.97.236:3000/blog/'
-    //   }).then((res) => {
-    //     this.dataShow = res.data.data
-    //   })
-    // }
-  },
-  // mounted () {
-  //   this.getlists()
-  // },
-  created: function () {
-    this.pageNum = Math.ceil(this.listArray.length / this.pageSize) || 1
-    for (var i = 0; i < this.pageNum; i++) {
-      this.totalPage[i] = this.listArray.slice(this.pageSize * i, this.pageSize * (i + 1))
+    getlists () {
+      // 相当于ajax请求
+      axios({
+        method: 'get',
+        url: 'http://192.168.97.236:3000/blog/'
+      }).then((res) => {
+        if (res.status === 200) {
+          // 页面请求成功时触发state中的内容改变
+          this.$store.commit('blogDataShow', res.data.data)
+        }
+      })
     }
-    this.dataShow = this.totalPage[this.currentPage]
+  },
+  // 页面加载完成后
+  mounted () {
+    this.getlists()
+    this.show = true
+  },
+  // computed和data功能相同定义属性
+  computed: {
+    // 数据存储在state里面 从数据存储在state里面拿到数据 res.data.data的内容替换中blogDataShow改变
+    dataShow () {
+      return this.$store.getters.currentData
+    },
+    // 当前页的内容
+    currentPage () {
+      return this.$store.state.blog.currentPage
+    },
+    // axios后台数据的总页数
+    totalPage () {
+      return this.$store.getters.totalPage
+    }
   }
 }
 

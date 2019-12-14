@@ -20,13 +20,13 @@
                 <div class="bride-groom-social text-center">
                   <ul>
                     <li>
-                      <a href="#" class="font-weight transion-ease5"><i class="fa fa-facebook"></i></a>
+                      <a href="#" class="font-weight fa fa-facebook transion-ease5"></a>
                     </li>
                     <li>
-                      <a href="#" class="font-weight transion-ease5"><i class="fa fa-twitter"></i></a>
+                      <a href="#" class="font-weight fa fa-twitter transion-ease5"></a>
                     </li>
                     <li>
-                      <a href="#" class="font-weight transion-ease5"><i class="fa fa-linkedin"></i></a>
+                      <a href="#" class="font-weight fa fa-linkedin transion-ease5"></a>
                     </li>
                   </ul>
                 </div>
@@ -59,13 +59,13 @@
                 <div class="bride-groom-social text-center">
                   <ul>
                     <li>
-                      <a href="#" class="font-weight transion-ease5"><i class="fa fa-facebook"></i></a>
+                      <a href="#" class="font-weight fa fa-facebook transion-ease5"></a>
                     </li>
                     <li>
-                      <a href="#" class="font-weight transion-ease5"><i class="fa fa-twitter"></i></a>
+                      <a href="#" class="font-weight fa fa-twitter transion-ease5"></a>
                     </li>
                     <li>
-                      <a href="#" class="font-weight transion-ease5"><i class="fa fa-linkedin"></i></a>
+                      <a href="#" class="font-weight fa fa-linkedin transion-ease5"></a>
                     </li>
                   </ul>
                 </div>
@@ -100,7 +100,6 @@ export default {
       res = res.data
       if (res.status === 200) {
         this.newpeopleList = res.data
-        console.log(this.lists)
       }
     })
     this.newpeopleList = this.$store.state.home.newpeopleList

@@ -53,6 +53,7 @@
 
 <script>
 import storyModule from '../home/storymodel.vue'
+
 export default {
   components: {
     storyModule
@@ -72,5 +73,4 @@ export default {
 
 <style lang="less" scoped>
   @import '~css/story.less';
-
 </style>
