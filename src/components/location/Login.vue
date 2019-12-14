@@ -83,7 +83,7 @@ export default {
         }
       })
       if (result.filter(item => !item).length > 0) {
-        console.log(result)
+        console.log('存在验证未完成')
       } else {
         let url = ''
         if (this.show === true) {
@@ -91,7 +91,6 @@ export default {
         } else {
           url = '/register'
         }
-        console.log(data)
         this.axiosRequest({
           url: url,
           data: data,
@@ -100,9 +99,7 @@ export default {
           if (this.show === false && res.data.status === 200) {
             this.show = true
           }
-          console.log(res)
           if (this.show === true && res.data.status === 200) {
-            console.log(this.$router)
             this.$router.replace({path: '/shopcar'})
           }
         }).catch(err => {
@@ -121,7 +118,23 @@ export default {
       let canvas = document.querySelector('#love')
       let ctx = canvas.getContext('2d')
       let canvasDiv = canvas.parentNode
-      console.log(canvasDiv.clientWidth)
+      function Circle () {
+        this.x = 962
+        this.y = 500
+        this.r = 300
+        this.r1 = 55
+        this.g1 = 55
+        this.b1 = 55
+        this.a1 = 0.8
+      }
+      Circle.prototype.makeCircle = function () {
+        ctx.beginPath()
+        ctx.setLineDash([30, 80])
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)
+        ctx.strokeStyle = 'rgb(' + this.r1 + ', ' + this.g1 + ', ' + this.b1 + ')'
+        ctx.stroke()
+      }
+      let circ = new Circle()
       canvas.setAttribute('width', canvasDiv.clientWidth)
       canvas.setAttribute('height', canvasDiv.clientHeight)
       setTimeout(() => {
@@ -140,41 +153,25 @@ export default {
               ctx.strokeStyle = 'rgb(' + c1 + ', ' + c2 + ', ' + c3 + ')'
               ctx.stroke()
             }
+            if (index >= arr1.length - 1) {
+              circ.makeCircle()
+              let circleTimer = setInterval(() => {
+                circ.r -= 1
+                circ.r1 = Math.floor(Math.random() * 200 + 50)
+                circ.g1 = Math.floor(Math.random() * 200 + 50)
+                circ.b1 = Math.floor(Math.random() * 200 + 50)
+                circ.makeCircle()
+                if (circ.r <= 3) {
+                  clearInterval(circleTimer)
+                }
+              }, 10)
+            }
           }, 1000)
         })
       }, 500)
-      // canvasDiv.onmousemove = e => {
-      //   let arr = []
-      //   let x = e.clientX
-      //   let y = e.clientY
-      //   for (let i = 0; i < 20; i++) {
-      //     let a = Math.floor(Math.random() * 50 - 25)
-      //     let b = Math.floor(Math.random() * 50 - 25)
-      //     let c1 = Math.floor(Math.random() * 100 + 50)
-      //     let c2 = Math.floor(Math.random() * 100 + 50)
-      //     let c3 = Math.floor(Math.random() * 100 + 50)
-      //     arr.push({
-      //       a: x - a,
-      //       b: y - b
-      //     })
-      //     ctx.beginPath()
-      //     ctx.moveTo(x, y)
-      //     ctx.lineTo(x - a, y - b)
-      //     ctx.setLineDash([0])
-      //     ctx.strokeStyle = 'rgb(' + c1 + ', ' + c2 + ', ' + c3 + ')'
-      //     ctx.stroke()
-      //   }
-      //   arr.map((item, index) => {
-      //     setTimeout(() => {
-      //       ctx.beginPath()
-      //       ctx.moveTo(x, y)
-      //       ctx.lineTo(item.a, item.b)
-      //       ctx.strokeStyle = 'transparent'
-      //       ctx.stroke()
-      //     }, 100)
-      //     return false
-      //   })
-      // }
+      document.body.onclick = function (e) {
+        console.log(e.clientX, e.clientY)
+      }
     }
   },
   mounted () {
@@ -226,11 +223,26 @@ export default {
     line-height: 50px;
     background: transparent;
     border: 1px solid #fff;
+    &:hover {
+      background: rgba(0, 0, 0, .3);
+      color: #fff;
+      box-shadow: 0 0 19px 2px pink;
+      outline: none;
+      input {
+        color: pink;
+      }
+    }
     >div {
       >div {
         position: relative;
         height: 50px;
         margin: 50px 0;
+        border-radius: 50px;
+        overflow: hidden;
+        &:hover {
+          box-shadow: 0 0 14px 8px pink;
+          outline: none;
+        }
         &.code {
           display: flex;
           >div {
@@ -266,7 +278,7 @@ export default {
           width: 100%;
           height: 100%;
           &::placeholder {
-            color: black;
+            color: pink;
           }
         }
       }
