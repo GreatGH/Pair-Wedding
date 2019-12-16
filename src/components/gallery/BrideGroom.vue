@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-  <div class="margin-t-40">
+  <div class="groom-area-news">
     <NewPeoPleModule></NewPeoPleModule>
   </div>
   <!-- <BrideBanner></BrideBanner> -->
@@ -30,7 +30,6 @@
 import '../../Common/fontSize'
 import PublicTab from './publicTab.vue'
 // import BrideBanner from './Bridebanner.vue'
-
 import StoryModel from '../home/storymodel'
 import NewPeoPleModule from '../home/NewPeopleModle'
 export default {

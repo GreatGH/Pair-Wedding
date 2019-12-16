@@ -31,7 +31,6 @@
 
 <script>
 import '../../Common/fontSize.js'
-import axios from 'axios'
 export default {
   data () {
     return {
@@ -60,8 +59,7 @@ export default {
         content: [
           {required: true, message: '说点什么吧！！！', trigger: 'blur'}
         ]
-      },
-      api: 'http://192.168.97.236:3000'
+      }
     }
   },
   methods: {
@@ -69,9 +67,9 @@ export default {
       this.$refs[formName].validate((valid) => {
         console.log(valid)
         if (valid) {
-          axios({
+          this.axiosRequest({
             method: 'post',
-            url: this.api + '/sendmessage',
+            url: '/sendmessage',
             data: {
               user: this.ruleForm.user,
               email: this.ruleForm.email,
@@ -85,6 +83,7 @@ export default {
                 message: '留言成功',
                 type: 'success'
               })
+              this.$refs[formName].resetFields()
             }
           })
         }

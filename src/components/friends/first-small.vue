@@ -31,7 +31,6 @@
 <script>
 import Bounin from 'comp/location/slot/BounceIn'
 import smallss from './first-small'
-import Axios from 'axios'
 export default {
   data () {
     return {
@@ -45,8 +44,8 @@ export default {
   },
   mounted () {
     this.show = true
-    Axios({
-      url: 'http://192.168.97.236:3000/friend',
+    this.axiosRequest({
+      url: '/friend',
       method: 'get'
     }).then((res) => {
       res = res.data

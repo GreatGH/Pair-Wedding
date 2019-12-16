@@ -42,19 +42,17 @@
 <script>
 import '../../Common/fontSize.js'
 import Bgflower from '../../images/home/story-divider.png'
-import Axios from 'axios'
 export default {
   data () {
     return {
       storyLists: [],
-      Bgflower,
-      api: 'http://192.168.97.236:3000/lovestory',
-      imgapi: 'http://192.168.97.236:3000/home/'
+      Bgflower
+      // imgapi: 'http://192.168.97.236:3000/home/'
     }
   },
   mounted () {
-    Axios({
-      url: this.api,
+    this.axiosRequest({
+      url: '/lovestory',
       method: 'get'
     }).then((res) => {
       res = res.data

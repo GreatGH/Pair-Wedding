@@ -80,21 +80,19 @@
 import BridePhoto1 from '../../images/home/bride-photo.jpg'
 import BrideLove from '../../images/home/bride-groom-divider-love.png'
 import BridePhoto2 from '../../images/home/groom-photo.jpg'
-import Axios from 'axios'
 export default {
   data () {
     return {
       BridePhoto1,
       BridePhoto2,
       BrideLove,
-      newpeopleList: [],
-      api: 'http://192.168.97.236:3000/Pair/',
-      apiimg: 'http://192.168.97.236:3000/Home/'
+      newpeopleList: []
+      // apiimg: 'http://192.168.97.236:3000/Home/'
     }
   },
   mounted () {
-    Axios({
-      url: this.api,
+    this.axiosRequest({
+      url: '/Pair/',
       method: 'get'
     }).then((res) => {
       res = res.data

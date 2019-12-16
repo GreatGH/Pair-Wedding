@@ -85,16 +85,11 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import axios from 'axios'
-import Element from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
 import header1 from '../../images/blog/header1.png'
 import BounceInLeft from 'comp/location/slot/BounceInLeft'
 import BounceIn from 'comp/location/slot/BounceIn'
 import BounceInDown from 'comp/location/slot/BounceInDown'
 import BounceInRight from 'comp/location/slot/BounceInRight'
-Vue.use(Element)
 export default {
   data () {
     return {
@@ -136,9 +131,9 @@ export default {
     // 渲染blog 页面内容
     getlists () {
       // 相当于ajax请求
-      axios({
+      this.axiosRequest({
         method: 'get',
-        url: 'http://192.168.97.236:3000/blog/'
+        url: '/blog/'
       }).then((res) => {
         if (res.status === 200) {
           // 页面请求成功时触发state中的内容改变

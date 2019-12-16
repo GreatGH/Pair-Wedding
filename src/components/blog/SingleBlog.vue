@@ -341,7 +341,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import BounceInLeft from 'comp/location/slot/BounceInLeft'
 import BounceIn from 'comp/location/slot/BounceIn'
 import BounceInDown from 'comp/location/slot/BounceInDown'
@@ -380,7 +379,6 @@ export default {
         content: ''
       },
       show: false,
-      api: 'http://192.168.97.236:3000/',
       // block
       dataShow: [],
       // commentData: [],
@@ -410,18 +408,21 @@ export default {
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          axios({
+          this.axiosRequest({
             method: 'post',
-            url: this.api + 'submitmessage',
+            url: '/submitmessage',
             data: {
               name: this.Form.name,
               email: this.Form.email,
               content: this.Form.content
             }
           }).then((res) => {
-            alert('成功')
             if (res.status === 200) {
-              console.log('success')
+              this.$message({
+                message: '评论成功',
+                type: 'success'
+              })
+              this.$refs[formName].resetFields()
             }
           })
         } else {
@@ -459,9 +460,9 @@ export default {
   },
   mounted () {
     this.show = true
-    axios({
+    this.axiosRequest({
       method: 'get',
-      url: this.api + 'blog/'
+      url: '/blog/'
     }).then((res) => {
       if (res.status === 200) {
         this.dataShow = res.data.data[0]
@@ -469,9 +470,9 @@ export default {
     })
     this.dataShow = this.$store.state.blog.dataShow[0]
     // 评论内容渲染
-    axios({
+    this.axiosRequest({
       method: 'get',
-      url: this.api + 'comments'
+      url: '/comments'
     }).then((res) => {
       if (res.status === 200) {
         this.$store.commit('singleComment', res.data.data)

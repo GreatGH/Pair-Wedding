@@ -19,7 +19,9 @@
       </div>
     </div>
     <!--中间内容-->
-    <storyModule></storyModule>
+    <div class="story-area">
+      <storyModule></storyModule>
+    </div>
     <!--电影板块-->
     <div class="movie-box" >
       <h2>Lovable Memories</h2>
@@ -53,7 +55,6 @@
 
 <script>
 import storyModule from '../home/storymodel.vue'
-
 export default {
   components: {
     storyModule

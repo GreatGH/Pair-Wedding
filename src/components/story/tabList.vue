@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import Axios from 'axios'
 export default {
   data () {
     return {
@@ -28,8 +27,7 @@ export default {
         {name: 'lovestory'},
         {name: 'friend'},
         {name: 'party'}],
-      filt: 'all',
-      api: 'http://192.168.97.236:3000/'
+      filt: 'all'
     }
   },
   computed: {
@@ -58,13 +56,12 @@ export default {
     }
   },
   created () {
-    Axios({
-      url: this.api + 'gallery/',
+    this.axiosRequest({
+      url: '/gallery/',
       method: 'get'
     }).then((res) => {
       if (res.status === 200) {
         this.srcLists = res.data.data
-        console.log(this.srcLists)
       }
     })
   },
