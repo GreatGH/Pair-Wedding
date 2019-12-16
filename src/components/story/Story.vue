@@ -54,20 +54,30 @@
 </template>
 
 <script>
+import BounceIn from 'comp/location/slot/BounceIn'
 import storyModule from '../home/storymodel.vue'
+import BounceInLeft from 'comp/location/slot/BounceInLeft'
+import BounceInRight from 'comp/location/slot/BounceInRight'
 export default {
   components: {
-    storyModule
+    storyModule,
+    BounceIn,
+    BounceInLeft,
+    BounceInRight
   },
   data () {
     return {
-      show: false
+      show: false,
+      visiable: false
     }
   },
   methods: {
     showbox () {
       this.show = !this.show
     }
+  },
+  mounted () {
+    this.visiable = true
   }
 }
 </script>

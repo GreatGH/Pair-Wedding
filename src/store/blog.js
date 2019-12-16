@@ -107,6 +107,7 @@ let state = {
     img2: blogimg2,
     title: 'To Get The Best Wedding'
   }],
+  ComcurrentPage: 1,
   commentData: [{
     id: 1,
     name: 'liulong',
@@ -126,6 +127,9 @@ let mutations = {
   },
   singleComment (state, commentData) {
     state.commentData = commentData
+  },
+  ComnowPage (state, pageindex) {
+    state.ComcurrentPage = pageindex
   }
 }
 
@@ -147,7 +151,7 @@ let getters = {
   },
   ComcurrentData (state) {
     // 当前数组截取的页数 slice（0,6）包含0 不包含6
-    return state.commentData.slice((state.currentPage - 1) * state.pageSize, state.pageSize * state.currentPage)
+    return state.commentData.slice((state.ComcurrentPage - 1) * state.pageSize, state.pageSize * state.ComcurrentPage)
   }
 }
 

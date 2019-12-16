@@ -87,8 +87,6 @@
 <script>
 import header1 from '../../images/blog/header1.png'
 import BounceInLeft from 'comp/location/slot/BounceInLeft'
-import BounceIn from 'comp/location/slot/BounceIn'
-import BounceInDown from 'comp/location/slot/BounceInDown'
 import BounceInRight from 'comp/location/slot/BounceInRight'
 export default {
   data () {
@@ -100,9 +98,7 @@ export default {
   // 定义组件
   components: {
     BounceInLeft,
-    BounceIn,
-    BounceInRight,
-    BounceInDown
+    BounceInRight
   },
   methods: {
     // 下一页

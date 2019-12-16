@@ -132,43 +132,6 @@
                    <div class="block-3">
                      <h2>3 Comments</h2>
                      <div class="blog-comments-section">
-                       <!-- <div class="main-comment clearfix">
-                         <div class="about-author d-flex fjustify-content-between">
-                           <div class="author-img">
-                             <img src="../../images/blog/blog-details-author-65-2.png" />
-                           </div>
-                           <div class="author-details">
-                             <div class="d-flex justify-content-between align-items-center">
-                               <h4 class="author-name">
-                                 John Doe
-                                 <span class="comment-date-time">13 June, 2019 at 07:30</span>
-                               </h4>
-                               <span class="reply-btn">Reply</span>
-                             </div>
-                             <p>
-                               Ut enim ad minima veniam, quis nostrum exerci tationem ullam corporis suscipit den ser mori ten.
-                             </p>
-                           </div>
-                         </div>
-                         <div class="about-author d-flex justify-content-between under-comments">
-                           <div class="author-img">
-                             <img src="../../images/blog/blog-details-author-65-1.png">
-                           </div>
-                           <div class="author-details">
-                             <div class="d-flex justify-content-between align-items-center">
-                               <h4 class="author-name">
-                                 John Doe
-                                 <span class="comment-date-time">13 June, 2019 at 07:30</span>
-                               </h4>
-                               <span class="reply-btn">Reply</span>
-                             </div>
-                             <p>
-                               Ut enim ad minima veniam, quis nostrum exerci
-                               tationem ullam corporis suscipit.
-                             </p>
-                           </div>
-                         </div>
-                       </div> -->
                        <div :key="index" v-for="(item, index) in commentData" class="main-comment">
                          <div class="about-author d-flex flex-betwe">
                            <div class="author-img">
@@ -193,7 +156,7 @@
                                 <a class="page-link "  v-on:click="prePage">Prev</a>
                               </li>
                               <li class="page-item" :key="index" v-for="(item, index) in ComtotalPage">
-                                <a class="page-link"  v-on:click="toPage(item)" :class="{active: currentPage == item}">{{ item }}</a>
+                                <a class="page-link"  v-on:click="toPage(item)" :class="{active: ComcurrentPage == item}">{{ item }}</a>
                               </li>
                               <li class="page-item">
                                 <a class="page-link"  v-on:click="nextPage">Next</a>
@@ -436,26 +399,26 @@ export default {
     },
     // 下一页
     nextPage: function () {
-      var next = this.currentPage
+      var next = this.ComcurrentPage
       next++
       // 限制next跳转的范围
       next = next > this.ComtotalPage ? this.ComtotalPage : next
-      // 触发store里面nowPage
-      this.$store.commit('nowPage', next)
+      // 触发store里面nowPage改变
+      this.$store.commit('ComnowPage', next)
     },
     // 上一页
     prePage: function () {
-      var pre = this.currentPage
+      var pre = this.ComcurrentPage
       if (pre > 1) {
         pre--
-        this.$store.commit('nowPage', pre)
+        this.$store.commit('ComnowPage', pre)
       }
     },
     // 跳转至某一页
     toPage: function (page) {
-      var clickPage = this.currentPage
+      var clickPage = this.ComcurrentPage
       clickPage = page
-      this.$store.commit('nowPage', clickPage)
+      this.$store.commit('ComnowPage', clickPage)
     }
   },
   mounted () {
@@ -485,8 +448,8 @@ export default {
       return this.$store.getters.ComcurrentData
     },
     // 当前页的内容
-    currentPage () {
-      return this.$store.state.blog.currentPage
+    ComcurrentPage () {
+      return this.$store.state.blog.ComcurrentPage
     },
     // axios后台数据的总页数
     ComtotalPage () {
