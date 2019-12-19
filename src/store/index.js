@@ -16,7 +16,7 @@ let mutations = {
   changeRouters (state, page) {
   },
   changeShow (state, show) {
-    this.state.show = true
+    state.show = true
   }
 }
 
@@ -24,6 +24,9 @@ let actions = {
 }
 
 let getters = {
+  getGood (state) {
+    console.log(state.goodlist)
+  }
 }
 
 export default new Vuex.Store({

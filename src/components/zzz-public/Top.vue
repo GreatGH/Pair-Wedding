@@ -10,7 +10,7 @@
         <div class="topnav-choose" :class="{show: !isDisplay}">
           <div v-for="(item, index) in $store.state.mainRouters" :key="item.route" @mouseleave="currentIndex = -1" @mouseenter="currentIndex = index" :class="{show: currentIndex === index}">
             <router-link :to="item.route" active-class="active">
-              {{item.nowPage}}
+              {{item.nowPage | upperCase}}
               <i class="fa fa-angle-down" v-if="item.children"></i>
             </router-link>
             <div class="child-routers">
@@ -40,6 +40,11 @@ export default {
     return {
       isDisplay: true,
       currentIndex: -1
+    }
+  },
+  filters: {
+    upperCase (item) {
+      return item.toUpperCase()
     }
   }
 }

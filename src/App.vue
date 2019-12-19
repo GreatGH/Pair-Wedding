@@ -11,6 +11,9 @@ export default {
     window.onscroll = () => {
       let nowScrollTop = document.documentElement.scrollTop | document.body.scrollTop
       if (nowScrollTop > 100) {
+        document.querySelector('.cg-topnav').classList.add('show')
+      } else {
+        document.querySelector('.cg-topnav').classList.remove('show')
       }
       // if(window.screenTop)
       // document.querySelector('.cg-topnav')

@@ -40,7 +40,7 @@
             <input type="password" @input="judge" placeholder="请再次输入密码" key="register-repwd" name="repwd">
           </div>
           <div class="login-btn" @click="allJudge">立即注册</div>
-          <span class="toregister" @click="show = !show">立即登录</span>
+          <span class="toregister" @click="clear">立即登录</span>
         </div>
       </div>
     </flipInY>
@@ -110,8 +110,9 @@ export default {
     clear () {
       this.show = !this.show
       let valida = document.querySelectorAll('.validate-label')
+      let frag = document.createDocumentFragment()
       valida.forEach(item => {
-        item.parentNode.removeChild(item)
+        frag.appendChild(item)
       })
     },
     canvas () {
@@ -169,9 +170,9 @@ export default {
           }, 1000)
         })
       }, 500)
-      document.body.onclick = function (e) {
-        console.log(e.clientX, e.clientY)
-      }
+      // document.body.onclick = function (e) {
+      //   console.log(e.clientX, e.clientY)
+      // }
     }
   },
   mounted () {
@@ -238,7 +239,7 @@ export default {
         height: 50px;
         margin: 50px 0;
         border-radius: 50px;
-        overflow: hidden;
+        // overflow: hidden;
         &:hover {
           box-shadow: 0 0 14px 8px pink;
           outline: none;
