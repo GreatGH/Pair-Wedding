@@ -137,5 +137,9 @@ export default {
     .lists {
       column-count: 2;
     }
+    .tab-title li{
+      font-size: 12px;
+      margin: 10px 5px;
+    }
   }
 </style>

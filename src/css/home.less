@@ -424,7 +424,7 @@ input::placeholder,textarea::placeholder{
 .story-text h4 {
     position: relative;
     font-size: 21px;
-    z-index: 10;
+    z-index: 2;
     color: #101127;
 }
 .story-text h5 {
@@ -479,6 +479,12 @@ input::placeholder,textarea::placeholder{
     }
 }
 @media screen and (max-width:992px) {
+    .love-area.zoom-heart{
+        height: 70vh;
+    }
+    .banner-caption{
+        min-height: 70vh;
+    }
     .banner-content-img{
         display: none;
     }
@@ -530,6 +536,42 @@ input::placeholder,textarea::placeholder{
     }
 }
 @media screen and (max-width:576px) {
+    .love-area.zoom-heart{
+        height: 50vh;
+    }
+    .home-container.my-home{
+        margin-left: 5%;
+    }
+    .banner-caption{
+        min-height: 50vh;
+    }
+    .event-count .dash{
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        padding: 0;
+        .digit{
+            .top{
+                font-size: 24px;
+            }
+        }
+        .dash_title{
+            font-size: 16px;
+        }
+    }
+    .bride-groom-area,.love-story-area,.planners-area{
+        margin: 0 auto;
+        padding: 30px 0;
+    }
+    .bride-rsvg-area{
+        padding: 30px 0 44px;
+    }
+    .our-gallery-area{
+        padding: 30px 0 20px;
+    }
+    .our-best-friends-area {
+        padding: 30px 0 16px;
+    }
     .home-container {
         max-width: 540px;
     }
@@ -564,6 +606,16 @@ input::placeholder,textarea::placeholder{
     }
     .story-box.story-left {
         padding-bottom: 37px;
+    }
+    .story-box.story-right{
+        padding-top: 20px;
+    }
+    .story-box.story-left .story-text{
+        padding-top: 40px;
+    }
+    .story-box.story-right .story-text {
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 }
 @media only screen and (max-width: 479px) and (min-width: 300px) {

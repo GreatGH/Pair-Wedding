@@ -15,6 +15,7 @@
                 <li class="container-wrap-list fl margin-r-5">
                   <router-link to="/home">Home</router-link>
                 </li>
+                 <li class="container-wrap-list fl padding-lr-10">/</li>
                 <li class="container-wrap-list active fl margin-l-5">Gallery Classic</li>
               </ul>
             </div>

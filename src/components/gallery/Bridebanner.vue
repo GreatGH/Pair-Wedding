@@ -48,8 +48,8 @@
             </div>
           </div>
         </swiper-slide>
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
+        <!-- <div class="swiper-button-prev" slot="button-prev"></div> -->
+        <!-- <div class="swiper-button-next" slot="button-next"></div> -->
     </swiper>
       </div>
     </div>
@@ -68,14 +68,14 @@ export default {
         pagination: {
           el: '.swiper-pagination',
           clickable: false
-        },
-        autoplay: {
-          stopOnLastSlide: true
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
         }
+        // autoplay: {
+        //   stopOnLastSlide: true
+        // },
+        // navigation: {
+        //   nextEl: '.swiper-button-next',
+        //   prevEl: '.swiper-button-prev'
+        // }
       }
     }
   }
