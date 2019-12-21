@@ -20,7 +20,7 @@
         </div>
         <div class="header-nav">{{item.position}}</div>
         <div class="header-nav">
-          <img :src="item.img" alt="" @click="changeSize">
+          <img :src="item.img" alt="" @click="changeSize(index)">
         </div>
         <div class="header-nav">{{item.price | price}}</div>
       </div>
@@ -29,12 +29,9 @@
       </div>
     </div>
     <div class="pic-model" v-show="show">
-      <div class="outer">
-        <div class="inner">
-          <img src="~img/z-public/shopcar-bg.jpg" alt="">
-          <img src="~img/z-public/shopcar-bg.jpg" alt="">
-          <img src="~img/z-public/shopcar-bg.jpg" alt="">
-          <img src="~img/z-public/shopcar-bg.jpg" alt="">
+      <div class="outer" ref="picModelpar">
+        <div class="inner" ref="picModel">
+          <img v-for="item in modelImg" :key="item" :src="item" alt="">
         </div>
       </div>
       <div class="left-arrow arrow" @click="arrowClick(-1)">
@@ -43,7 +40,7 @@
       <div class="right-arrow arrow" @click="arrowClick(1)">
         <i class="fa fa-angle-right"></i>
       </div>
-      <div class="close" @click="show =false">X</div>
+      <div class="close" @click="close">X</div>
     </div>
   </div>
 </template>
@@ -93,18 +90,25 @@ export default {
         this.allChoose = false
       }
     },
-    changeSize () {
+    changeSize (index) {
       this.show = true
       this.axiosRequest({
-        url: '',
-        method: 'get'
+        url: '/cart',
+        method: 'post'
       }).then(res => {
-        this.modelImg = res.data.data
-        let modelImg = document.querySelectorAll('.pic-model img')
-        modelImg.forEach(item => {
-          item.style.width = item.parentNode.parentNode.clientWidth
+        this.modelImg = []
+        this.index = 0
+        let imgArr = []
+        res.data.data.forEach(item => {
+          imgArr.push(item.img)
         })
-        modelImg[0].parentNode.style.width = modelImg[0].clientWidth * modelImg.length
+        this.modelImg = imgArr
+        this.$nextTick(() => {
+          for (let item of this.$refs.picModel.children) {
+            item.style.width = this.$refs.picModelpar.offsetWidth + 'px'
+          }
+          this.$refs.picModel.style.width = this.$refs.picModelpar.offsetWidth * this.$refs.picModel.children.length + 'px'
+        })
       }).catch(err => {
         console.log(err)
       })
@@ -136,6 +140,11 @@ export default {
       }).catch(err => {
         console.log(err)
       })
+    },
+    close () {
+      this.show = false
+      this.index = 0
+      this.$refs.picModel.style.left = 0
     }
   },
   filters: {

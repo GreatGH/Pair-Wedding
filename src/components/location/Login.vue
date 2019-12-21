@@ -6,7 +6,7 @@
     <flipInY>
       <div class="bottom-input" v-if="show" slot="flipInY">
         <div class="logo">
-          <img src="~img/z-public/logo.png" alt="">
+          <router-link to="/home"><img src="~img/z-public/logo.png" alt=""></router-link>
         </div>
         <div>
           <div class="email">
@@ -21,7 +21,7 @@
       </div>
       <div class="bottom-input" v-if="!show" slot="flipInY">
         <div class="logo">
-          <img src="~img/z-public/logo.png" alt="">
+          <router-link to="/home"><img src="~img/z-public/logo.png" alt=""></router-link>
         </div>
         <div>
           <div class="email">
@@ -187,7 +187,7 @@ export default {
   #love {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -270px;
     z-index: 2;
   }
   .top-banner {
