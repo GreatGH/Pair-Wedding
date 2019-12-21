@@ -7,7 +7,7 @@
 <script>
 import MGpage from './MGPage'
 export default {
-  components:{
+  components: {
     MGpage
   }
 }

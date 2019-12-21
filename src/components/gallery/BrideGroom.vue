@@ -15,6 +15,7 @@
                 <li class="container-wrap-list fl">
                   <router-link to="/home">Home</router-link>
                 </li>
+                <li class="container-wrap-list fl padding-lr-10">/</li>
                 <li class="container-wrap-list active fl">Bride & Groom</li>
               </ul>
             </div>
@@ -26,7 +27,7 @@
   <div class="groom-area-news">
     <NewPeoPleModule></NewPeoPleModule>
   </div>
-  <!-- <BrideBanner></BrideBanner> -->
+  <BrideBanner></BrideBanner>
   <div class="module-store">
     <StoryModel></StoryModel>
   </div>
@@ -37,7 +38,7 @@
 <script>
 import '../../Common/fontSize'
 import PublicTab from './publicTab.vue'
-// import BrideBanner from './Bridebanner.vue'
+import BrideBanner from './Bridebanner.vue'
 import StoryModel from '../home/storymodel'
 import NewPeoPleModule from '../home/NewPeopleModle'
 import BounceInLeft from 'comp/location/slot/BounceInLeft'
@@ -51,7 +52,7 @@ export default {
   components: {
     PublicTab,
     StoryModel,
-    // BrideBanner,
+    BrideBanner,
     NewPeoPleModule,
     BounceInLeft,
     BounceInRight

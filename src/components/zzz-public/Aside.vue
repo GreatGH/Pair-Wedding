@@ -35,8 +35,9 @@ export default {
   text-align: center;
   // width: 80px;
   position: fixed;
-  bottom: 10%;
-  right: 10%;
+  bottom: 20%;
+  right: 0;
+  z-index: 5;
   background-color: rgba(255, 0, 0, 0.5);
   z-index: 11;
   >div {

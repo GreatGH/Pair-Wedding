@@ -252,17 +252,17 @@
         flex-direction:column;
         color:#fff;
         h1{
-          font-size:60px;
-          font-family: "CommercialScript BT";
+          font-size:.6rem;
+          font-family: "华文隶书";
           font-weight:400;
         }
         .container-wrap-lists{
           a{
-            font-size:24px;
+            font-size:.22rem;
             color:#ff6e87;
           }
           .container-wrap-list{
-            font-size:30px;
+            font-size:.22rem;
             &.active{
                 color:#fff;
               }
@@ -274,7 +274,7 @@
 }
 //Bridebanner
 .banner-wadding-content{
-  height:800px;
+  height:700px;
   margin-top:40px;
   .wadding-content-wrapper{
     background: url(../images/gallery/wedding-events-bg.jpg) no-repeat center;
@@ -353,10 +353,20 @@
   .public-tab-content{
     display: none;
 }
+
 .public-tab-content-two{
     display: block;
 }
 .tab-content{}
  
 }
-
+@media screen and (max-width:768px) {
+  .banner-wadding-content{
+    height: 600px;
+  }
+}
+@media screen and (max-width:576px) {
+  .banner-wadding-content{
+    height: 550px;
+  }
+}
