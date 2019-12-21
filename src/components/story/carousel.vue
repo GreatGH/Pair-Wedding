@@ -54,7 +54,7 @@ export default {
   mounted () {
     // swiper 插件
     let swiper = new Swiper('.swiper-container', {
-      // autoplay: true,
+      autoplay: true,
       loop: true,
       slidesPerView: 'auto'
     })

@@ -264,7 +264,7 @@
           .container-wrap-list{
             font-size:.22rem;
             &.active{
-                color:#fff;
+              color:#fff;
               }
           }
         }
@@ -274,13 +274,11 @@
 }
 //Bridebanner
 .banner-wadding-content{
-  height:700px;
   margin-top:40px;
   .wadding-content-wrapper{
     background: url(../images/gallery/wedding-events-bg.jpg) no-repeat center;
     background-size: cover;
     font-size:14px;
-    height:540px;
     .section-wadding-content{
       background-color: rgba(16, 17, 39, .80);
       padding:.8rem 0;
@@ -329,10 +327,8 @@
           margin-top:.15rem;
           color:#fefefe;
         }
-        
       }
     }
-    
     .swiper-slide{
       transition:1s;
       transform: scale(0.85);
@@ -344,29 +340,24 @@
     }
   }
 }
-@media screen and (max-width:900px)  {
-   .surface-content{
+@media only screen and (max-width:900px) and (min-width:768px){
+  .surface-content{
     display: none;
-   }
+  }
+  .groom-area-news,.module-store{
+    padding: 60px 0;
+  }
 }
 @media screen and (max-width:992px)  {
   .public-tab-content{
     display: none;
-}
-
-.public-tab-content-two{
+  }
+  .public-tab-content-two{
     display: block;
-}
-.tab-content{}
- 
-}
-@media screen and (max-width:768px) {
-  .banner-wadding-content{
-    height: 600px;
   }
 }
-@media screen and (max-width:576px) {
-  .banner-wadding-content{
-    height: 550px;
+@media only screen and (max-width: 768px) {
+  .groom-area-news, .module-store{
+    padding: 0;
   }
 }

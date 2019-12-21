@@ -8,14 +8,16 @@
       </div>
       <!--标题-->
       <div class="title">
-        <div>
-          <div class="main-title">Love Story</div>
+        <BounceInLeft>
+        <div slot="bounceInLeft" v-if="show1">
+            <div class="main-title">Love Story</div>
           <div class="small-title">
             <router-link to="/home" class="home">Home</router-link>
             <span>/</span>
             <router-link to="/story" class="story">Story</router-link>
           </div>
         </div>
+        </BounceInLeft>
       </div>
     </div>
     <!--中间内容-->
@@ -68,7 +70,8 @@ export default {
   data () {
     return {
       show: false,
-      visiable: false
+      visiable: false,
+      show1: false
     }
   },
   methods: {
@@ -78,6 +81,7 @@ export default {
   },
   mounted () {
     this.visiable = true
+    this.show1 = true
   }
 }
 </script>
