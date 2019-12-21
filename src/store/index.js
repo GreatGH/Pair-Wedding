@@ -17,6 +17,9 @@ let mutations = {
   },
   changeShow (state, show) {
     state.show = true
+  },
+  changeEmail (state, data) {
+    state.userEmail = data
   }
 }
 
@@ -32,6 +35,7 @@ let getters = {
 export default new Vuex.Store({
   state: {
     token: '',
+    userEmail: '',
     mainRouters: [{
       nowPage: 'HOME',
       route: '/home',

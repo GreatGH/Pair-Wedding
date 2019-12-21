@@ -25,7 +25,7 @@
         <div class="header-nav">{{item.price | price}}</div>
       </div>
       <div class="header buy">
-        <div @click="judgeToken">立即购买</div>
+        <div @click="judgeToken">提交订单</div>
       </div>
     </div>
     <div class="pic-model" v-show="show">
@@ -71,7 +71,7 @@ export default {
         price: 9988.99
       }, {
         position: '自定义',
-        img: '',
+        img: 'https://www.17sucai.com/preview/1424582/2019-12-02/wedding/assets/img/footer-img/gallery3.jpg',
         price: 16888.99
       }],
       modelImg: []
@@ -123,23 +123,46 @@ export default {
     judgeToken () {
       if (this.$store.state.token !== 'login') {
         this.$router.replace({path: '/login'})
-        return
-      }
-      let bought = []
-      bought = this.isChoosed.map((item, index) => {
-        if (item) {
-          return index + 1
+      } else {
+        let bought = {}
+        bought.shop = []
+        bought.shop = this.isChoosed.map((item, index) => {
+          if (item) {
+            return this.shops[index]
+          }
+        }).filter(item => item)
+        bought.user = this.$store.state.userEmail
+        console.log(bought)
+        if (bought.length === 0) {
+          this.$message({
+            type: 'error',
+            message: '您没有选择商品'
+          })
+        } else {
+          this.axiosRequest({
+            url: '/sendorder',
+            data: bought,
+            method: 'post'
+          }).then(res => {
+            let _this = this
+            console.log(res)
+            this.$message({
+              type: 'success',
+              message: '您的订单已发送，我们将于三个工作日内与您联系'
+            })
+            setTimeout(() => {
+              _this.$router.replace('/home')
+            }, 5000)
+            console.log('buy：' + res.data.data)
+          }).catch(err => {
+            this.$message({
+              type: 'error',
+              message: '服务器崩溃，操作失败'
+            })
+            console.log(err)
+          })
         }
-      }).filter(item => item)
-      this.axiosRequest({
-        url: '/display',
-        data: bought,
-        method: 'post'
-      }).then(res => {
-        console.log('buy：' + res.data.data)
-      }).catch(err => {
-        console.log(err)
-      })
+      }
     },
     close () {
       this.show = false
