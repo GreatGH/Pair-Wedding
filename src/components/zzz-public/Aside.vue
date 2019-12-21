@@ -38,6 +38,7 @@ export default {
   bottom: 10%;
   right: 10%;
   background-color: rgba(255, 0, 0, 0.5);
+  z-index: 11;
   >div {
     font-size: 24px;
     color: #f2f2f2;
