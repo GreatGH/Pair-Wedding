@@ -1,5 +1,6 @@
 .shopcar {
-  background: url(~img/z-public/shopcar-bg.jpg) no-repeat;
+  // background: url(~img/z-public/shopcar-bg.jpg) no-repeat;
+  background: rgba(0, 0, 255, 0.2);
   background-size: cover;
   .shopcar-title {
     background: url(~img/z-public/location-banner.jpg) no-repeat;
@@ -19,11 +20,19 @@
   }
   .menu {
     color: #a59104;
+    margin-bottom: 70px;
     >div {
       padding: 10px 20px;
       &.header {
         display: flex;
-        background: rgba(0, 0, 255, 0.2);
+        margin-bottom: 10px;
+        &.all-shop {
+          line-height: 100px;
+          &.isChecked {
+            background: pink;
+            color: white;
+          }
+        }
         >div {
           font-size: 20px;
           text-align: center;
@@ -44,6 +53,7 @@
                 top: 0;
                 display: block;
                 content: '\2714';
+                text-align: center;
               }
             }
           }
@@ -62,10 +72,11 @@
             font-size: 12px;
             padding: 10px 20px;
             border-radius: 5px;
-            background: pink;
+            background: orange;
+            color: white;
+            line-height: normal;
             &:hover {
               background: #ff2d52;
-              color: #e2e2e2;
               font-size: 16px;
             }
           }
@@ -88,7 +99,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 500px;
+      width: 70%;
       .inner {
         font-size: 0;
         position: relative;
@@ -108,6 +119,10 @@
       color: #e2e2e2;
       background: #a59104;
       top: 50%;
+      &.stop {
+        background: #e2e2e2;
+        color: burlywood;
+      }
     }
     .left-arrow {
       left: 10%;

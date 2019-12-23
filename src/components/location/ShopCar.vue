@@ -1,46 +1,48 @@
 <template>
-  <div class="shopcar dis-fixed">
-    <div class="shopcar-title">
-      <div>
-        <img src="~img/z-public/logo.png" alt="">
-      </div>
-      <div class="title-name">婚礼预约订单</div>
-    </div>
-    <div class="menu">
-      <div class="header">
-        <div class="check-all">
-          <input type="checkbox" @click="allChoosed" :class="{show: allChoose}" id="allchoose">
-          <label for="allchoose">全选</label>
+  <div>
+    <div class="shopcar">
+      <div class="shopcar-title">
+        <div>
+          <router-link to="/home"><img src="~img/z-public/logo.png" alt=""></router-link>
         </div>
-        <div v-for="item in menuheader" class="header-nav" :key="item">{{item}}</div>
+        <div class="title-name">婚礼预约订单</div>
       </div>
-      <div class="all-shop header" v-for="(item, index) in shops" :key="item.position">
-        <div class="check-all">
-          <input type="checkbox" @click="changeChoose(index)" :class="{show: isChoosed[index]}">
+      <div class="menu">
+        <div class="header">
+          <div class="check-all">
+            <input type="checkbox" @click="allChoosed" :class="{show: allChoose}" id="allchoose">
+            <label for="allchoose">全选</label>
+          </div>
+          <div v-for="item in menuheader" class="header-nav" :key="item">{{item}}</div>
         </div>
-        <div class="header-nav">{{item.position}}</div>
-        <div class="header-nav">
-          <img :src="item.img" alt="" @click="changeSize(index)">
+        <div class="all-shop header" :class="{isChecked: isChoosed[ind]}" v-for="(item, ind) in shops" :key="item.position">
+          <div class="check-all">
+            <input type="checkbox" @click="changeChoose(ind)" :class="{show: isChoosed[ind]}">
+          </div>
+          <div class="header-nav">{{item.position}}</div>
+          <div class="header-nav">
+            <img :src="item.img" alt="" @click="changeSize(ind)">
+          </div>
+          <div class="header-nav">{{item.price | price}}</div>
         </div>
-        <div class="header-nav">{{item.price | price}}</div>
-      </div>
-      <div class="header buy">
-        <div @click="judgeToken">提交订单</div>
-      </div>
-    </div>
-    <div class="pic-model" v-show="show">
-      <div class="outer" ref="picModelpar">
-        <div class="inner" ref="picModel">
-          <img v-for="item in modelImg" :key="item" :src="item" alt="">
+        <div class="header buy">
+          <div @click="judgeToken">提交订单</div>
         </div>
       </div>
-      <div class="left-arrow arrow" @click="arrowClick(-1)">
-        <i class="fa fa-angle-left"></i>
+      <div class="pic-model" v-show="show">
+        <div class="outer" ref="picModelpar">
+          <div class="inner" ref="picModel">
+            <img v-for="item in modelImg" :key="item" :src="item" alt="">
+          </div>
+        </div>
+        <div class="left-arrow arrow" @click="arrowClick(-1)" :class="{stop: index === 0}">
+          <i class="fa fa-angle-left"></i>
+        </div>
+        <div class="right-arrow arrow" @click="arrowClick(1)" :class="{stop: index === modelImg.length - 1}">
+          <i class="fa fa-angle-right"></i>
+        </div>
+        <div class="close" @click="close">X</div>
       </div>
-      <div class="right-arrow arrow" @click="arrowClick(1)">
-        <i class="fa fa-angle-right"></i>
-      </div>
-      <div class="close" @click="close">X</div>
     </div>
   </div>
 </template>
@@ -56,7 +58,7 @@ export default {
       isChoosed: [false, false, false],
       choose: ['海滩', '森林', '小路'],
       yourchoose: '海滩',
-      menuheader: ['拍摄地点', '预览', '价格'],
+      menuheader: ['摄影地点', '预览', '价格'],
       shops: [{
         position: '海滩',
         img: 'https://www.17sucai.com/preview/1424582/2019-12-02/wedding/assets/img/footer-img/gallery5.jpg',
@@ -96,6 +98,7 @@ export default {
         url: '/cart',
         method: 'post'
       }).then(res => {
+        console.log(res.data.data)
         this.modelImg = []
         this.index = 0
         let imgArr = []

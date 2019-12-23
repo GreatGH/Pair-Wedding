@@ -99,80 +99,7 @@ const finalChildren = [
   }
 ]
 
-/* const finalChildren = [
-  {
-    path: '/brideGroom',
-    component: BrideGroom
-  }, {
-    path: '/blog',
-    component: Blog
-  }, {
-    path: '/blog/singleBlog',
-    component: SingleBlog
-  }, {
-    path: '/blog/childblog',
-    component: ChildBlog
-  }, {
-    path: '/story',
-    component: Story
-  }, {
-    path: '/rsvp',
-    component: Rsvp
-  }, {
-    path: '/pages',
-    component: Pages
-  }, {
-    path: '/pages/classicGalleryPage',
-    component: ClassifyPages
-  }, {
-    path: '/pages/404Page',
-    component: ErrorPages
-  }, {
-    path: '/pages/singleBlogPage',
-    component: SinglePages
-  }, {
-    path: '/home',
-    component: Home
-  }, {
-    path: '/gallery',
-    component: Gallery
-  }, {
-    path: '/gallery/classicGalleryPage',
-    component: CGPages
-  }, {
-    path: '/gallery/masonaryGalleryPage',
-    component: MGPage
-  }, {
-    path: '/friends',
-    component: Friends
-  }, {
-    path: '/friends/friendsStyle1',
-    component: FirstFriends
-  }, {
-    path: '/friends/friendsStyle2',
-    component: SecondFriends
-  }, {
-    path: '/location',
-    component: Location
-  }, {
-    path: '',
-    redirect: '/home'
-  }
-]
-*/
-
 export default new Router({
-  // scrollBehavior: (to, from, savedPosition) => {
-  //   if (savedPosition) {
-  //     return savedPosition
-  //   } else {
-  //     return new Promise((resolve) => {
-  //       setTimeout(() => {
-  //         resolve({x: 0, y: 100})
-  //       }, 1000)
-  //     })
-  //   }
-  // },
   routes: [
     {
       path: '/',
@@ -183,7 +110,11 @@ export default new Router({
       component: ShopCar
     }, {
       path: '/login',
-      component: Login
+      component: Login,
+      beforeEnter (to, from, next) {
+        console.log(this)
+        next()
+      }
     }
   ]
 })

@@ -20,7 +20,6 @@ export default {
       let nowScrollTop = document.documentElement.scrollTop
       let gotopTime = setInterval(() => {
         document.documentElement.scrollTop -= (nowScrollTop / 10)
-        console.log(1, nowScrollTop / 10, document.documentElement.scrollTop)
         if (document.documentElement.scrollTop <= 10) {
           clearInterval(gotopTime)
         }

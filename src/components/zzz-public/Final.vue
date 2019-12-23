@@ -1,12 +1,14 @@
 <template>
   <div>
-    <Top></Top>
-    <div class="center-content">
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
+    <div class="all-content">
+      <Top></Top>
+      <div class="center-content">
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
+      </div>
+      <Bottom></Bottom>
     </div>
-    <Bottom></Bottom>
     <Aside></Aside>
   </div>
 </template>
