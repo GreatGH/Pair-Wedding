@@ -135,8 +135,7 @@ export default {
           }
         }).filter(item => item)
         bought.user = this.$store.state.userEmail
-        console.log(bought)
-        if (bought.length === 0) {
+        if (bought.shop.length === 0) {
           this.$message({
             type: 'error',
             message: '您没有选择商品'
@@ -147,16 +146,14 @@ export default {
             data: bought,
             method: 'post'
           }).then(res => {
-            let _this = this
             console.log(res)
             this.$message({
               type: 'success',
               message: '您的订单已发送，我们将于三个工作日内与您联系'
             })
             setTimeout(() => {
-              _this.$router.replace('/home')
+              this.$router.replace('/home')
             }, 5000)
-            console.log('buy：' + res.data.data)
           }).catch(err => {
             this.$message({
               type: 'error',
