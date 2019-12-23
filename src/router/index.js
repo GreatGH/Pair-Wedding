@@ -22,7 +22,6 @@ const SinglePages = () => import('comp/pages/SinglePages')
 const Location = () => import('comp/location/Location')
 const ShopCar = () => import('comp/location/ShopCar')
 const Login = () => import('comp/location/Login')
-
 Vue.use(Router)
 
 const scrollBehavior = (to, from, savedPosition) => {

@@ -141,7 +141,7 @@
                              <div class="d-flex justify-content-between align-items-center">
                                <h4 class="author-name">
                                  {{item.name}}
-                                 <span class="comment-date-time">{{item.time.slice(0,19)}}</span>
+                                 <span class="comment-date-time">{{item.time.slice(0,10)+'  ' +item.time.slice(11,19)}}</span>
                                </h4>
                                <span class="reply-btn">Reply</span>
                              </div>
@@ -176,7 +176,7 @@
                               <el-input v-model="Form.email"></el-input>
                             </el-form-item>
                            <el-form-item  prop="content"  label="Content"  class="col-sm-12">
-                              <el-input v-model="Form.content"></el-input>
+                              <el-input type="textarea" v-model="Form.content"></el-input>
                             </el-form-item>
                             <el-form-item class="col-sm-12">
                               <el-button class="text-uppercase btn" @click="submitForm('Form')">
@@ -386,6 +386,7 @@ export default {
                 type: 'success'
               })
               this.$refs[formName].resetFields()
+              this.$router.go(0)
             }
           })
         } else {

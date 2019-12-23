@@ -142,4 +142,10 @@ export default {
       margin: 10px 5px;
     }
   }
+@media only screen and (min-width: 768px){
+  /deep/
+  .el-icon-circle-close{
+    font-size: 30px;
+  }
+}
 </style>

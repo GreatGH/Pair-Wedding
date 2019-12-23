@@ -31,7 +31,7 @@
             <div>
               <input type="text" @input="judge" placeholder="请输入验证码" key="register-code" name="code">
             </div>
-            <div class="getcode">获取验证码</div>
+            <div class="getcode" @click="getCode">获取验证码</div>
           </div>
           <div class="pwd">
             <input type="password" @input="judge" placeholder="请输入密码" key="register-pwd" name="pwd">
@@ -96,10 +96,12 @@ export default {
           data: data,
           method: 'post'
         }).then(res => {
+          this.$store.commit('changeEmail', data.email)
+          console.log(res)
+          this.$store.state.token = 'login'
           if (this.show === false && res.data.status === 200) {
             this.show = true
-          }
-          if (this.show === true && res.data.status === 200) {
+          } else if (this.show === true && res.data.status === 200) {
             this.$router.replace({path: '/shopcar'})
           }
         }).catch(err => {
@@ -173,6 +175,21 @@ export default {
       // document.body.onclick = function (e) {
       //   console.log(e.clientX, e.clientY)
       // }
+    },
+    getCode () {
+      let email = document.querySelector('[name=email]').value
+      console.log(email)
+      if (email) {
+        this.axiosRequest({
+          url: '/getcode',
+          method: 'get',
+          params: {
+            email: email
+          }
+        }).then((res) => {
+          console.log(res)
+        })
+      }
     }
   },
   mounted () {
@@ -187,8 +204,9 @@ export default {
   #love {
     position: absolute;
     top: 0;
-    left: -270px;
     z-index: 2;
+    left: 0;
+    right: 0;
   }
   .top-banner {
     width: 100%;
