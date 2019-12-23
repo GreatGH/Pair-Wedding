@@ -97,12 +97,27 @@ export default {
           method: 'post'
         }).then(res => {
           this.$store.commit('changeEmail', data.email)
-          console.log(res)
-          this.$store.state.token = 'login'
-          if (this.show === false && res.data.status === 200) {
-            this.show = true
-          } else if (this.show === true && res.data.status === 200) {
-            this.$router.replace({path: '/shopcar'})
+          if (res.data.status === 200) {
+            console.log(123)
+            this.$store.commit('changeToken', 'login')
+            this.$store.commit('changeSituation', 'success')
+            this.$store.commit('changeMessage', res.data.message)
+            setTimeout(() => {
+              this.$store.commit('changeSituation', '')
+              this.$store.commit('changeMessage', '')
+            }, 1000)
+            if (this.show === false) {
+              this.show = true
+            } else {
+              this.$router.replace({path: '/shopcar'})
+            }
+          } else {
+            this.$store.commit('changeSituation', 'error')
+            this.$store.commit('changeMessage', res.data.message)
+            setTimeout(() => {
+              this.$store.commit('changeSituation', '')
+              this.$store.commit('changeMessage', '')
+            }, 1000)
           }
         }).catch(err => {
           console.log(err)

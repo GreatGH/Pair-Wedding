@@ -25,15 +25,6 @@ const Login = () => import('comp/location/Login')
 Vue.use(Router)
 
 const scrollBehavior = (to, from, savedPosition) => {
-  console.log(111)
-  // let returnData = {}
-  // if(savedPosition){
-  //     returnData = savedPosition
-  // }
-  // else{
-  //     returnData.x = 0
-  //     returnData.y = 0
-  // }
   return savedPosition
 }
 
@@ -99,7 +90,7 @@ const finalChildren = [
   }
 ]
 
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: '/',
@@ -112,9 +103,20 @@ export default new Router({
       path: '/login',
       component: Login,
       beforeEnter (to, from, next) {
-        console.log(this)
-        next()
+        if (router.app.$options.store.state.token === 'login') {
+          router.app.$options.store.commit('changeSituation', 'error')
+          router.app.$options.store.commit('changeMessage', '您已登录')
+          setTimeout(() => {
+            router.app.$options.store.commit('changeSituation', '')
+            router.app.$options.store.commit('changeMessage', '')
+            next(from.path)
+          }, 1000)
+        } else {
+          next()
+        }
       }
     }
   ]
 })
+
+export default router

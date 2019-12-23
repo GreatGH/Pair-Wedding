@@ -2,11 +2,13 @@
   <div id="app">
     <router-view/>
     <BottomNav></BottomNav>
+    <Prov></Prov>
   </div>
 </template>
 
 <script>
 import BottomNav from 'comp/zzz-public/BottomNav'
+import Prov from 'comp/zzz-public/Prov'
 export default {
   name: 'App',
   mounted () {
@@ -22,7 +24,8 @@ export default {
     }
   },
   components: {
-    BottomNav
+    BottomNav,
+    Prov
   }
 }
 </script>

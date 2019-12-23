@@ -20,6 +20,15 @@ let mutations = {
   },
   changeEmail (state, data) {
     state.userEmail = data
+  },
+  changeToken (state, data) {
+    state.token = data
+  },
+  changeMessage (state, data) {
+    state.message = data
+  },
+  changeSituation (state, data) {
+    state.situation = data
   }
 }
 
@@ -27,14 +36,13 @@ let actions = {
 }
 
 let getters = {
-  getGood (state) {
-    console.log(state.goodlist)
-  }
 }
 
 export default new Vuex.Store({
   state: {
     token: '',
+    message: '',
+    situation: '',
     userEmail: '',
     mainRouters: [{
       nowPage: 'HOME',
