@@ -13,6 +13,10 @@ export default {
   name: 'App',
   mounted () {
     window.onscroll = () => {
+      if (document.querySelector('#love')) {
+        document.querySelector('#love').height = document.body.clientHeight
+        document.querySelector('#love').width = document.body.clientWidth
+      }
       let nowScrollTop = document.documentElement.scrollTop | document.body.scrollTop
       if (nowScrollTop > 100 && document.querySelector('.cg-topnav')) {
         document.querySelector('.cg-topnav').classList.add('show')
