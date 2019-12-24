@@ -1,17 +1,17 @@
 <template>
-      <div class="tab-box">
-        <ul class="tab-title">
-          <li :class="{ classred:index==current}" :key="index"  @click="filt = item.name ;addClass(index)"  v-for="(item,index) in tabitems">{{item.name}}</li>
-        </ul>
-        <transition-group tag="ul"  class="lists" name="animate">
-          <li class="animate-item" :key="item.id" v-for="item in filteredItems">
-            <el-image
-              :src="item.img"
-              :preview-src-list="imgList1">
-            </el-image>
-          </li>
-        </transition-group>
-      </div>
+  <div class="tab-box">
+    <ul class="tab-title">
+      <li :class="{ classred: index === current}" :key="index" @click="current = index" v-for="(item,index) in tabitems">{{item.name}}</li>
+    </ul>
+    <transition-group tag="ul"  class="lists" name="animate">
+      <li class="animate-item" :key="item.id" v-for="item in filteredItems">
+        <el-image
+          :src="item.img"
+          :preview-src-list="imgList1">
+        </el-image>
+      </li>
+    </transition-group>
+  </div>
 </template>
 
 <script>
@@ -21,32 +21,32 @@ export default {
       current: 0,
       srcLists: [],
       tabitems: [
-        {name: 'all'},
         {name: 'bride'},
         {name: 'groom'},
         {name: 'lovestory'},
         {name: 'friend'},
-        {name: 'party'}],
-      filt: 'all'
+        {name: 'party'}]
     }
   },
   computed: {
     filteredItems () {
-      var result
-      if (this.filt !== 'all') {
-        var filt = this.filt
-        result = this.srcLists.filter(function (a) {
-          return a.classify === filt
-        })
-      } else {
-        result = this.srcLists
-      }
+      let result = []
+      this.srcLists.forEach(item => {
+        if (this.tabitems[this.current].name === item.classify) {
+          result.push(item)
+        }
+      })
+      console.log(result.length)
       return result
     },
     imgList1 () {
-      let imgList = this.filteredItems.map((item) => {
-        return item.img
+      let imgList = []
+      this.srcLists.forEach(item => {
+        if (this.tabitems[this.current].name === item.classify) {
+          imgList.push(item.img)
+        }
       })
+      console.log(imgList.length)
       return imgList
     }
   },
