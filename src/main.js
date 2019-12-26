@@ -9,12 +9,9 @@ import 'swiper/css/swiper.min.css'
 import vueSwiper from 'vue-awesome-swiper'
 import VueAMap from 'vue-amap'
 import myvalidate from '@/Common/myvalidate'
-<<<<<<< HEAD
 import md5 from 'js-md5'
-=======
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
->>>>>>> 8c97caccfc5fb5c058405a035fb48b1f38f5cc9f
 
 // 公共样式
 import '@/Common/animate.min'

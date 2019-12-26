@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
       <div class="tab-box">
         <ul class="tab-title">
           <li :class="{classred: index === current}" :key="index" @click="current = index" v-for="(item, index) in tabitems">{{item}}</li>
@@ -57,7 +56,6 @@ export default {
   },
   mounted () {
     this.srcLists = this.$store.state.story.srcLists
-=======
   <div class="tab-box">
     <ul class="tab-title">
       <li :class="{ classred:index==current}" :key="index"  @click="filt = item.name ;addClass(index)"  v-for="(item,index) in tabitems">{{item.name}}</li>
@@ -121,7 +119,6 @@ export default {
     mounted () {
       this.srcLists = this.$store.state.story.srcLists
     }
->>>>>>> 8c97caccfc5fb5c058405a035fb48b1f38f5cc9f
   }
 </script>
 <style lang="less" scoped>
