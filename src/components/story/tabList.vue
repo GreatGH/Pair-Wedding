@@ -138,7 +138,6 @@ export default {
 
   @media only screen and (max-width: 768px){
     .column {
-      padding: .5em;
       margin: 0 0 .5em 0;
     }
   }
@@ -147,7 +146,6 @@ export default {
       column-count: 2;
     }
     .column {
-      padding: .2em;
       margin: 0 0 .2em 0;
     }
   }
