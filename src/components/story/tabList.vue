@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
       <div class="tab-box">
         <ul class="tab-title">
           <li :class="{classred: index === current}" :key="index" @click="current = index" v-for="(item, index) in tabitems">{{item}}</li>
@@ -56,8 +57,72 @@ export default {
   },
   mounted () {
     this.srcLists = this.$store.state.story.srcLists
+=======
+  <div class="tab-box">
+    <ul class="tab-title">
+      <li :class="{ classred:index==current}" :key="index"  @click="filt = item.name ;addClass(index)"  v-for="(item,index) in tabitems">{{item.name}}</li>
+    </ul>
+    <viewer :images="filteredItems" class="masonry">
+      <transition-group name="list-complete" tag="ul">
+        <li :key="src.id" v-for="src in filteredItems" class="column list-complete-item blok">
+          <img  :src="src.img" :key="src.id">
+        </li>
+      </transition-group>
+    </viewer>
+  </div>
+</template>
+
+<script>
+
+  export default {
+    data () {
+      return {
+        current: 0,
+        srcLists: [],
+        tabitems: [
+          {name: 'all'},
+          {name: 'bride'},
+          {name: 'groom'},
+          {name: 'lovestory'},
+          {name: 'friend'},
+          {name: 'party'}],
+        filt: 'all'
+      }
+    },
+    computed: {
+      filteredItems () {
+        var result
+        if (this.filt !== 'all') {
+          var filt = this.filt
+          result = this.srcLists.filter(function (a) {
+            return a.classify === filt
+          })
+        } else {
+          result = this.srcLists
+        }
+        return result
+      }
+    },
+    methods: {
+      addClass (index) {
+        this.current = index
+      }
+    },
+    created () {
+      this.axiosRequest({
+        url: '/gallery/',
+        method: 'get'
+      }).then((res) => {
+        if (res.status === 200) {
+          this.srcLists = res.data.data
+        }
+      })
+    },
+    mounted () {
+      this.srcLists = this.$store.state.story.srcLists
+    }
+>>>>>>> 8c97caccfc5fb5c058405a035fb48b1f38f5cc9f
   }
-}
 </script>
 <style lang="less" scoped>
   .tab-box{
@@ -65,32 +130,6 @@ export default {
     margin: 0 auto;
   }
 
-  .lists:after {
-    clear: both;
-    content: '';
-    display: block;
-  }
-  .lists {
-    width: 100%;
-    column-count: 3;
-    column-gap: 10px;
-  }
-  .lists li {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  .animate-item {
-    transition: all 1s;
-    display: inline-block;
-  }
-  .animate-enter, .animate-leave-to
-  {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  .animate-leave-active {
-    position: absolute;
-  }
   .tab-title{
     width: 100%;
     text-align: center;
@@ -114,27 +153,65 @@ export default {
       color:#ff4061 ;
     }
   }
-  /deep/
-  .el-image{
-    img:hover{
-      transform: scale(1.1);
-      transition: all ease-in-out 0.7s;
-      opacity: 0.8;
-    }
-  }
   @media screen and (max-width:576px) {
-    .lists {
-      column-count: 2;
-    }
     .tab-title li{
       font-size: 12px;
       margin: 10px 5px;
     }
   }
-@media only screen and (min-width: 768px){
   /deep/
-  .el-icon-circle-close{
-    font-size: 30px;
+  .viewer-navbar{
+    display: none;
   }
-}
+
+  .masonry{
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    column-count: 3;
+  }
+  .column{
+    padding: 1em;
+    margin: 0 0 1em 0;
+    break-inside: avoid;
+    overflow: hidden;
+    img{
+      width: 100%;
+      height: 100%;
+      transform: scale(1.1);
+    }
+    img:hover{
+      transform: scale(1);
+      transition: all ease-in-out 0.7s;
+      opacity: 0.8;
+    }
+  }
+
+  .list-complete-item {
+    transition: all .5s;
+    display: inline-block;
+  }
+  .list-complete-enter, .list-complete-leave-active {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .list-complete-leave-active {
+    position: absolute;
+  }
+
+  @media screen and (max-width:768px) {
+    .column{
+      padding: .5em;
+      margin: 0 0 .5em 0;
+    }
+  }
+  @media screen and (max-width:576px) {
+    .masonry{
+      column-count: 2;
+    }
+    .column{
+      padding: .2em;
+      margin: 0 0 .2em 0;
+    }
+  }
 </style>

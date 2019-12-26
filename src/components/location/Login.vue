@@ -156,8 +156,8 @@ export default {
         ctx.stroke()
       }
       let circ = new Circle()
-      canvas.setAttribute('width', canvasDiv.clientWidth)
-      canvas.setAttribute('height', canvasDiv.clientHeight)
+      // canvas.setAttribute('width', canvasDiv.clientWidth)
+      // canvas.setAttribute('height', canvasDiv.clientHeight)
       setTimeout(() => {
         arr1.forEach((item, index) => {
           setTimeout(() => {
