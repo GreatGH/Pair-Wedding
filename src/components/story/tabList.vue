@@ -6,7 +6,7 @@
     <viewer :images="filteredItems" class="masonry">
       <transition-group name="list-complete" tag="ul">
         <li :key="src.id" v-for="src in filteredItems" class="column list-complete-item blok">
-          <img  :src="src.img" :key="src.id">
+          <div class="img-box"><img  :src="src.img" :key="src.id"></div>
         </li>
       </transition-group>
     </viewer>
@@ -106,7 +106,6 @@ export default {
     column-count: 3;
   }
   .column{
-    padding: 1em;
     margin: 0 0 1em 0;
     break-inside: avoid;
     overflow: hidden;
@@ -115,16 +114,19 @@ export default {
       height: 100%;
       transform: scale(1.1);
     }
-    img:hover{
-      transform: scale(1);
-      transition: all ease-in-out 0.7s;
-      opacity: 0.8;
-    }
   }
 
   .list-complete-item {
     transition: all .5s;
     display: inline-block;
+  }
+  .list-complete-item .img-box{
+    overflow: hidden;
+  }
+  .list-complete-item:hover img{
+    transform: scale(1);
+    transition: all ease-in-out 0.7s;
+    opacity: 0.8;
   }
   .list-complete-enter, .list-complete-leave-active {
     opacity: 0;
