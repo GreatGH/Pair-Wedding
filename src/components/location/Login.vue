@@ -138,7 +138,6 @@ export default {
     canvas () {
       let canvas = document.querySelector('#love')
       let ctx = canvas.getContext('2d')
-      let canvasDiv = canvas.parentNode
       function Circle () {
         this.x = 962
         this.y = 500
