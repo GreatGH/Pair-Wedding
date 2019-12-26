@@ -1,10 +1,10 @@
 <template>
       <div class="tab-box">
         <ul class="tab-title">
-          <li :class="{ classred:index==current}" :key="index"  @click="filt = item.name ;addClass(index)"  v-for="(item,index) in tabitems">{{item.name}}</li>
+          <li :class="{classred: index === current}" :key="index" @click="current = index" v-for="(item, index) in tabitems">{{item}}</li>
         </ul>
         <transition-group tag="ul"  class="lists" name="animate">
-          <li class="animate-item" :key="item.id" v-for="item in filteredItems">
+          <li class="animate-item" v-for="item in filteredItems" :key="item.id">
             <el-image
               :src="item.img"
               :preview-src-list="imgList1">
@@ -20,39 +20,28 @@ export default {
     return {
       current: 0,
       srcLists: [],
-      tabitems: [
-        {name: 'all'},
-        {name: 'bride'},
-        {name: 'groom'},
-        {name: 'lovestory'},
-        {name: 'friend'},
-        {name: 'party'}],
-      filt: 'all'
+      tabitems: ['all', 'bride', 'groom', 'lovestory', 'friend', 'party']
     }
   },
   computed: {
     filteredItems () {
-      var result
-      if (this.filt !== 'all') {
-        var filt = this.filt
-        result = this.srcLists.filter(function (a) {
-          return a.classify === filt
-        })
-      } else {
-        result = this.srcLists
-      }
+      let result = []
+      result = this.srcLists.filter(item => {
+        return item.classify === this.tabitems[this.current]
+      })
       return result
     },
     imgList1 () {
-      let imgList = this.filteredItems.map((item) => {
-        return item.img
+      let imgList = this.srcLists.map(item => {
+        if (this.tabitems[this.current] === item.classify) {
+          return item.img
+        } else if (this.tabitems[this.current] === 'all') {
+          return item.img
+        }
+      }).filter(item => {
+        return item !== undefined
       })
       return imgList
-    }
-  },
-  methods: {
-    addClass (index) {
-      this.current = index
     }
   },
   created () {

@@ -79,7 +79,11 @@ export default {
           el: item
         }))
         if (item.getAttribute('name') !== 'repwd') {
-          data[item.getAttribute('name')] = item.value
+          if (item.getAttribute('name') !== 'pwd') {
+            data[item.getAttribute('name')] = item.value
+          } else {
+            data[item.getAttribute('name')] = this.md5(item.value)
+          }
         }
       })
       if (result.filter(item => !item).length > 0) {
@@ -98,7 +102,6 @@ export default {
         }).then(res => {
           this.$store.commit('changeEmail', data.email)
           if (res.data.status === 200) {
-            console.log(123)
             this.$store.commit('changeToken', 'login')
             this.$store.commit('changeSituation', 'success')
             this.$store.commit('changeMessage', res.data.message)

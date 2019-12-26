@@ -1,7 +1,7 @@
 <template>
   <div class="aside">
     <div class="shopcar">
-      <router-link to="shopcar">
+      <router-link to="/shopcar">
         <i class="fa fa-shopping-cart"></i>
       </router-link>
     </div>
