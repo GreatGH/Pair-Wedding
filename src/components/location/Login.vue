@@ -138,6 +138,10 @@ export default {
     canvas () {
       let canvas = document.querySelector('#love')
       let ctx = canvas.getContext('2d')
+      let canDiv = canvas.parentNode
+      console.log(canDiv)
+      canvas.height = canDiv.clientHeight
+      canvas.width = canDiv.clientWidth
       function Circle () {
         this.x = 962
         this.y = 500
@@ -155,43 +159,36 @@ export default {
         ctx.stroke()
       }
       let circ = new Circle()
-      // canvas.setAttribute('width', canvasDiv.clientWidth)
-      // canvas.setAttribute('height', canvasDiv.clientHeight)
-      setTimeout(() => {
-        arr1.forEach((item, index) => {
-          setTimeout(() => {
-            for (let i = 0; i < 20; i++) {
-              let a = Math.floor(Math.random() * 50 - 25)
-              let b = Math.floor(Math.random() * 50 - 25)
-              let c1 = Math.floor(Math.random() * 200 + 50)
-              let c2 = Math.floor(Math.random() * 200 + 50)
-              let c3 = Math.floor(Math.random() * 200 + 50)
-              ctx.beginPath()
-              ctx.moveTo(item.x, item.y)
-              ctx.lineTo(item.x - a, item.y - b)
-              ctx.setLineDash([0])
-              ctx.strokeStyle = 'rgb(' + c1 + ', ' + c2 + ', ' + c3 + ')'
-              ctx.stroke()
-            }
-            if (index >= arr1.length - 1) {
+      arr1.forEach((item, index) => {
+        setTimeout(() => {
+          for (let i = 0; i < 20; i++) {
+            let a = Math.floor(Math.random() * 50 - 25)
+            let b = Math.floor(Math.random() * 50 - 25)
+            let c1 = Math.floor(Math.random() * 200 + 50)
+            let c2 = Math.floor(Math.random() * 200 + 50)
+            let c3 = Math.floor(Math.random() * 200 + 50)
+            ctx.beginPath()
+            ctx.moveTo(item.x, item.y)
+            ctx.lineTo(item.x - a, item.y - b)
+            ctx.setLineDash([0])
+            ctx.strokeStyle = 'rgb(' + c1 + ', ' + c2 + ', ' + c3 + ')'
+            ctx.stroke()
+          }
+          if (index >= arr1.length - 1) {
+            circ.makeCircle()
+            let circleTimer = setInterval(() => {
+              circ.r -= 1
+              circ.r1 = Math.floor(Math.random() * 200 + 50)
+              circ.g1 = Math.floor(Math.random() * 200 + 50)
+              circ.b1 = Math.floor(Math.random() * 200 + 50)
               circ.makeCircle()
-              let circleTimer = setInterval(() => {
-                circ.r -= 1
-                circ.r1 = Math.floor(Math.random() * 200 + 50)
-                circ.g1 = Math.floor(Math.random() * 200 + 50)
-                circ.b1 = Math.floor(Math.random() * 200 + 50)
-                circ.makeCircle()
-                if (circ.r <= 3) {
-                  clearInterval(circleTimer)
-                }
-              }, 10)
-            }
-          }, 1000)
-        })
-      }, 500)
-      // document.body.onclick = function (e) {
-      //   console.log(e.clientX, e.clientY)
-      // }
+              if (circ.r <= 3) {
+                clearInterval(circleTimer)
+              }
+            }, 10)
+          }
+        }, 1000)
+      })
     },
     getCode () {
       let email = document.querySelector('[name=email]').value
