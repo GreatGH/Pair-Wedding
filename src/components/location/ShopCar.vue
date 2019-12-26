@@ -176,6 +176,7 @@ export default {
     }
   },
   mounted () {
+    this.isChoosed = []
     document.querySelectorAll('.header input[type=checkbox]').forEach(item => {
       this.isChoosed.push(false)
     })

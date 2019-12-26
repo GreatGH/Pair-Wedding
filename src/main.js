@@ -9,6 +9,7 @@ import 'swiper/css/swiper.min.css'
 import vueSwiper from 'vue-awesome-swiper'
 import VueAMap from 'vue-amap'
 import myvalidate from '@/Common/myvalidate'
+import md5 from 'js-md5'
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
 
@@ -29,6 +30,7 @@ Vue.use(Viewer, {
 })
 Vue.prototype.axiosRequest = axiosRequest
 Vue.prototype.myvalidate = myvalidate
+Vue.prototype.md5 = md5
 
 // MapType: 卫星地图切换
 // ToolBar: 缩放工具栏
