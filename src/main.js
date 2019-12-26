@@ -9,6 +9,8 @@ import 'swiper/css/swiper.min.css'
 import vueSwiper from 'vue-awesome-swiper'
 import VueAMap from 'vue-amap'
 import myvalidate from '@/Common/myvalidate'
+import Viewer from 'v-viewer'
+import 'viewerjs/dist/viewer.css'
 
 // 公共样式
 import '@/Common/animate.min'
@@ -20,6 +22,11 @@ Vue.use(ElementUI)
 Vue.use(ElementUI)
 Vue.use(VueAMap)
 Vue.use(vueSwiper)
+Vue.use(Viewer, {
+  defaultOptions: {
+    zIndex: 9999
+  }
+})
 Vue.prototype.axiosRequest = axiosRequest
 Vue.prototype.myvalidate = myvalidate
 
